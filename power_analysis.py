@@ -4,7 +4,7 @@ from statsmodels.stats.power import FTestPowerF2
 # ==========================================
 # GLOBAL HYPERPARAMETERS & ASSUMPTIONS
 # ==========================================
-ALPHA = 0.05  # Significance level (Type I error rate)
+ALPHA = 0.05 / 3  # Significance level (Type I error rate)
 POWER = 0.80  # Target statistical power (1 - Type II error rate)
 EXPECTED_R2 = 0.35  # Empirical literature benchmark for NIL OLS models
 
@@ -44,12 +44,12 @@ n_football = calculate_sample_size(
     num_predictors=6, test_name="Test 1: Football OLS Model"
 )
 
-# Test 2: Basketball Model (4 predictors: Social Reach, Performance, Role Tier, Conference)
+# Test 2: Basketball Model (6 predictors: Social Reach, Performance, Freshman Flag, Freshman*Stars Interaction, Role Tier, Conference)
 n_basketball = calculate_sample_size(
-    num_predictors=4, test_name="Test 2: Basketball OLS Model"
+    num_predictors=6, test_name="Test 2: Basketball OLS Model"
 )
 
-# Test 3: Comparison Interaction Model (6 predictors: Social, Sport Dummy, Interaction, Perf, Role/Pos, Conference)
+# Test 3: Comparison Interaction Model (8 predictors: Social, Sport Dummy, Interaction, Perf, Freshman Flag, Freshman*Stars Interaction, Role/Pos, Conference)
 n_interaction = calculate_sample_size(
-    num_predictors=6, test_name="Test 3: Cross-Sport Interaction Model"
+    num_predictors=8, test_name="Test 3: Cross-Sport Interaction Model"
 )
