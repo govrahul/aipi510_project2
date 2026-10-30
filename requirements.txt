@@ -1,3 +1,7 @@
 pandas
 numpy
 scipy
+statsmodels
+cfbd # college football data
+dotenv
+thefuzz
