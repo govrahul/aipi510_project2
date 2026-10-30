@@ -1,0 +1,101 @@
+,Rank,Player Name,Position,College,Conference,Grade,Valuation,raw_val,Valuation_Tier
+0,29,John Henry Daley,DE,Michigan,Big Ten,Senior,$2M,2000000.0,Top_25
+1,252,Keon Sabb,DB,Alabama,SEC,Senior,$700K,700000.0,Top_25
+2,2,Jeremiah Smith,WR,Ohio State,Big Ten,Junior,$5M,5000000.0,Top_25
+3,15,Kevin Jennings,QB,SMU,ACC,Senior,$3M,3000000.0,Top_25
+4,24,Matayo Uiagalelei,LB,Oregon,Big Ten,Senior,$2M,2000000.0,Top_25
+5,64,Beau Pribula,QB,Virginia,ACC,Senior,$1.5M,1500000.0,Top_25
+6,244,Devin Sanchez,CB,Ohio State,Big Ten,Sophomore,$700K,700000.0,Top_25
+7,232,Omarion Miller,WR,Arizona State,Big 12,Senior,$750K,750000.0,Top_25
+8,175,Bo Mascoe,DB,Texas,SEC,Senior,$900K,900000.0,Top_25
+9,188,Katin Houser,QB,Illinois,Big Ten,Senior,$850K,850000.0,Top_25
+10,226,Ellis Robinson IV,DB,Georgia,SEC,Junior,$750K,750000.0,Top_25
+11,162,Caleb Hawkins,RB,Oklahoma State,Big 12,Sophomore,$1M,1000000.0,Top_25
+12,125,Isaiah Jones,LB,Indiana,Big Ten,Senior,$1M,1000000.0,Top_25
+13,68,Ty Benefield,S,LSU,SEC,Senior,$1.2M,1200000.0,Top_25
+14,259,Chris Cole,LB,Georgia,SEC,Junior,$700K,700000.0,Top_25
+15,212,Dakorien Moore,WR,Oregon,Big Ten,Sophomore,$750K,750000.0,Top_25
+16,19,Jackson Cantwell,OL,Miami (FL),ACC,Freshman,$2.5M,2500000.0,Top_25
+17,197,Luke Wafle,DE,USC,Big Ten,Freshman,$800K,800000.0,Top_25
+18,241,Jordan Ross,DE,LSU,SEC,Junior,$700K,700000.0,Top_25
+19,145,Williams Nwaneri,DL,Nebraska,Big Ten,Junior,$1M,1000000.0,Top_25
+20,26,Howard Sampson,OL,Texas Tech,Big 12,Senior,$2M,2000000.0,Top_25
+21,91,Rueben Owens II,RB,Texas A&M,SEC,Senior,$1M,1000000.0,Top_25
+22,167,Joe Cotton,OL,Cincinnati,Big 12,Senior,$1M,1000000.0,Top_25
+23,93,Harlem Berry,RB,LSU,SEC,Sophomore,$1M,1000000.0,Top_25
+24,7,Josh Hoover,QB,Indiana,Big Ten,Senior,$4M,4000000.0,Top_25
+25,551,Kaydon Finley,WR,Notre Dame,ACC,Freshman,$434K,434000.0,Middle_50
+26,661,Myles Kendrick,WR,Indiana,Big Ten,Sophomore,$404K,404000.0,Middle_50
+27,483,Elijah Thomas,WR,Oklahoma,SEC,Sophomore,$452K,452000.0,Middle_50
+28,364,Sam M'Pemba,DE,Texas A&M,SEC,Senior,$513K,513000.0,Middle_50
+29,705,Knijeah Harris,OL,Florida,SEC,Senior,$394K,394000.0,Middle_50
+30,314,Quincy Rhodes Jr.,DL,Arkansas,SEC,Senior,$600K,600000.0,Middle_50
+31,406,Michael Kilbane,DL,Northwestern,Big Ten,Senior,$500K,500000.0,Middle_50
+32,476,Jaylen McClain,S,Ohio State,Big Ten,Junior,$456K,456000.0,Middle_50
+33,503,James Smith,DT,Ohio State,Big Ten,Senior,$449K,449000.0,Middle_50
+34,540,Brandon Davis-Swain,DT,Texas A&M,SEC,Junior,$436K,436000.0,Middle_50
+35,318,Jackson Arnold,QB,UNLV,Mountain West,Senior,$600K,600000.0,Middle_50
+36,397,Josh Atkins,OL,Missouri,SEC,Senior,$500K,500000.0,Middle_50
+37,437,Colton Vasek,EDGE,Texas,SEC,Senior,$485K,485000.0,Middle_50
+38,488,Antwan Raymond,RB,Rutgers,Big Ten,Junior,$450K,450000.0,Middle_50
+39,372,Samson Okunlola,OL,Miami (FL),ACC,Junior,$508K,508000.0,Middle_50
+40,323,Carter Smith,QB,Wisconsin,Big Ten,Sophomore,$597K,597000.0,Middle_50
+41,485,Parker Livingstone,WR,Oklahoma,SEC,Sophomore,$452K,452000.0,Middle_50
+42,666,Kamran James,DL,Florida,SEC,Senior,$402K,402000.0,Middle_50
+43,496,Jacob Washington,WR,Michigan,Big Ten,Sophomore,$450K,450000.0,Middle_50
+44,294,Kyle Parker,WR,Ohio State,Big Ten,Senior,$627K,627000.0,Middle_50
+45,621,Bryce Perry-Wright,DE,Texas A&M,SEC,Freshman,$415K,415000.0,Middle_50
+46,531,Daniel Hill,RB,Alabama,SEC,Junior,$439K,439000.0,Middle_50
+47,369,Dallas Wilson,WR,Florida,SEC,Sophomore,$508K,508000.0,Middle_50
+48,506,Joshua Padilla,OL,Ohio State,Big Ten,Senior,$449K,449000.0,Middle_50
+49,538,Ashton Funk,OL,Texas A&M,SEC,Junior,$436K,436000.0,Middle_50
+50,368,Ty Haywood,OL,Alabama,SEC,Sophomore,$509K,509000.0,Middle_50
+51,561,Carsyn Baker,RB,Texas A&M,SEC,Freshman,$430K,430000.0,Middle_50
+52,458,Dijon Johnson,CB,Florida,SEC,Senior,$466K,466000.0,Middle_50
+53,336,Keon Keeley,DL,Notre Dame,ACC,Senior,$568K,568000.0,Middle_50
+54,449,Jadais Richard,DB,Tennessee,SEC,Senior,$472K,472000.0,Middle_50
+55,524,Ayden Williams,WR,Mississippi State,SEC,Senior,$441K,441000.0,Middle_50
+56,457,MJ Morris,QB,Texas,SEC,Senior,$467K,467000.0,Middle_50
+57,539,Blake Ivy,OL,Texas A&M,SEC,Junior,$436K,436000.0,Middle_50
+58,654,J.J. Faulk,EDGE,Auburn,SEC,Sophomore,$405K,405000.0,Middle_50
+59,492,Chris Stewart,WR,Texas,SEC,Freshman,$450K,450000.0,Middle_50
+60,392,Drayk Bowen,LB,Notre Dame,ACC,Senior,$500K,500000.0,Middle_50
+61,351,Madden Iamaleava,QB,UCLA,Big Ten,Sophomore,$531K,531000.0,Middle_50
+62,578,Luke Fahey,QB,Ohio State,Big Ten,Freshman,$427K,427000.0,Middle_50
+63,433,A.J. Harris,DB,Indiana,Big Ten,Senior,$488K,488000.0,Middle_50
+64,589,Romero Ison,WR,USC,Big Ten,Freshman,$424K,424000.0,Middle_50
+65,740,Mac Markway,DL,Nebraska,Big Ten,Senior,$386K,386000.0,Middle_50
+66,581,Mariyon Dye,DL,Tennessee,SEC,Sophomore,$426K,426000.0,Middle_50
+67,292,Matt Zollers,QB,Missouri,SEC,Sophomore,$636K,636000.0,Middle_50
+68,713,Isaiah Augustave,RB,South Carolina,SEC,Junior,$393K,393000.0,Middle_50
+69,352,Julio Humphrey,CB,Texas A&M,SEC,Senior,$530K,530000.0,Middle_50
+70,379,Traylon Ray,WR,Ole Miss,SEC,Junior,$506K,506000.0,Middle_50
+71,333,Kelshaun Johnson,WR,Texas A&M,SEC,Sophomore,$578K,578000.0,Middle_50
+72,571,Dilin Jones,RB,LSU,SEC,Sophomore,$429K,429000.0,Middle_50
+73,328,Treyson Bourguet,QB,BYU,Big 12,Senior,$585K,585000.0,Middle_50
+74,456,Joe Brunner,OL,Indiana,Big Ten,Senior,$467K,467000.0,Middle_50
+75,925,Shahn Alston,RB,USC,Big Ten,Freshman,$359K,359000.0,Bottom_25
+76,803,Sylvester Smith-Reed,S,Auburn,SEC,Senior,$375K,375000.0,Bottom_25
+77,989,Ashton Hampton,CB,Clemson,ACC,Junior,$350K,350000.0,Bottom_25
+78,874,Bryson Webber,DB,Nebraska,Big Ten,Sophomore,$364K,364000.0,Bottom_25
+79,951,Darris Smith,EDGE,Missouri,SEC,Senior,$355K,355000.0,Bottom_25
+80,811,Peter Jones,OL,Notre Dame,ACC,Junior,$374K,374000.0,Bottom_25
+81,859,Chuck McDonald III,DB,Alabama,SEC,Sophomore,$366K,366000.0,Bottom_25
+82,850,Tyreese Fearbry,LB,Wisconsin,Big Ten,Senior,$368K,368000.0,Bottom_25
+83,804,Carter Gooden,DL,Tennessee,SEC,Freshman,$374K,374000.0,Bottom_25
+84,800,Donovan Olugbode,WR,Missouri,SEC,Sophomore,$375K,375000.0,Bottom_25
+85,767,Joel Wyatt,DB,Tennessee,SEC,Freshman,$382K,382000.0,Bottom_25
+86,788,Camren Hamiel,DB,Texas A&M,SEC,Freshman,$378K,378000.0,Bottom_25
+87,764,Alberto Mendoza,QB,Georgia Tech,ACC,Junior,$382K,382000.0,Bottom_25
+88,796,Luke Hamilton,CB,Texas Tech,Big 12,Freshman,$376K,376000.0,Bottom_25
+89,917,Daniel Lyons,DL,Florida State,ACC,Senior,$359K,359000.0,Bottom_25
+90,994,E'Marion Harris,OL,Oklahoma,SEC,Senior,$350K,350000.0,Bottom_25
+91,898,Grady Adamson,QB,Georgia Tech,ACC,Sophomore,$362K,362000.0,Bottom_25
+92,870,Jacobe Johnson,DB,Oklahoma,SEC,Senior,$365K,365000.0,Bottom_25
+93,993,DJ Hicks,DT,Texas A&M,SEC,Senior,$350K,350000.0,Bottom_25
+94,801,Grayson Wilson,QB,Boston College,ACC,Freshman,$375K,375000.0,Bottom_25
+95,843,Javian Osborne,RB,Notre Dame,ACC,Freshman,$368K,368000.0,Bottom_25
+96,782,Henry Ohlinger,LB,Indiana,Big Ten,Freshman,$379K,379000.0,Bottom_25
+97,835,Julius Holly,DE,Michigan,Big Ten,Sophomore,$369K,369000.0,Bottom_25
+98,760,Sullivan Absher,OL,Notre Dame,ACC,Senior,$383K,383000.0,Bottom_25
+99,786,Simeon Caldwell,S,Ohio State,Big Ten,Freshman,$379K,379000.0,Bottom_25
