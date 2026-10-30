@@ -39,7 +39,7 @@ formula = (
 )
 
 # 3. Fit the Ordinary Least Squares (OLS) Model
-model = smf.ols(formula, data=df).fit()
+model = smf.ols(formula, data=df).fit(cov_type='HC1')
 
 # 4. Print Full Regression Results Summary
 print("\n" + "=" * 75)
