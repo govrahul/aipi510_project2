@@ -10,5 +10,6 @@
   "basketball_regression_and_cross_sport_test": "not run; real data and model implementation remain",
   "historical_scholarship_data": "absent",
   "historical_follower_data": "absent",
-  "real_prepost_model": "not run; input validation and fitting tested with synthetic fixtures only"
+  "real_prepost_model": "not run; input validation and fitting tested with synthetic fixtures only",
+  "historical_source_assessment": "docs/historical_data_sources.md: source documentation reviewed; no purchase, outreach, athlete-history download or confirmed joined coverage"
 }
