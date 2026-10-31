@@ -1,0 +1,14 @@
+{
+  "checked_on": "2026-10-31",
+  "football_existing_data": "present; inherited provenance and matching unresolved",
+  "football_regression": "replicated with HC1 and HC3; exploratory sensitivities generated",
+  "sideline_http": "Cloudflare access denied for rankings and robots requests",
+  "sideline_browser": "Cloudflare Attention Required page; no bypass attempted",
+  "new_basketball_player_data": "not collected",
+  "official_api_schemas": "CFBD and CBBD /api-docs.json reviewed",
+  "live_performance_collection": "not completed: no configured CFBD/CBBD key",
+  "basketball_regression_and_cross_sport_test": "not run; real data and model implementation remain",
+  "historical_scholarship_data": "absent",
+  "historical_follower_data": "absent",
+  "real_prepost_model": "not run; input validation and fitting tested with synthetic fixtures only"
+}

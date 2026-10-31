@@ -1,0 +1,15 @@
+{
+  "breusch_pagan_lm_p": 0.024634963761117252,
+  "jarque_bera_p": 5.283053582126537e-13,
+  "max_cooks_distance": 65.80681255399186,
+  "observations_above_cooks_4_over_n": 6,
+  "vif": {
+    "Intercept": 209.3501363576333,
+    "Log_Instagram": 1.2388789108300633,
+    "PPA_Per_Play": 1.141606214199404,
+    "Freshman_Flag": 83.23184204846149,
+    "Freshman_X_Stars": 82.30173110036868,
+    "Power_4_Dummy": 1.0233182859441166,
+    "Premium_Position": 1.11709868708366
+  }
+}
