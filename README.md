@@ -6,7 +6,7 @@ Read [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) first for the handoff, known issue
 
 ## Current status
 
-- Main contains a 1,000-player football frame and 100-player sample. Partner PR [#2](https://github.com/govrahul/aipi510_project2/pull/2) adds enriched football data, collection and initial regression. This branch builds on that PR without merging it into main.
+- Main contains a 1,000-player football frame and 100-player sample. Partner PR [#2](https://github.com/govrahul/aipi510_project2/pull/2) adds enriched football data, collection and initial regression. This branch builds on that PR without merging it into main; [PR #3](https://github.com/govrahul/aipi510_project2/pull/3) contains the new work.
 - The partner regression reproduces: social coefficient 0.2067, HC1 two-sided p=0.000327, R²=0.321. These are selected-sample associations, not a policy or scholarship effect. [Results and sensitivities](reports/football_results.md).
 - The [data audit](reports/data_audit.json) flags 41 zero PPA values, 30 nonzero PPA values on defense/OL, no match provenance, and only one non-Power-4 observation. No source rows have been silently repaired.
 - Basketball NIL/follower data and all historical scholarship data remain missing. New collector code is offline-tested; live API collection has **not** been completed because no key is configured. Sideline web requests were denied by Cloudflare.
