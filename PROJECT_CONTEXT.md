@@ -24,6 +24,7 @@ NCAA interim NIL policy began July 1, 2021. School direct-payment and scholarshi
 
 - `main` at `9813db2`: partner PR #1 merged, containing football top-1000 data, sampled 100 and sampling script, plus enriched source CSV.
 - Partner PR #2, `feature/rahul-govil-power-analysis-football-test`, was open. It contains the football performance collector, modeling CSV, tests and power script.
+- New work is uploaded in [PR #3](https://github.com/govrahul/aipi510_project2/pull/3), open for review.
 - New branch `codex/basketball-data-and-analysis` starts from PR #2's head so it includes the partner's unmerged work. Its PR is intended to target the partner branch for a compact review. Merge PR #2 first and retarget the new PR to main afterward as needed. Neither was merged by this work.
 - The new branch is the intended local checkout. Check `git status`, `git remote -v` and current PR state before further work; this snapshot is not a live status query.
 
