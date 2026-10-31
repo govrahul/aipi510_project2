@@ -4,7 +4,7 @@ Last updated October 31, 2026. Start here when continuing this project. This is 
 
 ## User request and local files
 
-Sam Teshome is working with Rahul Govil on AIPI 510 project 2. Sam's research question is whether NIL changed the importance of social media when colleges choose scholarship athletes, using football and basketball data and a linear regression before/after implementation. Sam authorized cloning the repository, reading the course rubric and partner PDF, continuing collection/analysis where feasible, and uploading reproducible code to a reviewable repo branch. Sam additionally requested a context README in the project 2 folder so another LLM can continue.
+Sam Teshome is working with Rahul Govil on AIPI 510 project 2. Sam's research question is whether NIL changed the importance of social media when colleges choose scholarship athletes, using football and basketball data and a linear regression before/after implementation. Sam authorized cloning the repository, reading the course rubric and partner PDF, continuing collection/analysis where feasible, and uploading reproducible code to a reviewable repo branch. Sam additionally requested a context README in the project 2 folder so another LLM can continue. Sam subsequently confirmed that no historical scholarship/offer or follower data is available and asked to identify sources and document the gap.
 
 Local project folder: `/Users/st478/510 project 1/project 2/`.
 
@@ -44,6 +44,7 @@ NCAA interim NIL policy began July 1, 2021. School direct-payment and scholarshi
 |---|---|
 | `README.md` | Setup, reproducible commands, collection instructions and limitations. |
 | `PROJECT_CONTEXT.md` | This handoff; mirrored in the parent project's README. |
+| `docs/historical_data_sources.md` | Follow-up source assessment: official recruiting schemas, reported-offer example, signing archives, Social Blade history, Wayback, remaining gaps and a bounded feasibility pilot. |
 | `docs/research_design.md` | Distinguishes two questions, hypotheses/design, audit findings, source corrections, rubric gaps and ordered next steps. |
 | `scripts/audit_data.py` | Recomputes the inherited football audit without modifying inputs. |
 | `scripts/analyze_football.py` | Replicates HC1/HC3, adds clearly exploratory no-PPA and largest-audience sensitivity models, coefficient tables, diagnostics and plot. |
@@ -66,7 +67,7 @@ Original football CSVs and `power_analysis.py` remain unchanged. No DOCX/PDF rep
 - No CFBD/CBBD key was configured in the project or task environment. Live performance collection could not run. Store keys locally in ignored `.env`, never in chat/code. Read the README for variable names and commands. API schemas were reviewed at the official `/api-docs.json` endpoints. CBBD season is the **ending year** (`2026`=2025–26); football year is the season year (`2025`).
 - New performance collector handles both sports and caches raw responses with dates/hashes. It does not claim live validation. Offline fixtures passed. Exact name+team+position matching leaves transfers/position aliases unresolved unless reviewed. A verified `Performance College` or API ID can resolve identities; no fuzzy auto-acceptance.
 - Basketball valuation/follower sample is absent. New importer and enrichment headers are ready. A fully validated basketball regression and cross-sport interaction analysis still need implementation after real input data and metric/control choices are established.
-- Historical scholarship/offer outcomes, candidate pool, verified non-offers and pre-decision follower measures are absent. The pre/post script intentionally refuses unusable data. Finding public offers alone does not solve the negative-outcome problem. No historical social source has been established.
+- Historical scholarship/offer outcomes, candidate pool, verified non-offers and pre-decision follower measures are absent. The pre/post script intentionally refuses unusable data. Finding public offers alone does not solve the negative-outcome problem. Potential sources are assessed in `docs/historical_data_sources.md`: Social Blade documents a paid Instagram history option of up to ten years when available, and Wayback is another candidate. No athlete-specific historical coverage or usable joined dataset has been established.
 - Demographics beyond source-supplied grade/position/school are not collected. Do not infer sensitive traits from names or pictures.
 - The draft misstates the 2021 policy as congressional legalization and misidentifies Bronny James's school as Arizona (official roster is USC). Contract/benching anecdotes and the attached Reggie Jones social post are unverified here; treat them only as leads. Source corrections are linked in the design document.
 
@@ -85,12 +86,16 @@ To collect once a key and authorized source CSV are available, use the README's 
 
 Validation performed on macOS Python 3.14 with pandas 3.0.5, NumPy 2.5.2, scipy 1.18.0, statsmodels .14.6, requests 2.33.1 and matplotlib 3.11.1; seven unit tests passed and all new available-data analysis scripts ran. Synthetic pre/post fitting was tested but no real pre/post data exists. The generated football diagnostic plot was visually reviewed. Future reruns may show different summary timestamps, not different estimates.
 
+## Follow-up source research
+
+After Sam confirmed no historical data was available, reviewed official CFBD/CBBD recruiting documentation and schemas, an actual 247Sports high-school recruiting profile, a university signing announcement, Social Blade API history documentation, and Internet Archive API/CDX documentation. The recruiting schemas have no offer-history/date fields. Social Blade is a plausible historical-count provider but requires paid access and profile-specific coverage verification. No purchase, outreach or historical athlete download occurred. Meta's primary Insights page returned HTTP 429, so its current retention limits were not asserted. The new source assessment separates verified documentation from untested coverage and lists the conditions needed to run the pre/post model.
+
 ## Next actions in priority order
 
 1. Review and merge partner PR #2 as appropriate; review the new PR's data/method changes separately.
 2. Verify inherited performance identities and provenance; configure the API key locally and recollect performance. Do not trust the old PPA column as a validated control.
 3. Obtain an authorized basketball frame, sample/enrich with timestamped social observations, join CBBD performance and audit. Then implement/run basketball and cross-sport models with justified controls and inference.
-4. Investigate feasibility of the original historical scholarship design. If data is available, populate the template, justify sampling/power, fit per-sport interactions and run additional diagnostics. Otherwise state the original question is unanswered.
+4. Follow the source assessment and bounded pilot in `docs/historical_data_sources.md` to investigate feasibility of the original historical scholarship design. If data is available, populate the template, justify sampling/power, fit per-sport interactions and run additional diagnostics. Otherwise state the original question is unanswered.
 5. Finish the report and slides with audited results, accurate background, limits and reproducibility. Keep the distinction between valuation association and scholarship policy effects visible.
 
 When updating this handoff, state actual actions/results and remaining blockers. Do not mark pending collection or unrun models as completed.

@@ -2,7 +2,7 @@
 
 This AIPI 510 project investigates whether social reach is associated with athlete valuation and whether its association with scholarship offers changed after NIL implementation. These require different datasets. The inherited football sample supports an exploratory current-valuation analysis; it does not contain historical scholarship outcomes or pre-NIL social measurements.
 
-Read [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) first for the handoff, known issues and change log. Read [docs/research_design.md](docs/research_design.md) for hypotheses, collection priorities, source links and rubric gaps.
+Read [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) first for the handoff, known issues and change log. Read [docs/research_design.md](docs/research_design.md) for hypotheses, collection priorities, source links and rubric gaps. [Historical source feasibility](docs/historical_data_sources.md) identifies recruiting, offer and follower-history candidates and the remaining data gaps.
 
 ## Current status
 
