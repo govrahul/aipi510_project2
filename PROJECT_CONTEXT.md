@@ -1,12 +1,12 @@
 ## Branch naming preference
 
-Sam explicitly requested branch names prefixed `sam/`, not `codex/`. Use `sam/` for future work. The review branch is being renamed to `sam/athlete-data-and-eda`; preserve prior PR history and update the active review link after the rename.
+Sam explicitly requested branch names prefixed `sam/`, not `codex/`. Use `sam/` for future work. The active review branch is `sam/athlete-data-and-eda`, with [PR #4](https://github.com/govrahul/aipi510_project2/pull/4). GitHub closed prior PR #3 when its head branch was renamed; its history remains available. Keep the partner PR #2 as the base until its work is merged.
 
 ## Latest work — reproducible EDA
 
 Sam requested EDA of structure, preliminary trends and the best analysis approach. `scripts/run_eda.py` reads the inherited current-football modeling file plus seven canonical cohort frames (basketball enriched frames, football NFL-ID supplemented frames), with the top-1000 football file used only for sampling/distribution comparison. It does not pool nested frame/sample/model files or superseded production samples as independent data. It records input hashes, software versions and excluded layers; inputs were verified unchanged.
 
-Artifacts: `reports/eda/README.md`, CSV inventory/dictionary/coverage/distribution/overlap/readiness tables, six figures, model sensitivity CSV and manifest. Offline self-contained visual report: `outputs/eda-20261101/eda_report.html`. Private player-level influence review: `Data/private/eda/football_influence_review.csv`. Generated aggregate artifacts and code are uploaded on PR #3; HTML/private rows stay local.
+Artifacts: `reports/eda/README.md`, CSV inventory/dictionary/coverage/distribution/overlap/readiness tables, six figures, model sensitivity CSV and manifest. Offline self-contained visual report: `outputs/eda-20261101/eda_report.html`. Private player-level influence review: `Data/private/eda/football_influence_review.csv`. Generated aggregate artifacts and code are uploaded on PR #4; HTML/private rows stay local.
 
 Findings: only the inherited football n=100 has both NIL and followers. Median followers 10,950, mean 29,217; largest account 1,000,000 contributes 34.2% of summed sample followers. Raw correlation .623 falls to .164 without that account; log correlation .502 falls to .403, Spearman .520. There are 39 schools, 99 Power-4 players and 70 four-star labels; source PPA remains unvalidated (41 zeros, 30 nonzero defense/OL). A parsimonious exploratory model with both main effects for stars×freshman and coarse position groups (omitting PPA and nearly constant Power-4) has social slope .274 (HC3 95% CI [.094,.454]); removing the largest audience gives .212 [.068,.355]. School-cluster sensitivity uses 39 clusters. These are exploratory selected-sample associations, not a preferred model chosen by significance or a NIL policy effect. No historical or basketball NIL regression was fitted.
 
@@ -64,8 +64,8 @@ NCAA interim NIL policy began July 1, 2021. School direct-payment and scholarshi
 
 - `main` at `9813db2`: partner PR #1 merged, containing football top-1000 data, sampled 100 and sampling script, plus enriched source CSV.
 - Partner PR #2, `feature/rahul-govil-power-analysis-football-test`, was open. It contains the football performance collector, modeling CSV, tests and power script.
-- New work is uploaded in [PR #3](https://github.com/govrahul/aipi510_project2/pull/3), open for review.
-- New branch `codex/basketball-data-and-analysis` starts from PR #2's head so it includes the partner's unmerged work. Its PR is intended to target the partner branch for a compact review. Merge PR #2 first and retarget the new PR to main afterward as needed. Neither was merged by this work.
+- Prior work was first uploaded in [PR #3](https://github.com/govrahul/aipi510_project2/pull/3). It is now closed after the branch rename; active review is [PR #4](https://github.com/govrahul/aipi510_project2/pull/4).
+- Review branch `sam/athlete-data-and-eda` (renamed from the original branch at Sam's request) starts from PR #2's head so it includes the partner's unmerged work. Its PR is intended to target the partner branch for a compact review. Merge PR #2 first and retarget the new PR to main afterward as needed. Neither partner PR #2 nor the review PR was merged by this work.
 - The new branch is the intended local checkout. Check `git status`, `git remote -v` and current PR state before further work; this snapshot is not a live status query.
 
 ## Verified progress and results
