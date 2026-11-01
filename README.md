@@ -9,7 +9,7 @@ Read [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) first for the handoff, known issue
 - Main contains a 1,000-player football frame and 100-player sample. Partner PR [#2](https://github.com/govrahul/aipi510_project2/pull/2) adds enriched football data, collection and initial regression. This branch builds on that PR without merging it into main; [PR #3](https://github.com/govrahul/aipi510_project2/pull/3) contains the new work.
 - The partner regression reproduces: social coefficient 0.2067, HC1 two-sided p=0.000327, R²=0.321. These are selected-sample associations, not a policy or scholarship effect. [Results and sensitivities](reports/football_results.md).
 - The [data audit](reports/data_audit.json) flags 41 zero PPA values, 30 nonzero PPA values on defense/OL, no match provenance, and only one non-Power-4 observation. No source rows have been silently repaired.
-- Basketball NIL/follower data and all historical scholarship data remain missing. New collector code is offline-tested; live API collection has **not** been completed because no key is configured. Sideline web requests were denied by Cloudflare.
+- Basketball performance collection began November 1: an ESPN/SportsDataverse export was downloaded and aggregated into 5,680 player-team records across 365 D1 teams. [Collection details and commands](docs/basketball_collection.md). The NIL frame, followers, recruitment stars, historical scholarship data and CBBD PORPAG remain missing. Sam confirmed there is no API key yet; Sideline HTTP access remains denied.
 - Source values are estimates, not verified compensation. Confirm permissions for the existing bulk CSVs before further redistribution; newly collected licensed data defaults to ignored `Data/private/`.
 
 ## Reproduce available analysis
@@ -31,6 +31,15 @@ The scripts write aggregate reports, coefficient tables, diagnostics and a PNG t
 The legacy `Data/sample_data.py` overwrites the inherited sample if executed. Use the new importer below for additional datasets; its rank strata handle valuation ties explicitly.
 
 ## Collect basketball or refresh football performance
+
+The supplemental basketball performance data is already local under `Data/private/basketball/`. It is not the top-1,000 NIL frame. To reproduce the download and aggregation:
+
+```bash
+python scripts/collect_basketball_open_stats.py --season 2026 --as-of 2026-10-31 \
+  --transport curl --report reports/basketball_collection_audit.json
+```
+
+See [basketball_collection.md](docs/basketball_collection.md) for source provenance, cleaning, spot checks and remaining work. No regression was fit to these files because NIL/social inputs are absent.
 
 Obtain a source-authorized basketball CSV with at least 1,000 players and the fields `Player Name, Position, College, Conference, Grade, Valuation`. This importer supports a CSV export; it is not a tested scraper for a currently accessible Sideline page. Provide the actual snapshot date rather than substituting today's date for unknown source dates.
 
@@ -57,7 +66,7 @@ python scripts/collect_performance.py --sport football --season 2025 \
 
 CBBD uses the **ending year**: `2026` means 2025–26. Football uses `2025` for the 2025 football season. Select the season preceding the valuation snapshot and verify that all included games occurred before that snapshot. CBBD collection extracts PORPAG; CFBD extracts average PPA per play. The metrics are not interchangeable.
 
-Requests keep TLS validation enabled and cache raw JSON plus timestamp, parameters and SHA-256. Set `--refresh` to fetch a new response, or `--raw-json /path/to/response.json` for an offline replay. Matching uses a provided API ID or exact normalized name plus team, with position validation. Transfers can supply a verified `Performance College`; otherwise they remain unmatched. Basketball position abbreviations may require explicit source review. Missing/unsupported metrics stay missing, including freshmen and defensive players. Review `Match_Status` before modeling. Collection does not automatically turn these files into a fully validated regression dataset.
+Requests keep TLS validation enabled and cache raw JSON plus timestamp, parameters and SHA-256. Set `--refresh` to fetch a new response, or `--raw-json /path/to/response.json` for an offline replay. The official collector also supports `--download-only --output Data/private/basketball_cbbd_performance_2026.csv` before a sample exists and `--env-file` for a local credential file. Matching uses a provided API ID or exact normalized name plus team, with position validation. Transfers can supply a verified `Performance College`; otherwise they remain unmatched. Basketball position abbreviations may require explicit source review. Missing/unsupported metrics stay missing, including freshmen and defensive players. Review `Match_Status` before modeling. Collection does not automatically turn these files into a fully validated regression dataset.
 
 ## Original before and after scholarship question
 

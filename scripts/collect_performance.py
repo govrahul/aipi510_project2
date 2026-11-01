@@ -96,8 +96,8 @@ def join_sample(sample, performance, sport):
     return pd.DataFrame(results)
 
 
-def collect(sport, season, raw_json=None, refresh=False):
-    load_dotenv(ROOT / '.env')
+def collect(sport, season, raw_json=None, refresh=False, env_file=None):
+    load_dotenv(env_file or ROOT / '.env')
     folder = ROOT / 'Data/private'
     path = Path(raw_json) if raw_json else folder / f'{sport}_performance_{season}.json'
     if raw_json or (path.exists() and not refresh):
@@ -132,24 +132,33 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--sport', choices=['football', 'basketball'], required=True)
     parser.add_argument('--season', type=int, required=True)
-    parser.add_argument('--sample', type=Path, required=True)
+    parser.add_argument('--sample', type=Path)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--download-only', action='store_true',
+                        help='Download the full official performance layer before a NIL sample exists')
+    parser.add_argument('--env-file', type=Path, help='Local credentials file, never copied to the output')
     parser.add_argument('--raw-json', type=Path)
     parser.add_argument('--refresh', action='store_true')
     args = parser.parse_args()
-    if args.output.resolve() == args.sample.resolve():
+    if not args.download_only and args.sample is None:
+        parser.error('--sample is required unless --download-only is selected')
+    if args.sample is not None and args.output.resolve() == args.sample.resolve():
         parser.error('Output must not overwrite input sample')
     try:
-        frame, digest = collect(args.sport, args.season, args.raw_json, args.refresh)
-        sample = pd.read_csv(args.sample, dtype={'Performance API ID': 'string'})
-        result = join_sample(sample, frame, args.sport)
+        frame, digest = collect(args.sport, args.season, args.raw_json, args.refresh, args.env_file)
+        if args.download_only:
+            result = frame.copy()
+        else:
+            sample = pd.read_csv(args.sample, dtype={'Performance API ID': 'string'})
+            result = join_sample(sample, frame, args.sport)
         result['Performance_Season'] = args.season
         result['Performance_Metric'] = 'PPA_Per_Play' if args.sport == 'football' else 'PORPAG'
         result['Performance_Response_SHA256'] = digest
         args.output.parent.mkdir(parents=True, exist_ok=True)
         result.to_csv(args.output, index=False)
-        print(result.Match_Status.value_counts().to_string())
-        print(f'Saved {args.output}. Review all non-exact matches before analysis.')
+        if not args.download_only:
+            print(result.Match_Status.value_counts().to_string())
+        print(f'Saved {args.output}. Raw download alone is not a validated NIL modeling dataset.')
     except (ValueError, requests.RequestException, OSError) as exc:
         parser.exit(1, f'Collection stopped: {exc}\n')
 
