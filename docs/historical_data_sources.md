@@ -1,3 +1,5 @@
+> **November 1 update:** Recruiting collection code, historical/current draft fields and basketball evaluations have since been added. See [recruiting_and_career_evaluation.md](recruiting_and_career_evaluation.md). The assessment below records the earlier feasibility review; missing historical social and scholarship outcomes remain unresolved.
+
 # Historical scholarship and social data feasibility
 
 Reviewed October 31, 2026 after Sam confirmed that no historical scholarship/offer or follower dataset is already available. This assessment identifies candidates; it does not establish that enough matched records exist to estimate a before/after effect. No paid access was purchased, provider was contacted, or historical athlete dataset was downloaded.
