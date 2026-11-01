@@ -1,0 +1,2 @@
+Synthetic verification passed: 100 unique records; 25/50/25 quota; ranked input-order invariance; rejected incomplete frame, conflicting duplicate ID, nonnumeric NIL.
+CLI stdout: {"output": "synthetic_sample.csv", "manifest": "synthetic_sample.csv.manifest.json", "counts": {"top": 25, "middle": 50, "bottom": 25}, "output_sha256": "60173f943270548f37b227023b3400c4f0187135f941611d33f56e9673e8c3dd"}

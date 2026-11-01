@@ -78,6 +78,8 @@ def run(args):
         add('cfb_groups', f'cfb_team_group_seasons_{year}.parquet', 'football_groups')
     tasks.append(('https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.parquet',
                   folder/'nfl_draft/draft_picks.parquet'))
+    tasks.append(('https://github.com/nflverse/nflverse-data/releases/download/players/players.parquet',
+                  folder/'nfl_players/players.parquet'))
     with ThreadPoolExecutor(max_workers=4) as pool:
         metadata = list(pool.map(fetch_asset, tasks))
     drafts = []

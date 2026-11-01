@@ -1,3 +1,5 @@
+> **Football follow-up:** Historical/current football now has an NFL ID supplement. A fresh-context, PDF-only sampling protocol was locked before a post-lock shared-frame comparison; original-script replay then matched all 100 saved players. See [football_history_and_blind_replication.md](docs/football_history_and_blind_replication.md) for the isolation procedure, source-access limitation, results and commands.
+
 > **Latest design (November 1):** Historical sampling now uses high-school recruiting stars, with the same provider's finer rating to order ties. Previous production-quartile samples/workbook are superseded provisional artifacts. Career/draft fields and basketball box BPM were added for historical and 2025–26 players. Final HS samples await verified recruiting coverage; current basketball remains NIL-stratified. See [recruiting_and_career_evaluation.md](docs/recruiting_and_career_evaluation.md) for collected data, commands and timing limits.
 
 # NIL social media and college athlete selection
