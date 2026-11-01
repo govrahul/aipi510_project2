@@ -1,3 +1,5 @@
+> **Active review:** [PR #4](https://github.com/govrahul/aipi510_project2/pull/4) on `sam/athlete-data-and-eda`. Sam requested `sam/` branch names for future work. This replaces the original review PR after its branch rename.
+
 > **EDA completed:** Run `python scripts/run_eda.py`. Read [the EDA report](reports/eda/README.md) for structure, missingness, six figures, exploratory current-football model checks and an analysis plan. An offline visual report is saved locally at `outputs/eda-20261101/eda_report.html`. Current/historical data gaps still prevent the original before/after scholarship analysis.
 
 > **Football follow-up:** Historical/current football now has an NFL ID supplement. A fresh-context, PDF-only sampling protocol was locked before a post-lock shared-frame comparison; original-script replay then matched all 100 saved players. See [football_history_and_blind_replication.md](docs/football_history_and_blind_replication.md) for the isolation procedure, source-access limitation, results and commands.
