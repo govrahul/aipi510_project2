@@ -1,0 +1,20 @@
+{
+  "snapshot": "2026-11-01",
+  "report_pages": 7,
+  "presentation_slides": 9,
+  "target_speaking_seconds": 425,
+  "claims": "exploratory current football association and cohort EDA; no basketball, cross-sport or pre/post test",
+  "artifacts": {
+    "project2_presentation.pptx": "a56740f69a65d9df66a4a3a7f6d809329d3b3cbfa55149a872c9e0f554b4dc67",
+    "project2_report.docx": "5cd37e3df12575c7053e8d9cb187485579897ed52519b27b41b7d3115ec552cd",
+    "project2_report.pdf": "594467d4076367df4143e6ee3c74f5e7cebdc0bdd74372ea6100d88837982e96"
+  },
+  "checks": [
+    "all report pages and slides visually reviewed",
+    "portable editable chart workbooks and package validation passed",
+    "chart coordinates checked against input",
+    "28 existing offline tests pass"
+  ],
+  "native_PowerPoint_execution_verified": false,
+  "football_input_sha256": "82e228c40758266338aee4e58a44c55f0217e0355b0490e871b5ae9f05a2c6f7"
+}
