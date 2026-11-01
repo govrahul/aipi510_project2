@@ -1,0 +1,26 @@
+sport,cohort_a,cohort_b,shared_athletes,jaccard,share_of_first,note
+basketball,2018,2018,5562,1.0,1.0,source-ID overlap; IDs still require identity review
+basketball,2018,2019,3489,0.4561976987447699,0.6272923408845739,source-ID overlap; IDs still require identity review
+basketball,2018,2025,1,8.898380494749955e-05,0.00017979144192736425,source-ID overlap; IDs still require identity review
+basketball,2019,2018,3489,0.4561976987447699,0.6258295964125561,source-ID overlap; IDs still require identity review
+basketball,2019,2019,5575,1.0,1.0,source-ID overlap; IDs still require identity review
+basketball,2019,2025,20,0.0017806267806267807,0.003587443946188341,source-ID overlap; IDs still require identity review
+basketball,2025,2018,1,8.898380494749955e-05,0.00017614937466971993,source-ID overlap; IDs still require identity review
+basketball,2025,2019,20,0.0017806267806267807,0.0035229874933943982,source-ID overlap; IDs still require identity review
+basketball,2025,2025,5677,1.0,1.0,source-ID overlap; IDs still require identity review
+football,2018,2018,23751,1.0,1.0,source-ID overlap; IDs still require identity review
+football,2018,2019,14927,0.45523025312595305,0.628478800892594,source-ID overlap; IDs still require identity review
+football,2018,2025,21,0.00041961395516125163,0.0008841732979664014,source-ID overlap; IDs still require identity review
+football,2018,2026,11,0.00022074169208540696,0.00046313839417287694,source-ID overlap; IDs still require identity review
+football,2019,2018,14927,0.45523025312595305,0.6228406909788867,source-ID overlap; IDs still require identity review
+football,2019,2019,23966,1.0,1.0,source-ID overlap; IDs still require identity review
+football,2019,2025,184,0.0036728013094335103,0.007677543186180422,source-ID overlap; IDs still require identity review
+football,2019,2026,23,0.00045967822524233036,0.0009596928982725527,source-ID overlap; IDs still require identity review
+football,2025,2018,21,0.00041961395516125163,0.0007979936160510716,source-ID overlap; IDs still require identity review
+football,2025,2019,184,0.0036728013094335103,0.006991944064447485,source-ID overlap; IDs still require identity review
+football,2025,2025,26316,1.0,1.0,source-ID overlap; IDs still require identity review
+football,2025,2026,17160,0.48683613254652747,0.6520747834017327,source-ID overlap; IDs still require identity review
+football,2026,2018,11,0.00022074169208540696,0.00042158516020236085,source-ID overlap; IDs still require identity review
+football,2026,2019,23,0.00045967822524233036,0.0008814962440594819,source-ID overlap; IDs still require identity review
+football,2026,2025,17160,0.48683613254652747,0.657672849915683,source-ID overlap; IDs still require identity review
+football,2026,2026,26092,1.0,1.0,source-ID overlap; IDs still require identity review

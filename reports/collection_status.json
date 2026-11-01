@@ -21,5 +21,6 @@
   "historical_sampling_metric": "High-school recruiting stars then within-provider rating; prior production samples superseded",
   "evaluation_followup": "See evaluation_collection_audit.json: historical/current draft and basketball BPM layers collected; HS recruiting incomplete; career duration/overseas mostly unknown",
   "football_NFL_ID_supplement": "2018/2019/current source-reported draft links and identity/timing review flags; see football_nfl_id_audit.json",
-  "blind_sampling_reconstruction": "Fresh context protocol locked; no fresh complete frame; post-lock shared-frame draw overlaps 11/100; unblinded original-code replay exactly matches saved100"
+  "blind_sampling_reconstruction": "Fresh context protocol locked; no fresh complete frame; post-lock shared-frame draw overlaps 11/100; unblinded original-code replay exactly matches saved100",
+  "EDA": "Complete: reports/eda/README.md; source gaps remain; current-football sensitivity fits exploratory only"
 }

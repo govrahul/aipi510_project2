@@ -1,0 +1,8 @@
+dataset,rows,athletes,draft_links,no_matched_draft_record,linked_share,median_linked_round,identity_timing_flags,draft_links_secondary_disagreement,draft_links_with_ID_support,note
+basketball_2018,5590,5562,91,5499,0.01627906976744186,2.0,,85,0,"link availability, NOT drafted/undrafted probability; unequal career follow-up"
+basketball_2019,5587,5575,89,5498,0.0159298371218901,2.0,,87,0,"link availability, NOT drafted/undrafted probability; unequal career follow-up"
+basketball_2025,5680,5677,45,5635,0.007922535211267605,1.0,,41,0,"link availability, NOT drafted/undrafted probability; unequal career follow-up"
+football_2018,23755,23751,1028,22727,0.0432750999789518,4.0,10.0,0,998,"link availability, NOT drafted/undrafted probability; unequal career follow-up"
+football_2019,23985,23966,1039,22946,0.04331874087971649,4.0,9.0,0,1018,"link availability, NOT drafted/undrafted probability; unequal career follow-up"
+football_2025,26327,26316,256,26071,0.009723857636646788,4.0,6.0,0,252,"link availability, NOT drafted/undrafted probability; unequal career follow-up"
+football_2026,26094,26092,0,26094,0.0,,1.0,0,0,"link availability, NOT drafted/undrafted probability; unequal career follow-up"
