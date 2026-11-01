@@ -1,0 +1,70 @@
+{
+  "as_of": "2026-11-01",
+  "sources": [
+    "https://github.com/nflverse/nflverse-data/releases/download/players/players.parquet",
+    "https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.parquet"
+  ],
+  "crosswalk_sha256": "5791e40926c2a7781844727ad5d78553e98c6f7bb71b3ec946cb0e3b0dfc5ca3",
+  "cohorts": [
+    {
+      "cohort": 2018,
+      "rows": 23755,
+      "draft_matches_before": 702,
+      "draft_matches_after": 1028,
+      "NFL_ID_status": {
+        "not_matched_unknown": 21431,
+        "exact_ESPN_ID_and_name": 2211,
+        "ESPN_ID_name_disagreement_needs_review": 113
+      },
+      "timing_flags": 10,
+      "source_frame_sha256": "98985120705fafbc322899650c20990621c83ca001b14acbe9b70980d1ce5170",
+      "output_sha256": "fad36d3ccbb268573ce4050e99639f24502267f8316bb5ba9b566fc9de621d78"
+    },
+    {
+      "cohort": 2019,
+      "rows": 23985,
+      "draft_matches_before": 687,
+      "draft_matches_after": 1039,
+      "NFL_ID_status": {
+        "not_matched_unknown": 21678,
+        "exact_ESPN_ID_and_name": 2205,
+        "ESPN_ID_name_disagreement_needs_review": 102
+      },
+      "timing_flags": 9,
+      "source_frame_sha256": "7620cc36ff9d2d0155228c138a54c48a49c083852ae544f54f9b01192859b02e",
+      "output_sha256": "4b1c72a2f6de63038362ace9bfa7f83822578e12feff2d1ab83005f6733cae79"
+    },
+    {
+      "cohort": 2025,
+      "rows": 26327,
+      "draft_matches_before": 188,
+      "draft_matches_after": 256,
+      "NFL_ID_status": {
+        "not_matched_unknown": 25851,
+        "exact_ESPN_ID_and_name": 468,
+        "ESPN_ID_name_disagreement_needs_review": 8
+      },
+      "timing_flags": 6,
+      "source_frame_sha256": "a4c8eb704ef60c214d09a1fb94cc31b7ebaacafb00f17b713bdd5001bfd353d8",
+      "output_sha256": "112d0a2e228606a5f0d833af94847042da3db0d40ac2a66740ee5ff0afddd3e6"
+    },
+    {
+      "cohort": 2026,
+      "rows": 26094,
+      "draft_matches_before": 0,
+      "draft_matches_after": 0,
+      "NFL_ID_status": {
+        "not_matched_unknown": 26093,
+        "exact_ESPN_ID_and_name": 1
+      },
+      "timing_flags": 1,
+      "source_frame_sha256": "b78ae7441072cb609f471c0c2617d766830eb831ce4fb2c247c1f357b939bd60",
+      "output_sha256": "d01ca14207b5af4ae2a2ef6f29e559c62e12eb7b7b0104c7193565b019c53127"
+    }
+  ],
+  "limits": [
+    "NFL player record is not a signed-contract or regular-season appearance observation.",
+    "Same ESPN ID/name can still be source errors; timing anomalies are flagged, not silently corrected.",
+    "No match remains unknown. Historical HS recruitment, social counts and final duration remain incomplete."
+  ]
+}

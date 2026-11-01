@@ -1,0 +1,15 @@
+{
+  "accessed_partner_player_data": false,
+  "files": {
+    "STATUS.md": "6e33e3c72cf8f0f515928bc68b2b233a0710c67d29b71e6214d20e6d9e712f1d",
+    "collect_public.py": "2d9f6e06efe7a91cb7d371544d62a573ad54837a34f0eeefb9addc9f5604ed61",
+    "protocol_lock.json": "9e1e3184d134ec097d9b8b40822a3b878dfe88ccf4e256ccdc2001106745b42b",
+    "protocol_locked.md": "6563d747df3101fa9cf75182744b8b8ba9cee41786b4d8ff47444e2fb8ef01f0",
+    "provenance.jsonl": "ee5ab50803c621c9489823aa75d63c943a12ca65f6761503c8ed343f61904bae",
+    "sample_football.py": "417273a880c7199f6d6aeaad9501f901c89514aee7065d645f851d3ed82b4dd1",
+    "verification.txt": "7306a4cc6c10fa5fc9068e1d3270537e7dd64e2ee5309ac9cd178eb12cee3a52",
+    "web_source_evidence.json": "d0063fa3814b4257641a939a4bda39c499b15e86e0b0691a97bae5390f1332ca"
+  },
+  "frozen_at_utc": "2026-11-01T21:05:08.000784+00:00",
+  "independent_complete_frame_collected": false
+}

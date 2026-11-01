@@ -527,6 +527,14 @@
       "bytes": 700680,
       "sha256": "3f0568877bec59c6d6d3709bf4bc0bfaf0b55f3854a328b3e8c06accf7bf794b",
       "retrieved_at": "2026-11-01T20:44:27.603366+00:00"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/players/players.parquet",
+      "file": "nfl_players/players.parquet",
+      "rows": 24863,
+      "bytes": 3395060,
+      "sha256": "5791e40926c2a7781844727ad5d78553e98c6f7bb71b3ec946cb0e3b0dfc5ca3",
+      "retrieved_at": "2026-11-01T21:05:06.887353+00:00"
     }
   ],
   "requested_window": [
