@@ -9,3 +9,6 @@ __pycache__/
 !.env.example
 Data/private/
 .pytest_cache/
+node_modules/
+node_modules
+outputs/

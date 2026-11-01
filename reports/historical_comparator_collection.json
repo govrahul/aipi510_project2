@@ -1,0 +1,403 @@
+[
+  {
+    "sport": "basketball",
+    "cohort": 2018,
+    "source_season": 2019,
+    "rows": 5590,
+    "audit": {
+      "season": 2019,
+      "as_of": "2019-06-30",
+      "raw_rows": 185819,
+      "raw_games": 6047,
+      "raw_athletes": 10931,
+      "raw_teams": 652,
+      "first_game_date": "2018-11-06",
+      "last_game_date": "2019-04-08",
+      "excluded_by_date_or_season_type": 0,
+      "excluded_missing_identity_rows": 0,
+      "dnp_rows_excluded_from_game_denominators": 64388,
+      "appearance_rows": 121431,
+      "zero_minute_appearances_retained": 1344,
+      "missing_appearance_stats": {
+        "minutes": 63,
+        "points": 0,
+        "rebounds": 0,
+        "assists": 0,
+        "steals": 0,
+        "blocks": 0,
+        "turnovers": 0,
+        "field_goals_made": 0,
+        "field_goals_attempted": 0,
+        "three_point_field_goals_made": 0,
+        "three_point_field_goals_attempted": 0,
+        "free_throws_made": 0,
+        "free_throws_attempted": 0
+      },
+      "player_team_season_rows": 10972,
+      "division_i_player_team_rows": 5590,
+      "division_i_teams": 353,
+      "division_i_athletes": 5562,
+      "no_appearance_player_team_rows": 2254,
+      "athlete_ids_on_multiple_teams": 41,
+      "availability": {
+        "complete_recorded_appearances": 8665,
+        "no_recorded_appearances": 2254,
+        "incomplete_appearance_statistics": 53
+      },
+      "identity_name_variant_rows": 0,
+      "scope": "All recorded regular/postseason games, including games against non-D1 opponents",
+      "limitation": "Recorded export coverage is not proof of complete official season statistics"
+    },
+    "sampling": {
+      "seed": 510,
+      "input_frame_rows": 4793,
+      "sample_rows": 1000,
+      "sample_per_quartile": {
+        "Q4_Highest": 250,
+        "Q3_Upper_Middle": 250,
+        "Q2_Lower_Middle": 250,
+        "Q1_Lowest": 250
+      },
+      "population_per_quartile": {
+        "Q4_Highest": 1199,
+        "Q3_Upper_Middle": 1198,
+        "Q2_Lower_Middle": 1198,
+        "Q1_Lowest": 1198
+      },
+      "metric": "Production_Percentile",
+      "tie_policy": "Descending metric, stable string IDs; rank quartiles, not strict value bins",
+      "rows_in_ties_crossing_quartiles": 14,
+      "stratum_ranges": {
+        "Q1_Lowest": {
+          "min": 0.01838235294117647,
+          "max": 0.24954857349223547
+        },
+        "Q2_Lower_Middle": {
+          "min": 0.24954857349223547,
+          "max": 0.5003611412062117
+        },
+        "Q3_Upper_Middle": {
+          "min": 0.5003611412062117,
+          "max": 0.7500902853015529
+        },
+        "Q4_Highest": {
+          "min": 0.7500902853015529,
+          "max": 1.0
+        }
+      },
+      "note": "Weights target this input frame only; do not repair exclusions outside it",
+      "sport": "basketball",
+      "cohort": 2018,
+      "candidate_frame_rows": 4793,
+      "excluded_secondary_team_rows": 0,
+      "secondary_team_policy": "Highest recorded production, then stable team ID; full frame retains all teams",
+      "proxy": "Within-position/season percentile of recorded season production; provisional, no causal interpretation"
+    },
+    "sources": [
+      {
+        "source": "ESPN player-game box scores published by SportsDataverse",
+        "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_mens_college_basketball_player_boxscores/player_box_2019.parquet",
+        "source_documentation": "https://py.sportsdataverse.org/docs/mbb/reference/loaders/player",
+        "retrieved_at": "2026-11-01T20:09:08.810362+00:00",
+        "last_modified": "Mon, 10 Apr 2023 23:35:28 GMT",
+        "sha256": "cf1e0294316430c654cdb3c09312e965dcf2b518ee88672a1401189d8884118e",
+        "bytes": 4073649,
+        "rows": 185819,
+        "season": 2019,
+        "caveat": "Public performance export; not NIL sample, followers or PORPAG"
+      },
+      {
+        "source": "Season-specific ESPN team membership published by SportsDataverse",
+        "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_groups/mbb_team_group_seasons_2019.parquet",
+        "source_documentation": "https://py.sportsdataverse.org/docs/mbb/reference/loaders/team",
+        "retrieved_at": "2026-11-01T20:09:09.952733+00:00",
+        "last_modified": "Mon, 12 Oct 2026 06:14:43 GMT",
+        "sha256": "537027cdd5c368ea02470a4c392c8deb6f2290c196f037dcb7c3591df233b41a",
+        "bytes": 9164,
+        "rows": 353,
+        "season": 2019,
+        "caveat": "Public performance export; not NIL sample, followers or PORPAG"
+      }
+    ]
+  },
+  {
+    "sport": "football",
+    "cohort": 2018,
+    "source_season": 2018,
+    "rows": 23755,
+    "sampling": {
+      "seed": 510,
+      "input_frame_rows": 3444,
+      "sample_rows": 1000,
+      "sample_per_quartile": {
+        "Q4_Highest": 250,
+        "Q3_Upper_Middle": 250,
+        "Q2_Lower_Middle": 250,
+        "Q1_Lowest": 250
+      },
+      "population_per_quartile": {
+        "Q4_Highest": 861,
+        "Q3_Upper_Middle": 861,
+        "Q2_Lower_Middle": 861,
+        "Q1_Lowest": 861
+      },
+      "metric": "Production_Percentile",
+      "tie_policy": "Descending metric, stable string IDs; rank quartiles, not strict value bins",
+      "rows_in_ties_crossing_quartiles": 12,
+      "stratum_ranges": {
+        "Q1_Lowest": {
+          "min": 0.0007032348804500703,
+          "max": 0.2533524904214559
+        },
+        "Q2_Lower_Middle": {
+          "min": 0.2533524904214559,
+          "max": 0.500351617440225
+        },
+        "Q3_Upper_Middle": {
+          "min": 0.5004789272030651,
+          "max": 0.750351617440225
+        },
+        "Q4_Highest": {
+          "min": 0.7509578544061303,
+          "max": 1.0
+        }
+      },
+      "note": "Weights target this input frame only; do not repair exclusions outside it",
+      "sport": "football",
+      "cohort": 2018,
+      "candidate_frame_rows": 3444,
+      "excluded_secondary_team_rows": 0,
+      "secondary_team_policy": "Highest recorded production, then stable team ID; full frame retains all teams",
+      "proxy": "Within-position/season percentile of recorded season production; provisional, no causal interpretation"
+    },
+    "sources": [
+      {
+        "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_player_box/player_box_2018.parquet",
+        "retrieved_at": "2026-11-01T20:09:12.606112+00:00",
+        "sha256": "ddc1b8f5cdb0b67e36db6c816b5057110fa2c0488195c235071da1e1fe0c568c",
+        "bytes": 507167,
+        "rows": 40131,
+        "season": 2018,
+        "source": "SportsDataverse ESPN college football export"
+      },
+      {
+        "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_groups/cfb_team_group_seasons_2018.parquet",
+        "retrieved_at": "2026-11-01T20:09:14.430160+00:00",
+        "sha256": "139c49f9ceb000deadf7cc780474ff5d271a4aa7892dfb32fdfc432d071868fe",
+        "bytes": 12454,
+        "rows": 685,
+        "season": 2018,
+        "source": "SportsDataverse ESPN college football export"
+      },
+      {
+        "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2018.parquet",
+        "retrieved_at": "2026-11-01T20:11:21.713687+00:00",
+        "sha256": "122ebb440e5fe00c7d33ae0b7dd67c7959cc712f37ddb035caf77169493a682c",
+        "bytes": 2499672,
+        "rows": 24101,
+        "season": 2018,
+        "source": "SportsDataverse ESPN college football export"
+      }
+    ]
+  },
+  {
+    "sport": "basketball",
+    "cohort": 2019,
+    "source_season": 2020,
+    "rows": 5587,
+    "audit": {
+      "season": 2020,
+      "as_of": "2020-06-30",
+      "raw_rows": 181646,
+      "raw_games": 5766,
+      "raw_athletes": 13154,
+      "raw_teams": 663,
+      "first_game_date": "2019-11-05",
+      "last_game_date": "2020-03-11",
+      "excluded_by_date_or_season_type": 0,
+      "excluded_missing_identity_rows": 1,
+      "dnp_rows_excluded_from_game_denominators": 66631,
+      "appearance_rows": 115014,
+      "zero_minute_appearances_retained": 986,
+      "missing_appearance_stats": {
+        "minutes": 0,
+        "points": 0,
+        "rebounds": 0,
+        "assists": 0,
+        "steals": 0,
+        "blocks": 0,
+        "turnovers": 0,
+        "field_goals_made": 0,
+        "field_goals_attempted": 0,
+        "three_point_field_goals_made": 0,
+        "three_point_field_goals_attempted": 0,
+        "free_throws_made": 0,
+        "free_throws_attempted": 0
+      },
+      "player_team_season_rows": 13183,
+      "division_i_player_team_rows": 5587,
+      "division_i_teams": 353,
+      "division_i_athletes": 5575,
+      "no_appearance_player_team_rows": 4380,
+      "athlete_ids_on_multiple_teams": 29,
+      "availability": {
+        "complete_recorded_appearances": 8803,
+        "no_recorded_appearances": 4380
+      },
+      "identity_name_variant_rows": 0,
+      "scope": "All recorded regular/postseason games, including games against non-D1 opponents",
+      "limitation": "Recorded export coverage is not proof of complete official season statistics"
+    },
+    "sampling": {
+      "seed": 510,
+      "input_frame_rows": 4792,
+      "sample_rows": 1000,
+      "sample_per_quartile": {
+        "Q4_Highest": 250,
+        "Q3_Upper_Middle": 250,
+        "Q2_Lower_Middle": 250,
+        "Q1_Lowest": 250
+      },
+      "population_per_quartile": {
+        "Q4_Highest": 1198,
+        "Q3_Upper_Middle": 1198,
+        "Q2_Lower_Middle": 1198,
+        "Q1_Lowest": 1198
+      },
+      "metric": "Production_Percentile",
+      "tie_policy": "Descending metric, stable string IDs; rank quartiles, not strict value bins",
+      "rows_in_ties_crossing_quartiles": 30,
+      "stratum_ranges": {
+        "Q1_Lowest": {
+          "min": 0.02434017595307918,
+          "max": 0.24991137894363702
+        },
+        "Q2_Lower_Middle": {
+          "min": 0.24991137894363702,
+          "max": 0.5005865102639296
+        },
+        "Q3_Upper_Middle": {
+          "min": 0.5005865102639296,
+          "max": 0.7497341368309111
+        },
+        "Q4_Highest": {
+          "min": 0.7497341368309111,
+          "max": 1.0
+        }
+      },
+      "note": "Weights target this input frame only; do not repair exclusions outside it",
+      "sport": "basketball",
+      "cohort": 2019,
+      "candidate_frame_rows": 4792,
+      "excluded_secondary_team_rows": 1,
+      "secondary_team_policy": "Highest recorded production, then stable team ID; full frame retains all teams",
+      "proxy": "Within-position/season percentile of recorded season production; provisional, no causal interpretation"
+    },
+    "sources": [
+      {
+        "source": "ESPN player-game box scores published by SportsDataverse",
+        "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_mens_college_basketball_player_boxscores/player_box_2020.parquet",
+        "source_documentation": "https://py.sportsdataverse.org/docs/mbb/reference/loaders/player",
+        "retrieved_at": "2026-11-01T20:09:16.939543+00:00",
+        "last_modified": "Wed, 26 Aug 2026 06:24:22 GMT",
+        "sha256": "ca3b70ea2108731f0cf29376c5ffdbff83e51cc94f842cd3192656e0a6291e91",
+        "bytes": 3187477,
+        "rows": 181646,
+        "season": 2020,
+        "caveat": "Public performance export; not NIL sample, followers or PORPAG"
+      },
+      {
+        "source": "Season-specific ESPN team membership published by SportsDataverse",
+        "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_groups/mbb_team_group_seasons_2020.parquet",
+        "source_documentation": "https://py.sportsdataverse.org/docs/mbb/reference/loaders/team",
+        "retrieved_at": "2026-11-01T20:09:17.684020+00:00",
+        "last_modified": "Mon, 12 Oct 2026 06:14:43 GMT",
+        "sha256": "01fcf1226f66d648ed16160bb37211c159649b86e4e39ddefc490e1a829592ea",
+        "bytes": 9193,
+        "rows": 355,
+        "season": 2020,
+        "caveat": "Public performance export; not NIL sample, followers or PORPAG"
+      }
+    ]
+  },
+  {
+    "sport": "football",
+    "cohort": 2019,
+    "source_season": 2019,
+    "rows": 23985,
+    "sampling": {
+      "seed": 510,
+      "input_frame_rows": 3484,
+      "sample_rows": 1000,
+      "sample_per_quartile": {
+        "Q4_Highest": 250,
+        "Q3_Upper_Middle": 250,
+        "Q2_Lower_Middle": 250,
+        "Q1_Lowest": 250
+      },
+      "population_per_quartile": {
+        "Q4_Highest": 871,
+        "Q3_Upper_Middle": 871,
+        "Q2_Lower_Middle": 871,
+        "Q1_Lowest": 871
+      },
+      "metric": "Production_Percentile",
+      "tie_policy": "Descending metric, stable string IDs; rank quartiles, not strict value bins",
+      "rows_in_ties_crossing_quartiles": 8,
+      "stratum_ranges": {
+        "Q1_Lowest": {
+          "min": 0.0006882312456985547,
+          "max": 0.25198807157057657
+        },
+        "Q2_Lower_Middle": {
+          "min": 0.25198807157057657,
+          "max": 0.5
+        },
+        "Q3_Upper_Middle": {
+          "min": 0.5010323468685478,
+          "max": 0.7504970178926441
+        },
+        "Q4_Highest": {
+          "min": 0.7509157509157509,
+          "max": 1.0
+        }
+      },
+      "note": "Weights target this input frame only; do not repair exclusions outside it",
+      "sport": "football",
+      "cohort": 2019,
+      "candidate_frame_rows": 3484,
+      "excluded_secondary_team_rows": 0,
+      "secondary_team_policy": "Highest recorded production, then stable team ID; full frame retains all teams",
+      "proxy": "Within-position/season percentile of recorded season production; provisional, no causal interpretation"
+    },
+    "sources": [
+      {
+        "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_player_box/player_box_2019.parquet",
+        "retrieved_at": "2026-11-01T20:09:23.955424+00:00",
+        "sha256": "b6c12447d44b4b96a9a1c12ef4238696f3c66bd7a567b6a70b5114ddc2776d2d",
+        "bytes": 502654,
+        "rows": 39436,
+        "season": 2019,
+        "source": "SportsDataverse ESPN college football export"
+      },
+      {
+        "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_groups/cfb_team_group_seasons_2019.parquet",
+        "retrieved_at": "2026-11-01T20:09:25.692125+00:00",
+        "sha256": "2e195c9282f515faca2e434f22831b44d7f1f16507f5154179285536a72cbdf1",
+        "bytes": 12400,
+        "rows": 680,
+        "season": 2019,
+        "source": "SportsDataverse ESPN college football export"
+      },
+      {
+        "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2019.parquet",
+        "retrieved_at": "2026-11-01T20:11:25.401289+00:00",
+        "sha256": "eed85ffb6f98aee17775c114fba5503ba18388711d4aa14da1bc935ec1003d7e",
+        "bytes": 2593846,
+        "rows": 24229,
+        "season": 2019,
+        "source": "SportsDataverse ESPN college football export"
+      }
+    ]
+  }
+]

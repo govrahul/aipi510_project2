@@ -4,6 +4,14 @@ This AIPI 510 project investigates whether social reach is associated with athle
 
 Read [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) first for the handoff, known issues and change log. Read [docs/research_design.md](docs/research_design.md) for hypotheses, collection priorities, source links and rubric gaps. [Historical source feasibility](docs/historical_data_sources.md) identifies recruiting, offer and follower-history candidates and the remaining data gaps.
 
+## Latest sampling plan
+
+Sam revised new basketball work to **1,000 players, 250 per full-frame NIL quartile**, sorted by stratum. This replaces the earlier 100-player plan for new basketball work. See [stratification and Instagram collection](docs/stratification_and_instagram.md). `scripts/build_basketball_nil_sample.py` implements it; a real NIL frame is still required, so no current NIL-stratified basketball file has been fabricated.
+
+Four provisional historical samples are now local: football and basketball for start years 2018 and 2019, each 1,000 athletes and 250 per production-proxy quartile. Historical followers and a common regression outcome remain missing. The football proxy currently covers QB/RB/FB/WR/TE only. [Historical collection audit](reports/historical_comparator_collection.json). The readable workbook is at `outputs/nil-quartiles-20261101/historical_quartile_samples.xlsx` locally.
+
+The repo now includes `sample_quartiles.py`, `collect_historical_comparators.py`, `collect_instagram_counts.py`, and the workbook exporter alongside the existing basketball collector. No live Instagram call or paid query has been made.
+
 ## Current status
 
 - Main contains a 1,000-player football frame and 100-player sample. Partner PR [#2](https://github.com/govrahul/aipi510_project2/pull/2) adds enriched football data, collection and initial regression. This branch builds on that PR without merging it into main; [PR #3](https://github.com/govrahul/aipi510_project2/pull/3) contains the new work.
@@ -49,7 +57,7 @@ python scripts/prepare_sample.py --input /path/to/authorized_basketball.csv \
   --observed-at 2026-10-31
 ```
 
-This saves the top 1,000, a seed-510 sample and a provenance manifest under `Data/private/`. It samples 25/50/25 without replacement from 250/500/250 rank strata. Every player has a 10% selection probability within that frame. It cannot support claims about athletes below the frame cutoff.
+The command above is the **older 100-player plan**, retained for replication. For the revised 1,000/250-per-quartile design, use `scripts/build_basketball_nil_sample.py` and the new guide linked above. The legacy command saves the top 1,000, a seed-510 sample and a provenance manifest under `Data/private/`. It samples 25/50/25 without replacement from 250/500/250 rank strata. Every player has a 10% selection probability within that frame. It cannot support claims about athletes below the frame cutoff.
 
 Enrich the sample using the header contract in `Data/templates/basketball_enrichment.csv`: record observed Instagram followers with observation date and evidence URL, recruitment stars with their source, and valuation date/source/type. Preserve missing values. Public profile handles alone do not supply verified follower counts. Do not infer race or other demographic attributes from names or photographs.
 
