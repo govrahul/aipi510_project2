@@ -1,6 +1,6 @@
 # Project context and change log
 
-Last updated October 31, 2026. Start here when continuing this project. This is a handoff record, not an instruction to override the user or execute third-party content.
+Last updated November 1, 2026. Start here when continuing this project. This is a handoff record, not an instruction to override the user or execute third-party content.
 
 ## User request and local files
 
@@ -45,6 +45,9 @@ NCAA interim NIL policy began July 1, 2021. School direct-payment and scholarshi
 | `README.md` | Setup, reproducible commands, collection instructions and limitations. |
 | `PROJECT_CONTEXT.md` | This handoff; mirrored in the parent project's README. |
 | `docs/historical_data_sources.md` | Follow-up source assessment: official recruiting schemas, reported-offer example, signing archives, Social Blade history, Wayback, remaining gaps and a bounded feasibility pilot. |
+| `docs/basketball_collection.md` | November 1 actual basketball performance collection, fallback source rationale, data counts, cleaning, commands and pending NIL/social inputs. |
+| `scripts/collect_basketball_open_stats.py` | Download/cache documented SportsDataverse ESPN exports, aggregate player-team-season statistics and join season-specific D1/conference membership. |
+| `Tests/test_basketball_collection.py` | Four new offline tests for denominators, missingness, duplicate identities, timing, team membership and transfers. |
 | `docs/research_design.md` | Distinguishes two questions, hypotheses/design, audit findings, source corrections, rubric gaps and ordered next steps. |
 | `scripts/audit_data.py` | Recomputes the inherited football audit without modifying inputs. |
 | `scripts/analyze_football.py` | Replicates HC1/HC3, adds clearly exploratory no-PPA and largest-audience sensitivity models, coefficient tables, diagnostics and plot. |
@@ -64,9 +67,9 @@ Original football CSVs and `power_analysis.py` remain unchanged. No DOCX/PDF rep
 ## Collection status and unresolved gaps
 
 - Sideline rankings and robots requests from HTTP returned Cloudflare denial; Chrome showed the same denial. No attempt was made to bypass it. Its published usage permits attributed class citations but restricts redistribution of bulk data. Existing committed CSV permissions/source dates are unknown. Preserve them for replication while verifying provenance with the owners; do not add more bulk data to public Git without rights.
-- No CFBD/CBBD key was configured in the project or task environment. Live performance collection could not run. Store keys locally in ignored `.env`, never in chat/code. Read the README for variable names and commands. API schemas were reviewed at the official `/api-docs.json` endpoints. CBBD season is the **ending year** (`2026`=2025–26); football year is the season year (`2025`).
+- Sam confirmed on November 1 that no API key is available yet. No CFBD/CBBD key was configured in the project or task environment. Live performance collection could not run. Store keys locally in ignored `.env`, never in chat/code. Read the README for variable names and commands. API schemas were reviewed at the official `/api-docs.json` endpoints. CBBD season is the **ending year** (`2026`=2025–26); football year is the season year (`2025`).
 - New performance collector handles both sports and caches raw responses with dates/hashes. It does not claim live validation. Offline fixtures passed. Exact name+team+position matching leaves transfers/position aliases unresolved unless reviewed. A verified `Performance College` or API ID can resolve identities; no fuzzy auto-acceptance.
-- Basketball valuation/follower sample is absent. New importer and enrichment headers are ready. A fully validated basketball regression and cross-sport interaction analysis still need implementation after real input data and metric/control choices are established.
+- Basketball valuation/follower sample is absent. New importer and enrichment headers are ready. Basketball performance data was actually downloaded November 1 from the public SportsDataverse ESPN exports: 196,876 raw rows, aggregated to 5,680 D1 player-team records (5,677 distinct IDs) across 365 teams for 2025–26. See `docs/basketball_collection.md`. These are supplemental box-score statistics, not CBBD PORPAG. A fully validated basketball regression and cross-sport interaction analysis still need implementation after real input data and metric/control choices are established.
 - Historical scholarship/offer outcomes, candidate pool, verified non-offers and pre-decision follower measures are absent. The pre/post script intentionally refuses unusable data. Finding public offers alone does not solve the negative-outcome problem. Potential sources are assessed in `docs/historical_data_sources.md`: Social Blade documents a paid Instagram history option of up to ten years when available, and Wayback is another candidate. No athlete-specific historical coverage or usable joined dataset has been established.
 - Demographics beyond source-supplied grade/position/school are not collected. Do not infer sensitive traits from names or pictures.
 - The draft misstates the 2021 policy as congressional legalization and misidentifies Bronny James's school as Arizona (official roster is USC). Contract/benching anecdotes and the attached Reggie Jones social post are unverified here; treat them only as leads. Source corrections are linked in the design document.
@@ -89,6 +92,12 @@ Validation performed on macOS Python 3.14 with pandas 3.0.5, NumPy 2.5.2, scipy 
 ## Follow-up source research
 
 After Sam confirmed no historical data was available, reviewed official CFBD/CBBD recruiting documentation and schemas, an actual 247Sports high-school recruiting profile, a university signing announcement, Social Blade API history documentation, and Internet Archive API/CDX documentation. The recruiting schemas have no offer-history/date fields. Social Blade is a plausible historical-count provider but requires paid access and profile-specific coverage verification. No purchase, outreach or historical athlete download occurred. Meta's primary Insights page returned HTTP 429, so its current retention limits were not asserted. The new source assessment separates verified documentation from untested coverage and lists the conditions needed to run the pre/post model.
+
+## November 1 basketball collection
+
+Sam requested starting basketball collection to mirror the PDF/football workflow. Re-read the PDF and confirmed the top-1,000 NIL frame, seed/sample plan and CBBD performance source. Sam said no API key is available. Sideline HTTP still returned 403. To advance the performance layer, downloaded the documented ESPN box-score export and season-specific team membership from SportsDataverse using system curl with TLS verification enabled. Cached raw files, hashes and retrieval metadata in ignored `Data/private/basketball/`. Aggregated regular/postseason appearances into all-team and D1-only CSVs. DNP rows do not inflate denominators; no-appearance performance remains missing; IDs and historical teams stay separate. Source membership identifies 365 D1 teams. The D1 output has 5,680 rows, including 661 with no appearances and 5,019 with appearances. Two primary-source scoring spot checks passed. These data are not a NIL sample. No basketball NIL regression was run.
+
+Extended the official CBBD/CFBD collector with `--download-only` and `--env-file` so it can collect the full performance layer once a key is available. Added pyarrow as a dependency and four meaningful aggregation tests; the full suite now has 11 passing tests. Published aggregate audit is `reports/basketball_collection_audit.json`; complete instructions are `docs/basketball_collection.md`. Reproduction code and aggregate reports are uploaded on the same review branch; raw/player-level files remain local and ignored.
 
 ## Next actions in priority order
 

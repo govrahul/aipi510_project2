@@ -84,3 +84,7 @@ Official references reviewed October 31, 2026:
 | Repo reproducibility, raw/clean data | README, scripts, requirements, tests, generated reports. Exact original collection cannot be reproduced without source provenance. |
 | Collaboration | Partner PR #1 merged; PR #2 open at inspection. New work stays on its own review branch. |
 | Presentation | Rubric specifies maximum 8 minutes, November 3. No deck was requested or created in this work. |
+
+## November 1 collection update
+
+Basketball performance data has now been collected from a documented SportsDataverse ESPN export as a supplemental source while Sam has no CBBD key. [Collection details](basketball_collection.md) report 5,680 D1 player-team records across 365 teams for 2025–26, source hashes, cleaning and spot checks. The statements above about missing basketball data apply to the NIL/follower sample and CBBD performance collection; those remain missing. No basketball NIL or cross-sport regression has run.

@@ -1,0 +1,75 @@
+{
+  "season": 2026,
+  "as_of": "2026-10-31",
+  "raw_rows": 196876,
+  "raw_games": 6300,
+  "raw_athletes": 12481,
+  "raw_teams": 727,
+  "first_game_date": "2025-11-03",
+  "last_game_date": "2026-04-06",
+  "excluded_by_date_or_season_type": 0,
+  "excluded_missing_identity_rows": 11,
+  "dnp_rows_excluded_from_game_denominators": 69333,
+  "appearance_rows": 127532,
+  "zero_minute_appearances_retained": 728,
+  "missing_appearance_stats": {
+    "minutes": 0,
+    "points": 0,
+    "rebounds": 0,
+    "assists": 0,
+    "steals": 0,
+    "blocks": 0,
+    "turnovers": 0,
+    "field_goals_made": 0,
+    "field_goals_attempted": 0,
+    "three_point_field_goals_made": 0,
+    "three_point_field_goals_attempted": 0,
+    "free_throws_made": 0,
+    "free_throws_attempted": 0
+  },
+  "player_team_season_rows": 12502,
+  "division_i_player_team_rows": 5680,
+  "division_i_teams": 365,
+  "division_i_athletes": 5677,
+  "no_appearance_player_team_rows": 2485,
+  "athlete_ids_on_multiple_teams": 21,
+  "availability": {
+    "complete_recorded_appearances": 10017,
+    "no_recorded_appearances": 2485
+  },
+  "identity_name_variant_rows": 0,
+  "scope": "All recorded regular/postseason games, including games against non-D1 opponents",
+  "limitation": "Recorded export coverage is not proof of complete official season statistics",
+  "source_manifests": [
+    {
+      "source": "ESPN player-game box scores published by SportsDataverse",
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_mens_college_basketball_player_boxscores/player_box_2026.parquet",
+      "source_documentation": "https://py.sportsdataverse.org/docs/mbb/reference/loaders/player",
+      "retrieved_at": "2026-11-01T18:55:11.168689+00:00",
+      "last_modified": "Tue, 01 Sep 2026 19:46:20 GMT",
+      "sha256": "62505219f40b4a83d9a89883620b927a336e6c78c4cea1d711db086641e2b810",
+      "bytes": 3397951,
+      "rows": 196876,
+      "season": 2026,
+      "caveat": "Public performance export; not NIL sample, followers or PORPAG"
+    },
+    {
+      "source": "Season-specific ESPN team membership published by SportsDataverse",
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_groups/mbb_team_group_seasons_2026.parquet",
+      "source_documentation": "https://py.sportsdataverse.org/docs/mbb/reference/loaders/team",
+      "retrieved_at": "2026-11-01T18:56:28.556218+00:00",
+      "last_modified": "Mon, 12 Oct 2026 06:14:45 GMT",
+      "sha256": "7c1a26f62c5b9ae8f9f2dc5e0686bcbea05ab5e97456334f9d74001fa7a0cc5d",
+      "bytes": 9153,
+      "rows": 365,
+      "season": 2026,
+      "caveat": "Public performance export; not NIL sample, followers or PORPAG"
+    }
+  ],
+  "not_collected": [
+    "NIL valuations",
+    "Instagram followers",
+    "recruiting star ratings",
+    "CBBD PORPAG"
+  ]
+}

@@ -1,15 +1,17 @@
 {
-  "checked_on": "2026-10-31",
+  "checked_on": "2026-11-01",
   "football_existing_data": "present; inherited provenance and matching unresolved",
   "football_regression": "replicated with HC1 and HC3; exploratory sensitivities generated",
   "sideline_http": "Cloudflare access denied for rankings and robots requests",
   "sideline_browser": "Cloudflare Attention Required page; no bypass attempted",
-  "new_basketball_player_data": "not collected",
+  "new_basketball_player_data": "Supplemental 2025\u201326 ESPN/SportsDataverse box scores acquired; 5,680 D1 player-team season rows across 365 teams, saved locally",
   "official_api_schemas": "CFBD and CBBD /api-docs.json reviewed",
-  "live_performance_collection": "not completed: no configured CFBD/CBBD key",
+  "live_performance_collection": "CBBD not completed: Sam confirmed no API key; documented public SportsDataverse fallback acquired",
   "basketball_regression_and_cross_sport_test": "not run; real data and model implementation remain",
   "historical_scholarship_data": "absent",
   "historical_follower_data": "absent",
   "real_prepost_model": "not run; input validation and fitting tested with synthetic fixtures only",
-  "historical_source_assessment": "docs/historical_data_sources.md: source documentation reviewed; no purchase, outreach, athlete-history download or confirmed joined coverage"
+  "historical_source_assessment": "docs/historical_data_sources.md: source documentation reviewed; no purchase, outreach, athlete-history download or confirmed joined coverage",
+  "basketball_nil_and_followers": "not collected: NIL frame inaccessible and social observations unavailable",
+  "basketball_collection_audit": "reports/basketball_collection_audit.json"
 }
