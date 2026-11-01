@@ -13,5 +13,9 @@
   "real_prepost_model": "not run; input validation and fitting tested with synthetic fixtures only",
   "historical_source_assessment": "docs/historical_data_sources.md: source documentation reviewed; no purchase, outreach, athlete-history download or confirmed joined coverage",
   "basketball_nil_and_followers": "not collected: NIL frame inaccessible and social observations unavailable",
-  "basketball_collection_audit": "reports/basketball_collection_audit.json"
+  "basketball_collection_audit": "reports/basketball_collection_audit.json",
+  "current_basketball_sampling_design": "1000 total; 250 per full-frame NIL quartile; builder implemented, real NIL frame still missing",
+  "historical_comparator_samples": "Four provisional 1000-athlete samples, 250 per production-proxy quartile; football offensive positions only; historical followers missing",
+  "actual_instagram_collection": "not performed: verified handles and credentials unavailable; collection/replay code added",
+  "historical_metric_status": "provisional production sampling metric; awaiting user preference, not regression outcome"
 }
