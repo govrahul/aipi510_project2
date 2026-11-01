@@ -1,0 +1,218 @@
+{
+  "as_of": "2026-11-01",
+  "source_sha256": "82e228c40758266338aee4e58a44c55f0217e0355b0490e871b5ae9f05a2c6f7",
+  "status": "exploratory associations; no basketball, cross-sport or pre/post effect test",
+  "alpha_family": 0.016666666666666666,
+  "models": [
+    {
+      "model": "Inherited model HC1",
+      "formula": "y ~ x + PPA_Per_Play + Freshman_Flag + Freshman_X_Stars + Power_4_Dummy + Premium_Position",
+      "n": 100,
+      "schools": 39,
+      "coefficient": 0.2066633494992472,
+      "standard_error": 0.05752036030257905,
+      "p_two_sided": 0.0003270520095687031,
+      "ci95": [
+        0.09392551492842481,
+        0.31940118407006957
+      ],
+      "ci9833": [
+        0.06896076885659042,
+        0.344365930141904
+      ],
+      "r_squared": 0.3209712141046609,
+      "doubled_followers_percent": 15.401609834831898,
+      "doubled_followers_ci95_percent": [
+        6.72702343973135,
+        24.78125148867445
+      ],
+      "observed_partial_f2": 0.2049118330925011,
+      "breusch_pagan_p": 0.024634963761117252,
+      "jarque_bera_p": 5.283053582126537e-13,
+      "cooks_above_4_over_n": 6,
+      "vif": {
+        "Intercept": 209.3501363576333,
+        "x": 1.2388789108300633,
+        "PPA_Per_Play": 1.141606214199404,
+        "Freshman_Flag": 83.23184204846149,
+        "Freshman_X_Stars": 82.30173110036868,
+        "Power_4_Dummy": 1.0233182859441166,
+        "Premium_Position": 1.11709868708366
+      }
+    },
+    {
+      "model": "Inherited model HC3",
+      "formula": "y ~ x + PPA_Per_Play + Freshman_Flag + Freshman_X_Stars + Power_4_Dummy + Premium_Position",
+      "n": 100,
+      "schools": 39,
+      "coefficient": 0.2066633494992472,
+      "standard_error": 0.06528574896158956,
+      "p_two_sided": 0.0015480597463827608,
+      "ci95": [
+        0.07870563283080842,
+        0.33462106616768594
+      ],
+      "ci9833": [
+        0.05037058526917948,
+        0.3629561137293149
+      ],
+      "r_squared": 0.3209712141046609,
+      "doubled_followers_percent": 15.401609834831898,
+      "doubled_followers_ci95_percent": [
+        5.607012305850878,
+        26.104614283581505
+      ],
+      "observed_partial_f2": 0.2049118330925011,
+      "breusch_pagan_p": 0.024634963761117252,
+      "jarque_bera_p": 5.283053582126537e-13,
+      "cooks_above_4_over_n": 6,
+      "vif": {
+        "Intercept": 209.3501363576333,
+        "x": 1.2388789108300633,
+        "PPA_Per_Play": 1.141606214199404,
+        "Freshman_Flag": 83.23184204846149,
+        "Freshman_X_Stars": 82.30173110036868,
+        "Power_4_Dummy": 1.0233182859441166,
+        "Premium_Position": 1.11709868708366
+      }
+    },
+    {
+      "model": "Position groups HC3",
+      "formula": "y ~ x + Stars_C * Freshman_Flag + C(Position_Group)",
+      "n": 100,
+      "schools": 39,
+      "coefficient": 0.27392537004525946,
+      "standard_error": 0.09173102988348061,
+      "p_two_sided": 0.0028248628144920862,
+      "ci95": [
+        0.09413585520887002,
+        0.4537148848816489
+      ],
+      "ci9833": [
+        0.05432313748765874,
+        0.4935276026028602
+      ],
+      "r_squared": 0.354885726439782,
+      "doubled_followers_percent": 20.90931283809705,
+      "doubled_followers_ci95_percent": [
+        6.742585029658499,
+        36.95622910873766
+      ],
+      "observed_partial_f2": 0.31569470435890745,
+      "breusch_pagan_p": 0.00037320296347688936,
+      "jarque_bera_p": 5.691831859926385e-08,
+      "cooks_above_4_over_n": 9,
+      "vif": {
+        "Intercept": 111.55603975527859,
+        "C(Position_Group)[T.Offensive line]": 1.2529432200891244,
+        "C(Position_Group)[T.Quarterback]": 1.3222067899040941,
+        "C(Position_Group)[T.Skill offense]": 1.2294578344972262,
+        "x": 1.4870231250199129,
+        "Stars_C": 1.3469689651326033,
+        "Freshman_Flag": 1.2487827191214602,
+        "Stars_C:Freshman_Flag": 1.2211950752004312
+      }
+    },
+    {
+      "model": "Largest audience omitted HC3",
+      "formula": "y ~ x + Stars_C * Freshman_Flag + C(Position_Group)",
+      "n": 99,
+      "schools": 39,
+      "coefficient": 0.2117504851663752,
+      "standard_error": 0.07332690374398824,
+      "p_two_sided": 0.003879960354536786,
+      "ci95": [
+        0.06803239473032299,
+        0.3554685756024274
+      ],
+      "ci9833": [
+        0.03620735882003104,
+        0.38729361151271935
+      ],
+      "r_squared": 0.30609064308705314,
+      "doubled_followers_percent": 15.809249619304389,
+      "doubled_followers_ci95_percent": [
+        4.828601379805986,
+        27.940105284758477
+      ],
+      "observed_partial_f2": 0.17962284612038867,
+      "breusch_pagan_p": 0.0008909953044390079,
+      "jarque_bera_p": 2.4938269143684657e-09,
+      "cooks_above_4_over_n": 8,
+      "vif": {
+        "Intercept": 128.13238536919476,
+        "C(Position_Group)[T.Offensive line]": 1.266154886413851,
+        "C(Position_Group)[T.Quarterback]": 1.3248296205699812,
+        "C(Position_Group)[T.Skill offense]": 1.2029785692190036,
+        "x": 1.4423951724580548,
+        "Stars_C": 1.3048788206868849,
+        "Freshman_Flag": 1.2547546379425794,
+        "Stars_C:Freshman_Flag": 1.2353048534665427
+      }
+    },
+    {
+      "model": "Position groups school clustered",
+      "formula": "y ~ x + Stars_C * Freshman_Flag + C(Position_Group)",
+      "n": 100,
+      "schools": 39,
+      "coefficient": 0.27392537004525946,
+      "standard_error": 0.07573777336851469,
+      "p_two_sided": 0.0008641689416814261,
+      "ci95": [
+        0.12060226365035095,
+        0.42724847644016795
+      ],
+      "ci9833": [
+        0.08423150094704399,
+        0.4636192391434749
+      ],
+      "r_squared": 0.354885726439782,
+      "doubled_followers_percent": 20.90931283809705,
+      "doubled_followers_ci95_percent": [
+        8.718862268938722,
+        34.46665671332661
+      ],
+      "observed_partial_f2": 0.31569470435890745,
+      "breusch_pagan_p": 0.00037320296347688936,
+      "jarque_bera_p": 5.691831859926385e-08,
+      "cooks_above_4_over_n": 9,
+      "vif": {
+        "Intercept": 111.55603975527859,
+        "C(Position_Group)[T.Offensive line]": 1.2529432200891244,
+        "C(Position_Group)[T.Quarterback]": 1.3222067899040941,
+        "C(Position_Group)[T.Skill offense]": 1.2294578344972262,
+        "x": 1.4870231250199129,
+        "Stars_C": 1.3469689651326033,
+        "Freshman_Flag": 1.2487827191214602,
+        "Stars_C:Freshman_Flag": 1.2211950752004312
+      }
+    }
+  ],
+  "power": [
+    {
+      "partial_f2": 0.02,
+      "total_predictors": 8,
+      "tested_terms": 1,
+      "required_n": 527,
+      "power_at_100": 0.1582635406030891
+    },
+    {
+      "partial_f2": 0.05,
+      "total_predictors": 8,
+      "tested_terms": 1,
+      "required_n": 213,
+      "power_at_100": 0.4234461506512007
+    },
+    {
+      "partial_f2": 0.15,
+      "total_predictors": 8,
+      "tested_terms": 1,
+      "required_n": 74,
+      "power_at_100": 0.921852577277463
+    }
+  ],
+  "references": {
+    "NCAA": "https://www.ncaa.org/about-us/history/",
+    "robust_covariance": "https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.RegressionResults.get_robustcov_results.html"
+  }
+}
