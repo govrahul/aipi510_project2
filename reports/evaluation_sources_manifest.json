@@ -1,0 +1,544 @@
+{
+  "sources": [
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_recruits/cfb_recruits_2012.parquet",
+      "file": "football_recruits/cfb_recruits_2012.parquet",
+      "rows": 3043,
+      "bytes": 59478,
+      "sha256": "369f780bf3157fc683111b17f6efa1a179be266edf7a7448dbfb1127e650b0d0",
+      "retrieved_at": "2026-11-01T20:44:16.009035+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2012.parquet",
+      "file": "football_rosters/cfb_rosters_2012.parquet",
+      "rows": 8288,
+      "bytes": 777493,
+      "sha256": "217316838c6b62c85ec0a2a3e2c0b325c5b2b1df8d6cb9c67eeff18c6577c4da",
+      "retrieved_at": "2026-11-01T20:44:16.040200+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_player_value/mbb_player_value_2012.parquet",
+      "file": "basketball_values/mbb_player_value_2012.parquet",
+      "rows": 5377,
+      "bytes": 201354,
+      "sha256": "bd876c8d313f9388bc2bab6386c1d2859b3c48c2e88a6929a4bd21f6481369e1",
+      "retrieved_at": "2026-11-01T20:44:16.009064+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_recruits/cfb_recruits_2013.parquet",
+      "file": "football_recruits/cfb_recruits_2013.parquet",
+      "rows": 3414,
+      "bytes": 64543,
+      "sha256": "5962cd0e205e7904cc5a4ec9adf8e0b47a2cfd02a95f1cf1eb54da6f0c48be83",
+      "retrieved_at": "2026-11-01T20:44:16.008989+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2013.parquet",
+      "file": "football_rosters/cfb_rosters_2013.parquet",
+      "rows": 8836,
+      "bytes": 834447,
+      "sha256": "5b0a80eb293ff0bb81111838245eb0df7c7e7c5b2f340b91179caf04485a9b7b",
+      "retrieved_at": "2026-11-01T20:44:16.901964+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_player_value/mbb_player_value_2013.parquet",
+      "file": "basketball_values/mbb_player_value_2013.parquet",
+      "rows": 5622,
+      "bytes": 211312,
+      "sha256": "86877ba23f4befd7bfc93474d6366f4e8f86251e0f87754a40034112bd9b1192",
+      "retrieved_at": "2026-11-01T20:44:16.926579+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_recruits/cfb_recruits_2014.parquet",
+      "file": "football_recruits/cfb_recruits_2014.parquet",
+      "rows": 3898,
+      "bytes": 74439,
+      "sha256": "7c4ad1c9ee4c72beb55b1aaf65193e4f01fa07e01960ba015a2bc05346af1728",
+      "retrieved_at": "2026-11-01T20:44:16.837937+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2014.parquet",
+      "file": "football_rosters/cfb_rosters_2014.parquet",
+      "rows": 22417,
+      "bytes": 1994506,
+      "sha256": "fd6f7251a9d5708be78c6a90781c60e245ce6c54cb2227ddeb38ed64d484b248",
+      "retrieved_at": "2026-11-01T20:44:17.008208+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_player_value/mbb_player_value_2014.parquet",
+      "file": "basketball_values/mbb_player_value_2014.parquet",
+      "rows": 8161,
+      "bytes": 298785,
+      "sha256": "899bce55d6f0595ae27d4d956d353409d33386515d5783381d9b089c7056ac09",
+      "retrieved_at": "2026-11-01T20:44:17.702810+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_recruits/cfb_recruits_2015.parquet",
+      "file": "football_recruits/cfb_recruits_2015.parquet",
+      "rows": 3862,
+      "bytes": 73594,
+      "sha256": "ca34b28e7b524659d66c9905b6d3061137f6e5696f00b3050379eb7b85d767f3",
+      "retrieved_at": "2026-11-01T20:44:17.603133+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2015.parquet",
+      "file": "football_rosters/cfb_rosters_2015.parquet",
+      "rows": 22764,
+      "bytes": 2065717,
+      "sha256": "0b982510d4c89ca1299fde1046681ba95c7f0148193bc401aa2b96b2b47d2de2",
+      "retrieved_at": "2026-11-01T20:44:18.000322+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_player_value/mbb_player_value_2015.parquet",
+      "file": "basketball_values/mbb_player_value_2015.parquet",
+      "rows": 8290,
+      "bytes": 306141,
+      "sha256": "eb1dbfda2b7ad7c369937338845f8565a0f980c104be47aec0e5470e66490bd3",
+      "retrieved_at": "2026-11-01T20:44:17.897560+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_recruits/cfb_recruits_2016.parquet",
+      "file": "football_recruits/cfb_recruits_2016.parquet",
+      "rows": 4316,
+      "bytes": 82825,
+      "sha256": "a8e1383814a8ba9f3049877e8f14664618fbdb804de4b3fadb8cacc7269d69c5",
+      "retrieved_at": "2026-11-01T20:44:18.519944+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2016.parquet",
+      "file": "football_rosters/cfb_rosters_2016.parquet",
+      "rows": 23660,
+      "bytes": 2230755,
+      "sha256": "808be7b003f7ca4a6cc5edcf40f9ae8c12cf74ab2b014c6b7aefd99a79ef3cbd",
+      "retrieved_at": "2026-11-01T20:44:18.672383+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_player_value/mbb_player_value_2016.parquet",
+      "file": "basketball_values/mbb_player_value_2016.parquet",
+      "rows": 8438,
+      "bytes": 311712,
+      "sha256": "c8f07c71644b447485427c81790bfa1ea65bc86cd80a92a54c00f7a4f0fc22ec",
+      "retrieved_at": "2026-11-01T20:44:18.610265+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_recruits/cfb_recruits_2017.parquet",
+      "file": "football_recruits/cfb_recruits_2017.parquet",
+      "rows": 4311,
+      "bytes": 83051,
+      "sha256": "a564290a3011c54474a582342ecd8f074cff61d67e8ef79b7c872d01c8f888b8",
+      "retrieved_at": "2026-11-01T20:44:18.665509+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2017.parquet",
+      "file": "football_rosters/cfb_rosters_2017.parquet",
+      "rows": 23142,
+      "bytes": 2254234,
+      "sha256": "db8e5266ddb4c952acc1666259172a919489cde8bcd3a283722641f4b5fa4b30",
+      "retrieved_at": "2026-11-01T20:44:19.481099+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_player_value/mbb_player_value_2017.parquet",
+      "file": "basketball_values/mbb_player_value_2017.parquet",
+      "rows": 8575,
+      "bytes": 318496,
+      "sha256": "1fb028a711b2692ff7004da7895b0dfb3ee18a731c680568f2d91ce6f9c7765c",
+      "retrieved_at": "2026-11-01T20:44:19.508206+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_recruits/cfb_recruits_2018.parquet",
+      "file": "football_recruits/cfb_recruits_2018.parquet",
+      "rows": 3932,
+      "bytes": 89654,
+      "sha256": "0eb20aaf90ddcd6227a86465a9cdb500c214a1aa9832e3b5cfe70c155cb0e9ab",
+      "retrieved_at": "2026-11-01T20:44:19.500257+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2018.parquet",
+      "file": "football_rosters/cfb_rosters_2018.parquet",
+      "rows": 24101,
+      "bytes": 2499672,
+      "sha256": "122ebb440e5fe00c7d33ae0b7dd67c7959cc712f37ddb035caf77169493a682c",
+      "retrieved_at": "2026-11-01T20:44:19.650543+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_player_value/mbb_player_value_2018.parquet",
+      "file": "basketball_values/mbb_player_value_2018.parquet",
+      "rows": 8723,
+      "bytes": 326052,
+      "sha256": "b38ce72e4f9a9e956b1e28388e6f9a082bba2ac2e08d67fe71c84802a176fb1f",
+      "retrieved_at": "2026-11-01T20:44:20.200551+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_recruits/cfb_recruits_2019.parquet",
+      "file": "football_recruits/cfb_recruits_2019.parquet",
+      "rows": 4085,
+      "bytes": 78232,
+      "sha256": "41d6ecbcdd4505cc6faff9b0133cb37ca73f63ff0a4cfadb98303ad7590763e7",
+      "retrieved_at": "2026-11-01T20:44:20.129531+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2019.parquet",
+      "file": "football_rosters/cfb_rosters_2019.parquet",
+      "rows": 24229,
+      "bytes": 2593846,
+      "sha256": "eed85ffb6f98aee17775c114fba5503ba18388711d4aa14da1bc935ec1003d7e",
+      "retrieved_at": "2026-11-01T20:44:20.341976+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_player_value/mbb_player_value_2019.parquet",
+      "file": "basketball_values/mbb_player_value_2019.parquet",
+      "rows": 8649,
+      "bytes": 321786,
+      "sha256": "2c4d9e221701ed561b1b85f944b5d8ec51c473aa6d87c18230de8ca062c662e5",
+      "retrieved_at": "2026-11-01T20:44:20.210279+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_recruits/cfb_recruits_2020.parquet",
+      "file": "football_recruits/cfb_recruits_2020.parquet",
+      "rows": 4041,
+      "bytes": 75858,
+      "sha256": "afd88697b804df672da1e90a87b2819325a861dda37c04070b41bf265fc17d18",
+      "retrieved_at": "2026-11-01T20:44:20.681034+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2020.parquet",
+      "file": "football_rosters/cfb_rosters_2020.parquet",
+      "rows": 16947,
+      "bytes": 1896695,
+      "sha256": "1d3288b690e012ae82b1474f0d2e7e2833e0b3c942db539252e1a1dd98008356",
+      "retrieved_at": "2026-11-01T20:44:21.114245+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_player_value/mbb_player_value_2020.parquet",
+      "file": "basketball_values/mbb_player_value_2020.parquet",
+      "rows": 8750,
+      "bytes": 324467,
+      "sha256": "8ea199d062df01bd65a119852ac8b5cdf018e2b9083aa2c891db8cd9a6b8c371",
+      "retrieved_at": "2026-11-01T20:44:21.023076+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_recruits/cfb_recruits_2021.parquet",
+      "file": "football_recruits/cfb_recruits_2021.parquet",
+      "rows": 3782,
+      "bytes": 72951,
+      "sha256": "bf23c68a959a256b77ccc5bfff2aa083c20647d8b1628314a1fe1c1324384e66",
+      "retrieved_at": "2026-11-01T20:44:21.085060+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2021.parquet",
+      "file": "football_rosters/cfb_rosters_2021.parquet",
+      "rows": 26846,
+      "bytes": 2911028,
+      "sha256": "fcaff39acadcc875c00eec492f9b76a0249606596cc8bcb2d3b758dcbd2e48eb",
+      "retrieved_at": "2026-11-01T20:44:22.115896+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_player_value/mbb_player_value_2021.parquet",
+      "file": "basketball_values/mbb_player_value_2021.parquet",
+      "rows": 6837,
+      "bytes": 260083,
+      "sha256": "33da5435524dfefd72e4829a13d73e77ffb45d07468e777af502a91291c9128c",
+      "retrieved_at": "2026-11-01T20:44:21.704977+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_recruits/cfb_recruits_2022.parquet",
+      "file": "football_recruits/cfb_recruits_2022.parquet",
+      "rows": 3487,
+      "bytes": 68014,
+      "sha256": "4a24bc8960cf6d8ae84de874a536121e2dee064eb1fa7d9f7eb365107431ffcc",
+      "retrieved_at": "2026-11-01T20:44:21.704707+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2022.parquet",
+      "file": "football_rosters/cfb_rosters_2022.parquet",
+      "rows": 26415,
+      "bytes": 2910388,
+      "sha256": "fc922f14f018bc173a62e92d4884eec0d8ea8296e21a25f2d501aca1d8fc3a64",
+      "retrieved_at": "2026-11-01T20:44:21.899205+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_player_value/mbb_player_value_2022.parquet",
+      "file": "basketball_values/mbb_player_value_2022.parquet",
+      "rows": 9359,
+      "bytes": 345833,
+      "sha256": "8cf1a86c97dbca79cc593ddc71d7f64c0fd67f7daacbc694d03b80ef03d072a5",
+      "retrieved_at": "2026-11-01T20:44:22.328223+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_recruits/cfb_recruits_2023.parquet",
+      "file": "football_recruits/cfb_recruits_2023.parquet",
+      "rows": 3910,
+      "bytes": 75698,
+      "sha256": "e785e3178057679a9b701159d3c185fb55149e33d5cb88ef0d8952f9704b1772",
+      "retrieved_at": "2026-11-01T20:44:22.292724+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2023.parquet",
+      "file": "football_rosters/cfb_rosters_2023.parquet",
+      "rows": 26375,
+      "bytes": 2891406,
+      "sha256": "69ad163542a244b80b049332d033994d69e0a35367c3bfff197d1f705c005d69",
+      "retrieved_at": "2026-11-01T20:44:22.777340+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_player_value/mbb_player_value_2023.parquet",
+      "file": "basketball_values/mbb_player_value_2023.parquet",
+      "rows": 9717,
+      "bytes": 359389,
+      "sha256": "c3526fc1bef766e3028307115672d05606b3ef191afdf4fac8926d29164227cc",
+      "retrieved_at": "2026-11-01T20:44:22.814594+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_recruits/cfb_recruits_2024.parquet",
+      "file": "football_recruits/cfb_recruits_2024.parquet",
+      "rows": 4012,
+      "bytes": 75728,
+      "sha256": "5f0c569b4c270b2c781ed0d07c17d733e53da8fb3ebab7c4e5342fd38848d8af",
+      "retrieved_at": "2026-11-01T20:44:22.955802+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2024.parquet",
+      "file": "football_rosters/cfb_rosters_2024.parquet",
+      "rows": 27477,
+      "bytes": 3024022,
+      "sha256": "5ecad4dd196b45203fd37d3f845c6ad596682212ea3c3a2470cd3eb7c40aa8db",
+      "retrieved_at": "2026-11-01T20:44:23.233711+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_player_value/mbb_player_value_2024.parquet",
+      "file": "basketball_values/mbb_player_value_2024.parquet",
+      "rows": 9838,
+      "bytes": 363696,
+      "sha256": "0db599a491ec01c63173a824b31f6a451c8fe1e7310c543a958edf1c5c714627",
+      "retrieved_at": "2026-11-01T20:44:23.387431+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_recruits/cfb_recruits_2025.parquet",
+      "file": "football_recruits/cfb_recruits_2025.parquet",
+      "rows": 4171,
+      "bytes": 76006,
+      "sha256": "a1e1a5e6896d9b45d20f5683156e6a0084e6f88b9226989977c3e523ec254f92",
+      "retrieved_at": "2026-11-01T20:44:23.329672+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2025.parquet",
+      "file": "football_rosters/cfb_rosters_2025.parquet",
+      "rows": 26327,
+      "bytes": 2948193,
+      "sha256": "087aec645b7d5edac3cb52d61f631c780b61fa7ffcf0f459c1002c604b1b4b25",
+      "retrieved_at": "2026-11-01T20:44:23.880154+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_player_value/mbb_player_value_2025.parquet",
+      "file": "basketball_values/mbb_player_value_2025.parquet",
+      "rows": 9795,
+      "bytes": 365983,
+      "sha256": "0a210e51870c7faffd87651fba719978f1f44615bb9f31680ef384061ea0ea0e",
+      "retrieved_at": "2026-11-01T20:44:23.945415+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_recruits/cfb_recruits_2026.parquet",
+      "file": "football_recruits/cfb_recruits_2026.parquet",
+      "rows": 4453,
+      "bytes": 75718,
+      "sha256": "ee5959ecbb7d0db10a09b819822a6f6003db351da8c24fa183b3fa084c5c33e9",
+      "retrieved_at": "2026-11-01T20:44:23.874346+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_cfb_rosters/cfb_rosters_2026.parquet",
+      "file": "football_rosters/cfb_rosters_2026.parquet",
+      "rows": 26094,
+      "bytes": 2861033,
+      "sha256": "97eefdbcd9bc0f7d3e300cf3bcb6ae86da2a4ca4d15f354f0748325ff507c8d7",
+      "retrieved_at": "2026-11-01T20:44:24.404724+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/mbb_player_value/mbb_player_value_2026.parquet",
+      "file": "basketball_values/mbb_player_value_2026.parquet",
+      "rows": 9990,
+      "bytes": 370726,
+      "sha256": "75c69fd2ed96d7605f354205ce14940dbc89258b9d0bf5007e7dbcbf9ec67700",
+      "retrieved_at": "2026-11-01T20:44:24.755057+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nba_stats_draft/draft_2019.parquet",
+      "file": "nba_stats_draft/draft_2019.parquet",
+      "rows": 60,
+      "bytes": 7742,
+      "sha256": "c354952da11e9fd326a6b79206926a9efdaa2897567d28cb44ba62a0674ec070",
+      "retrieved_at": "2026-11-01T20:44:24.492060+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_draft/draft_2018.parquet",
+      "file": "espn_nba_draft/draft_2018.parquet",
+      "rows": 60,
+      "bytes": 23764,
+      "sha256": "8849a317b5ef73a0f1292243768d61405223fe1dbcc03c91f9e4e8605b990ed3",
+      "retrieved_at": "2026-11-01T20:44:24.535300+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nba_stats_draft/draft_2020.parquet",
+      "file": "nba_stats_draft/draft_2020.parquet",
+      "rows": 60,
+      "bytes": 7824,
+      "sha256": "f1f68f028a7874b20446cb989aaf53982e056fcbbeeffcf4f257296b4b56377b",
+      "retrieved_at": "2026-11-01T20:44:24.900273+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_draft/draft_2019.parquet",
+      "file": "espn_nba_draft/draft_2019.parquet",
+      "rows": 60,
+      "bytes": 24007,
+      "sha256": "f8dc1a0d5d2c0520b51052abdb5f8114be591dca5eb9debfebbea95dd0b80ff9",
+      "retrieved_at": "2026-11-01T20:44:25.227786+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nba_stats_draft/draft_2021.parquet",
+      "file": "nba_stats_draft/draft_2021.parquet",
+      "rows": 60,
+      "bytes": 7963,
+      "sha256": "aaf15c0b5fd0e60f57b87d90705de97e6d3f9fa8b076a81e1e5a63fbfcbe5bc0",
+      "retrieved_at": "2026-11-01T20:44:25.219369+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_draft/draft_2020.parquet",
+      "file": "espn_nba_draft/draft_2020.parquet",
+      "rows": 60,
+      "bytes": 23369,
+      "sha256": "ee03c4a2b62012257adacd855c4d00ef7779ba6fbd38e1f298296e04505a58a1",
+      "retrieved_at": "2026-11-01T20:44:25.341706+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nba_stats_draft/draft_2022.parquet",
+      "file": "nba_stats_draft/draft_2022.parquet",
+      "rows": 60,
+      "bytes": 7743,
+      "sha256": "4e18020c5bcd94ef8bd22309b6fcf2897e5b5757b406026f7e571d3ca48e0311",
+      "retrieved_at": "2026-11-01T20:44:25.484532+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_draft/draft_2021.parquet",
+      "file": "espn_nba_draft/draft_2021.parquet",
+      "rows": 60,
+      "bytes": 23132,
+      "sha256": "e620e7453b9dd79ae5e77b35e969f6cfe09af3ade9d78267830c94b1591ab9d4",
+      "retrieved_at": "2026-11-01T20:44:25.840661+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nba_stats_draft/draft_2023.parquet",
+      "file": "nba_stats_draft/draft_2023.parquet",
+      "rows": 58,
+      "bytes": 7777,
+      "sha256": "69b6c6f02fadf33d1ff3b21c2c5e785adaf804c0a6f15c3ab46c65da40c4e94f",
+      "retrieved_at": "2026-11-01T20:44:25.834875+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_draft/draft_2022.parquet",
+      "file": "espn_nba_draft/draft_2022.parquet",
+      "rows": 60,
+      "bytes": 23049,
+      "sha256": "02b4aca960d63366d68d4d2eed55f04175ae7be7e6b1fabe8e0f06f2c0a4a554",
+      "retrieved_at": "2026-11-01T20:44:25.929773+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nba_stats_draft/draft_2024.parquet",
+      "file": "nba_stats_draft/draft_2024.parquet",
+      "rows": 58,
+      "bytes": 7682,
+      "sha256": "ffb46081f1eacc21f701617f1fe9812ef7fa9a437f01bcc0dda0e9c1edbd8aa6",
+      "retrieved_at": "2026-11-01T20:44:26.099363+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_draft/draft_2023.parquet",
+      "file": "espn_nba_draft/draft_2023.parquet",
+      "rows": 60,
+      "bytes": 17594,
+      "sha256": "05b20450dee20b80fe411c75728a8c90422a7741ad23ac9aa40d2e09cefa1216",
+      "retrieved_at": "2026-11-01T20:44:26.419123+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nba_stats_draft/draft_2025.parquet",
+      "file": "nba_stats_draft/draft_2025.parquet",
+      "rows": 58,
+      "bytes": 7829,
+      "sha256": "e3a610fdb0662ab29486443824257180b8c9fd31d8704bf314dc77f9285de0e6",
+      "retrieved_at": "2026-11-01T20:44:26.397645+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_draft/draft_2024.parquet",
+      "file": "espn_nba_draft/draft_2024.parquet",
+      "rows": 60,
+      "bytes": 23069,
+      "sha256": "851f13a64a51d759d8c7ee22fa17ede25646e835bae04258c2ac72f7aca61c29",
+      "retrieved_at": "2026-11-01T20:44:26.428386+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nba_stats_draft/draft_2026.parquet",
+      "file": "nba_stats_draft/draft_2026.parquet",
+      "rows": 59,
+      "bytes": 7876,
+      "sha256": "1b1c9ac81564fc832524ee306d250b11923000c401cbd4a1e3d4f950eb7bc64e",
+      "retrieved_at": "2026-11-01T20:44:26.626382+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_draft/draft_2025.parquet",
+      "file": "espn_nba_draft/draft_2025.parquet",
+      "rows": 60,
+      "bytes": 16689,
+      "sha256": "675d13fb590825824db18b3102c4e59bda0dd3a47c77103d2578394b00b11e60",
+      "retrieved_at": "2026-11-01T20:44:26.939002+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nba_stats_draft/draft_2027.parquet",
+      "file": "nba_stats_draft/draft_2027.parquet",
+      "rows": 60,
+      "bytes": 7837,
+      "sha256": "e53eb40122fff2702a5a7c09717ce21cc90f2d8b0143f87570779e545ef83dd6",
+      "retrieved_at": "2026-11-01T20:44:26.914628+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_draft/draft_2026.parquet",
+      "file": "espn_nba_draft/draft_2026.parquet",
+      "rows": 60,
+      "bytes": 15097,
+      "sha256": "504c19e686b966c84e75be2273f11d7b667fafda1020e9e384202a6b835c367c",
+      "retrieved_at": "2026-11-01T20:44:26.938934+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_groups/cfb_team_group_seasons_2025.parquet",
+      "file": "football_groups/cfb_team_group_seasons_2025.parquet",
+      "rows": 679,
+      "bytes": 12321,
+      "sha256": "d39e353584ed946539dad86d8de7da961e990c7a4b14c78d679cebb16955598c",
+      "retrieved_at": "2026-11-01T20:44:27.310465+00:00"
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/cfb_groups/cfb_team_group_seasons_2026.parquet",
+      "file": "football_groups/cfb_team_group_seasons_2026.parquet",
+      "rows": 682,
+      "bytes": 12380,
+      "sha256": "6995b2fbcdf2bd0582ac7b6560f920ebe7ad3343bfa933907d9d3770320d6169",
+      "retrieved_at": "2026-11-01T20:44:27.459925+00:00"
+    },
+    {
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.parquet",
+      "file": "nfl_draft/draft_picks.parquet",
+      "rows": 12927,
+      "bytes": 700680,
+      "sha256": "3f0568877bec59c6d6d3709bf4bc0bfaf0b55f3854a328b3e8c06accf7bf794b",
+      "retrieved_at": "2026-11-01T20:44:27.603366+00:00"
+    }
+  ],
+  "requested_window": [
+    2012,
+    2026
+  ],
+  "nba_draft_rows": 533,
+  "nba_draft_agreement": 39,
+  "limits": [
+    "Football recruit export does not retain HS/JUCO classification; not verified HS ratings.",
+    "Observed college seasons are lower bounds, not confirmed career duration.",
+    "NBA draft no-match is not a verified undrafted outcome.",
+    "Secondary ESPN export disagrees frequently on pick order; NBA Stats values retained with review flags."
+  ]
+}

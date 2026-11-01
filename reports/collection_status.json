@@ -17,5 +17,7 @@
   "current_basketball_sampling_design": "1000 total; 250 per full-frame NIL quartile; builder implemented, real NIL frame still missing",
   "historical_comparator_samples": "Four provisional 1000-athlete samples, 250 per production-proxy quartile; football offensive positions only; historical followers missing",
   "actual_instagram_collection": "not performed: verified handles and credentials unavailable; collection/replay code added",
-  "historical_metric_status": "provisional production sampling metric; awaiting user preference, not regression outcome"
+  "historical_metric_status": "provisional production sampling metric; awaiting user preference, not regression outcome",
+  "historical_sampling_metric": "High-school recruiting stars then within-provider rating; prior production samples superseded",
+  "evaluation_followup": "See evaluation_collection_audit.json: historical/current draft and basketball BPM layers collected; HS recruiting incomplete; career duration/overseas mostly unknown"
 }

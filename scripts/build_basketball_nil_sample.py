@@ -64,6 +64,7 @@ if __name__ == '__main__':
         default=ROOT / 'Data/private/basketball/division_i_player_team_season_2026.csv')
     parser.add_argument('--output', type=Path,
         default=ROOT / 'Data/private/basketball/basketball_nil_quartiles_1000.csv')
+    parser.add_argument('--evaluation-frame', type=Path,help='Enriched ESPN player-team frame; join only reviewed performance identities')
     parser.add_argument('--source-url', required=True)
     parser.add_argument('--nil-observed-at', required=True)
     args = parser.parse_args()
@@ -73,6 +74,9 @@ if __name__ == '__main__':
         datetime.fromisoformat(args.nil_observed_at)
         result, audit = build(pd.read_csv(args.nil_frame, dtype={'athlete_id': 'string'}),
                               pd.read_csv(args.performance, dtype={'athlete_id': 'string'}))
+        if args.evaluation_frame:
+            from enrich_player_evaluations import join_evaluation_to_nil
+            result=join_evaluation_to_nil(result,pd.read_csv(args.evaluation_frame))
         result['NIL_Source_URL'], result['NIL_Observed_At'] = args.source_url, args.nil_observed_at
         audit.update(nil_source_url=args.source_url, nil_observed_at=args.nil_observed_at,
                      input_sha256=hashlib.sha256(args.nil_frame.read_bytes()).hexdigest(),

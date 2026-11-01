@@ -1,3 +1,5 @@
+> **Superseding historical design:** Sam subsequently chose high-school recruiting stars. The production-quartile comparator samples described below are retained only as provisional legacy artifacts. The new source collection, star-sampling requirements and career enrichment are documented in [recruiting_and_career_evaluation.md](recruiting_and_career_evaluation.md). Current basketball still uses 250 per NIL quartile.
+
 # Revised sampling and Instagram collection
 
 Updated November 1, 2026. Sam revised the intended final basketball sample to **1,000 athletes, 250 per NIL valuation quartile**, sorted by stratum. This supersedes the earlier 100-player 25/50/25 plan for new basketball work. The inherited football sample is still 100 players with the old allocation; it was not silently changed.

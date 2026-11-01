@@ -2,6 +2,8 @@
 
 Basketball cohort 2018 uses ending-season key 2019, and cohort 2019 key 2020.
 Football uses season keys 2018 and 2019. Historical followers are not supplied.
+Default collects source frames only. Recruiting-based sampling is handled by
+enrich_player_evaluations.py; --legacy-production-samples reproduces the old proxy.
 """
 import argparse
 from datetime import datetime, timezone
@@ -146,8 +148,12 @@ def run(args):
                     {'G':'G', 'PG':'G', 'SG':'G', 'F':'F', 'SF':'F', 'PF':'F', 'C':'C'})
                 frame['Production_Percentile'] = frame.groupby('Sampling_Position_Group').Recorded_Production.rank(method='average', pct=True)
                 frame.to_csv(folder / 'player_season_frame.csv', index=False)
-                sample, sampling_audit = prepare_candidate_sample(frame, sport, cohort)
-                sample.to_csv(folder / 'provisional_quartile_sample_1000.csv', index=False)
+                if args.legacy_production_samples:
+                    sample, sampling_audit = prepare_candidate_sample(frame, sport, cohort)
+                    sample.to_csv(folder / 'provisional_quartile_sample_1000.csv', index=False)
+                else:
+                    sample = None
+                    sampling_audit = dict(status='source_frame_only_use_verified_HS_recruiting_pipeline',candidate_frame_rows=0,sample_rows=0)
                 reports.append(dict(sport=sport, cohort=cohort, source_season=season,
                                     rows=len(frame), audit=audit, sampling=sampling_audit, sources=[meta, group_meta]))
             else:
@@ -157,10 +163,16 @@ def run(args):
                 frame = football_frame(pd.read_parquet(raw), pd.read_parquet(roster), pd.read_parquet(groups), cohort)
                 frame['Source_Response_SHA256'] = meta['sha256']
                 frame.to_csv(folder / 'player_season_frame.csv', index=False)
-                sample, sampling_audit = prepare_candidate_sample(frame, sport, cohort)
-                sample.to_csv(folder / 'provisional_quartile_sample_1000.csv', index=False)
+                if args.legacy_production_samples:
+                    sample, sampling_audit = prepare_candidate_sample(frame, sport, cohort)
+                    sample.to_csv(folder / 'provisional_quartile_sample_1000.csv', index=False)
+                else:
+                    sample = None
+                    sampling_audit = dict(status='source_frame_only_use_verified_HS_recruiting_pipeline',candidate_frame_rows=0,sample_rows=0)
                 reports.append(dict(sport=sport, cohort=cohort, source_season=cohort,
                                     rows=len(frame), sampling=sampling_audit, sources=[meta, group_meta, roster_meta]))
+            if sample is None:
+                continue
             leading = ['Sample_Row', 'Quartile', 'Sport', 'Cohort_Year', 'Player_Name', 'College',
                        'Position', 'athlete_id', 'Production_Metric', 'Recorded_Production',
                        'Production_Percentile', 'Selection_Probability', 'Sampling_Weight',
@@ -173,7 +185,7 @@ def run(args):
     (args.outdir / 'collection_manifest.json').write_text(json.dumps(reports, indent=2) + '\n')
     (args.outdir / 'workbook_input.json').write_text(json.dumps(dict(sheets=workbook_sheets,
         summary=[dict(sport=r['sport'], cohort=r['cohort'], source_season=r['source_season'],
-                      eligible=r['sampling']['candidate_frame_rows'], sample=1000) for r in reports])) + '\n')
+                      eligible=r['sampling']['candidate_frame_rows'], sample=r['sampling'].get('sample_rows',0)) for r in reports if r['sampling'].get('sample_rows',0)])) + '\n')
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(json.dumps(reports, indent=2) + '\n')
@@ -186,5 +198,6 @@ if __name__ == '__main__':
     parser.add_argument('--sports', nargs='+', choices=['football', 'basketball'], default=['basketball', 'football'])
     parser.add_argument('--outdir', type=Path, default=ROOT / 'Data/private/comparators')
     parser.add_argument('--report', type=Path)
+    parser.add_argument('--legacy-production-samples',action='store_true',help='Explicitly reproduce the superseded provisional production design')
     args = parser.parse_args()
     run(args)
