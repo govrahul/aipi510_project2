@@ -84,7 +84,7 @@ Historical follower counts and scholarship outcomes remain missing. **Changing t
 Reproduce the source collection and samples:
 
 ```bash
-python scripts/collect_historical_comparators.py --report reports/historical_comparator_collection.json
+python scripts/collect_historical_comparators.py --legacy-production-samples --report reports/historical_comparator_collection.json
 python -m unittest discover -s Tests -v
 ```
 
