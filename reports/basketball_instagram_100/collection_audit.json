@@ -49,61 +49,206 @@
       "Quartile": "Q1_Lowest",
       "selected": 25,
       "sourced_handles": 16,
+      "followers_recorded": 25,
+      "user_reported": 9,
       "direct_display_integer": 16,
       "direct_rounded": 0,
       "provider_reported_integer_unknown_date": 2,
-      "any_source_count": 16,
+      "any_source_count": 25,
+      "missing_follower_count": 0,
       "missing_direct_count": 9
     },
     {
       "Quartile": "Q2_Lower_Middle",
       "selected": 25,
-      "sourced_handles": 20,
+      "sourced_handles": 19,
+      "followers_recorded": 25,
+      "user_reported": 6,
       "direct_display_integer": 19,
       "direct_rounded": 0,
       "provider_reported_integer_unknown_date": 2,
-      "any_source_count": 19,
+      "any_source_count": 25,
+      "missing_follower_count": 0,
       "missing_direct_count": 6
     },
     {
       "Quartile": "Q3_Upper_Middle",
       "selected": 25,
       "sourced_handles": 20,
+      "followers_recorded": 25,
+      "user_reported": 5,
       "direct_display_integer": 20,
       "direct_rounded": 0,
       "provider_reported_integer_unknown_date": 3,
-      "any_source_count": 20,
+      "any_source_count": 25,
+      "missing_follower_count": 0,
       "missing_direct_count": 5
     },
     {
       "Quartile": "Q4_Highest",
       "selected": 25,
       "sourced_handles": 25,
+      "followers_recorded": 25,
+      "user_reported": 0,
       "direct_display_integer": 25,
       "direct_rounded": 0,
       "provider_reported_integer_unknown_date": 1,
       "any_source_count": 25,
+      "missing_follower_count": 0,
       "missing_direct_count": 0
     }
   ],
   "selected": 100,
-  "sourced_handles": 81,
+  "sourced_handles": 80,
+  "follower_counts_complete": true,
+  "followers_recorded": 100,
+  "user_reported": 20,
   "direct_display_integer": 80,
   "direct_rounded": 0,
   "provider_reported_integer_unknown_date": 8,
-  "any_source_count": 80,
+  "any_source_count": 100,
+  "missing_follower_count": 0,
   "missing_direct_count": 20,
   "frozen_sample_sha256": "9cd7286551e1f7d1de3e32df37e1aaa29729dc51a503454b8e488464a2e3afab",
-  "observations_sha256": "317b3f3dbacd759bc5750988de539686d8b440f5a4983b348ae714b101f89575",
+  "observations_sha256": "7748816f7e1b9f17ecece71ac1fa3a4d871e44ebaa29ed0ba36c9896e43d87f8",
   "analysis_ready": false,
   "limitations": [
-    "Missing counts include unverified or unavailable accounts; missing values are not zero.",
+    "Missing source details remain unknown; reported counts do not establish an account handle or observation time.",
     "Rounded direct labels and provider-reported reach are separate fields; provider measurement dates are unknown.",
+    "User-reported counts are labeled separately; account handles, observation times and display precision were not supplied.",
     "Observed counts are not historical pre-NIL measurements.",
     "Current Sideline listing retrieved November 2, 2026 is not established as a 2025-26 cohort.",
     "Source estimates are not verified payments, scholarship decisions, or an independent athletic evaluation.",
-    "Complete-case analysis would break the balanced design; no missing player was replaced."
+    "Original selection is unchanged; no replacements were used. Count completeness does not establish validity of the pre/post research design."
   ],
+  "manual_completion_import": {
+    "rows": 100,
+    "counts_recorded": 100,
+    "missing_counts": 0,
+    "provenance_counts": {
+      "browser_observed": 80,
+      "user_reported": 20
+    },
+    "rows_per_quartile": {
+      "Q4_Highest": 25,
+      "Q3_Upper_Middle": 25,
+      "Q2_Lower_Middle": 25,
+      "Q1_Lowest": 25
+    },
+    "actions": [
+      {
+        "athlete_id": "sideline:b-5462538-imoh-erims",
+        "Player_Name": "Imoh Erims",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5196867-josh-hill",
+        "Player_Name": "Josh Hill",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5313509-isaiah-kalala",
+        "Player_Name": "Isaiah Kalala",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5459808-jr-bartelus",
+        "Player_Name": "JR Bartelus",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5108086-yuto-yamanouchi-williams",
+        "Player_Name": "Yuto Yamanouchi-Williams",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5455071-ali-diouf",
+        "Player_Name": "Ali Diouf",
+        "action": "corroborates_existing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5462443-axton-perry",
+        "Player_Name": "Axton Perry",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5144128-abdou-yadd",
+        "Player_Name": "Abdou Yadd",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5461454-jalen-calloway",
+        "Player_Name": "Jalen Calloway",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5455081-dj-brown",
+        "Player_Name": "DJ Brown",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5455080-landon-krygier",
+        "Player_Name": "Landon Krygier",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5177169-max-frazier",
+        "Player_Name": "Max Frazier",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5312967-jason-kimbrough",
+        "Player_Name": "Jason Kimbrough",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5243345-jalen-tatum",
+        "Player_Name": "Jalen Tatum",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5460725-marko-markovic",
+        "Player_Name": "Marko Markovic",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5243102-jeremy-elyzee",
+        "Player_Name": "Jeremy Elyzee",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5458761-matt-mbole",
+        "Player_Name": "Matt Mbole",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5313175-waqo-tessema",
+        "Player_Name": "Waqo Tessema",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5185239-jabri-fitzpatrick",
+        "Player_Name": "Jabri Fitzpatrick",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5312432-omer-dahan",
+        "Player_Name": "Omer Dahan",
+        "action": "filled_missing_count"
+      },
+      {
+        "athlete_id": "sideline:b-5459257-izaya-larthridge",
+        "Player_Name": "Izaya Larthridge",
+        "action": "filled_missing_count"
+      }
+    ],
+    "source_input_sha256": "317b3f3dbacd759bc5750988de539686d8b440f5a4983b348ae714b101f89575",
+    "manual_input_sha256": "3ceede00536535ba5e5c1f924b81d037248ff8c9df860c5a411f37fa9010b758",
+    "output_sha256": "7748816f7e1b9f17ecece71ac1fa3a4d871e44ebaa29ed0ba36c9896e43d87f8",
+    "original_sample_unchanged": true,
+    "replacements_used": 0,
+    "manual_policy": "Report date is not an observed-at timestamp; no profile URL or display precision inferred"
+  },
   "browser_receipt_import": {
     "rows": 100,
     "updated_rows": [

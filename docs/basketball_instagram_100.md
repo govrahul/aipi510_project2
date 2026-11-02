@@ -10,13 +10,24 @@ sample. No selected player was replaced because their followers were unavailable
 
 ## Observed coverage
 
-| NIL quartile | Selected | Sourced handles | Exact direct Instagram counts | Missing counts |
-|---|---:|---:|---:|---:|
-| Highest | 25 | 25 | 25 | 0 |
-| Upper middle | 25 | 20 | 20 | 5 |
-| Lower middle | 25 | 20 | 19 | 6 |
-| Lowest | 25 | 16 | 16 | 9 |
-| Total | 100 | 81 | 80 | 20 |
+| NIL quartile | Selected | Browser counts | User-reported counts | Recorded counts | Missing counts |
+|---|---:|---:|---:|---:|---:|
+| Highest | 25 | 25 | 0 | 25 | 0 |
+| Upper middle | 25 | 20 | 5 | 25 | 0 |
+| Lower middle | 25 | 19 | 6 | 25 | 0 |
+| Lowest | 25 | 16 | 9 | 25 | 0 |
+| Total | 100 | 80 | 20 | 100 | 0 |
+
+Sam supplied the 20 remaining counts through chat annotations and a
+semicolon-separated list. The completed original cohort is committed as
+`Data/curated/basketball_instagram_100.csv`, with a readable Excel view at
+`Data/curated/basketball_instagram_100.xlsx`. The 21-record manual receipt CSV
+includes Ali Diouf's existing 971 as corroboration, not an additional athlete.
+`Instagram_Count_Provenance` distinguishes 80 `browser_observed` observations
+from 20 `user_reported` entries. Manual account handles, observation timestamps
+and original display precision were not supplied. The report date is November
+2, 2026, not an invented measurement date. No replacements were used; the
+replacement exploration was stopped before adoption.
 
 After the first logged-out pass returned four observations, Sam signed into
 Instagram and explicitly authorized another browser pass in Chrome or Safari.
@@ -29,9 +40,9 @@ three rounded-only observations now have integer tooltip observations.
 
 Opendorse's eight positive reach values remain in separate columns with
 **unknown underlying measurement dates**. All eight now overlap directly
-observed players, so they do not increase coverage beyond 80. One formerly
-sourced handle exposed no usable count; 19 others still lack a confirmed
-account. All 20 remain missing. Same-name actors, a rugby player, a tree-care
+observed players, so they do not add observations. Before the manual reports,
+one formerly sourced handle exposed no usable count and 19 other accounts were
+unresolved. The user reports filled those 20 count gaps. Same-name actors, a rugby player, a tree-care
 business, unrelated students and fan pages were excluded from account matches.
 
 Instagram returned login shells with HTTP 200 for many profiles, including a
@@ -59,9 +70,9 @@ The working data live under `Data/private/basketball_instagram_100/` (ignored).
   sheet, with direct counts, rounded labels, separate provider reach, timestamps,
   source URLs, statuses and source hashes. All 100 selected rows remain ordered
   by NIL stratum/rank.
-- `sample/manual_followup_queue.csv`: 20 rows missing a direct count, with
-  profile links where sourced and blank reviewer/evidence fields.
-- `sample/unresolved_account_reviews.csv`: account-review reasons for those 20.
+- `sample/manual_followup_queue.csv`: now empty of missing-count rows.
+- `sample/unresolved_account_reviews.csv`: historical browser-only account
+  review notes; these are not current missing-count indicators.
 - `sample/basketball_instagram_observations_100_before_browser.csv`: preserved
   first-pass source sheet. `sample/basketball_instagram_browser_100.csv` is the
   reviewed browser-import output copied to the main collection sheet.
@@ -71,8 +82,9 @@ The working data live under `Data/private/basketball_instagram_100/` (ignored).
 - `sample/opendorse_raw/`, `sample/public_instagram_raw/`,
   `profile_evidence_raw/`: cached public source HTML with metadata and hashes.
 
-Code and aggregate audits are committed. Raw market data and bulk source HTML
-remain local rather than being redistributed. Five initial source-reviewed
+Code, aggregate audits and the completed 100-row study extract are committed
+at Sam's explicit request. The full source frame and bulk HTML remain local.
+Five initial source-reviewed
 handle mappings and 33 new browser identity reviews are under
 `replication/basketball_social/`; the larger local
 lookup manifest is `profile_lookup_candidates.csv`. Preserve the local source
@@ -108,12 +120,12 @@ NIL estimates are rounded model outputs, not verified payments, scholarships,
 or a common pre/post athletic-evaluation outcome. The 407 nonnumeric official
 school profile IDs are retained; numeric IDs are only crosswalk candidates.
 
-Direct-count coverage is 100%, 80%, 76% and 64% from the highest to lowest
-quartile. A complete-case regression would therefore change the balanced design
-and target population; the original sampling weights do not repair this
-nonresponse. No basketball regression is fitted from this collection.
-Finish identity/count review across strata, validate season and metric definitions,
-then examine nonresponse before selecting a model. This collection supplies no
+Browser-observed coverage is 100%, 80%, 76% and 64% from the highest to lowest
+quartile; manually reported counts bring recorded coverage to 100% in every
+quartile. Keep these source distinctions in any sensitivity analysis, rather
+than claiming 100 exact browser measurements. No basketball regression is
+fitted from this collection. Validate season, source quality and metric
+definitions before choosing the analysis. This collection supplies no
 2018–2019 followers and does not resolve the common-outcome requirement for a
 pre/post policy comparison.
 
@@ -145,10 +157,21 @@ python3 scripts/collect_public_instagram.py --input Data/private/basketball_inst
 # the main collection sheet. Receipt ledgers are local, ignored evidence.
 python3 scripts/import_instagram_browser_receipts.py --input Data/private/basketball_instagram_100/sample/basketball_instagram_observations_100_before_browser.csv --receipts Data/private/basketball_instagram_100/browser_dom_receipts_80.csv --reviewed replication/basketball_social/browser_reviewed_handle_sources.csv --output /tmp/basketball_browser_replay_100.csv
 
+# Apply the committed manual source reports to the preserved browser sheet.
+python3 scripts/import_manual_basketball_followers.py --input Data/private/basketball_instagram_100/sample/basketball_instagram_browser_100.csv --manual Data/curated/basketball_manual_followers_20261102.csv --output /tmp/basketball_manual_replay_100.csv --audit /tmp/basketball_manual_replay_audit.json
+
 python3 scripts/audit_basketball_social_collection.py --sample-dir Data/private/basketball_instagram_100/sample --output-dir reports/basketball_instagram_100
 
 python3 -m unittest discover -s Tests -p 'test_*.py'
 ```
+
+`scripts/build_basketball_followers_workbook.mjs` builds the Excel view from the
+completed CSV using the bundled `@oai/artifact-tool` runtime. It retains all 100
+records, typed numeric counts and separate source/report/observation fields;
+the CSV retains the complete provenance schema. The manual import rejects
+conflicting existing counts and mismatched athlete IDs/names/schools. The
+completion audit reports 20 filled gaps, one corroboration, 100 populated
+counts, unchanged IDs/strata/NIL values and zero replacements.
 
 Without `--offline`, HTTP collectors make bounded public requests with delays
 and stop on access restrictions. `scripts/collect_instagram_browser.mjs` contains
