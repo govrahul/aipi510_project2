@@ -10,28 +10,38 @@ sample. No selected player was replaced because their followers were unavailable
 
 ## Observed coverage
 
-| NIL quartile | Selected | Sourced handles | Direct Instagram counts | Additional Opendorse counts |
+| NIL quartile | Selected | Sourced handles | Exact direct Instagram counts | Missing counts |
 |---|---:|---:|---:|---:|
-| Highest | 25 | 17 | 4 | 1 |
-| Upper middle | 25 | 13 | 0 | 3 |
-| Lower middle | 25 | 10 | 0 | 2 |
-| Lowest | 25 | 8 | 0 | 2 |
-| Total | 100 | 48 | 4 | 8 |
+| Highest | 25 | 25 | 25 | 0 |
+| Upper middle | 25 | 20 | 20 | 5 |
+| Lower middle | 25 | 20 | 19 | 6 |
+| Lowest | 25 | 16 | 16 | 9 |
+| Total | 100 | 81 | 80 | 20 |
 
-Of the four direct observations, one is an unabbreviated displayed integer and
-three are rounded K/M labels. Opendorse's eight positive integer reach values
-have **unknown underlying measurement dates**. These are separate fields and
-are not substituted for current direct Instagram observations. There are 12
-players with a count from either source, not 100 complete observations.
+After the first logged-out pass returned four observations, Sam signed into
+Instagram and explicitly authorized another browser pass in Chrome or Safari.
+That newer authorization supersedes the earlier logged-out-only preference.
+Using normal signed-in Chrome, **80 exact integer counts** were read from the
+title attributes (tooltips) on the visible followers links. Rounded visible
+labels are retained alongside the integer tooltip, not expanded to invent a
+count. For example, Myles Colvin displayed 13.4K with tooltip 13,472. The earlier
+three rounded-only observations now have integer tooltip observations.
+
+Opendorse's eight positive reach values remain in separate columns with
+**unknown underlying measurement dates**. All eight now overlap directly
+observed players, so they do not increase coverage beyond 80. One formerly
+sourced handle exposed no usable count; 19 others still lack a confirmed
+account. All 20 remain missing. Same-name actors, a rugby player, a tree-care
+business, unrelated students and fan pages were excluded from account matches.
 
 Instagram returned login shells with HTTP 200 for many profiles, including a
 normal Safari inspection. The updated collector stops live retrieval at these
 shells as well as HTTP 403/429. It does not solve verification, log in, change
-settings, read credentials/cookies, or call private APIs. On November 2, Sam
-explicitly chose **keep the collection logged out**. Use only unauthenticated
-public sources; no signed-in collection is authorized. The optional Safari
-Instagram collector has offline parser checks and stops at login; it has not
-collected observations in a signed-in session.
+settings, read credentials/cookies, or call private APIs. The later Chrome pass
+used the session Sam had already signed into; there was no automated login.
+It read public athlete profile fields, not private messages, feeds or follower
+lists. The optional Safari collector was not used for this pass. A browser
+challenge, login redirect or security warning remains a stop condition.
 
 ## Files and source decisions
 
@@ -49,19 +59,29 @@ The working data live under `Data/private/basketball_instagram_100/` (ignored).
   sheet, with direct counts, rounded labels, separate provider reach, timestamps,
   source URLs, statuses and source hashes. All 100 selected rows remain ordered
   by NIL stratum/rank.
-- `sample/manual_followup_queue.csv`: 96 rows missing a direct count, with
+- `sample/manual_followup_queue.csv`: 20 rows missing a direct count, with
   profile links where sourced and blank reviewer/evidence fields.
+- `sample/unresolved_account_reviews.csv`: account-review reasons for those 20.
+- `sample/basketball_instagram_observations_100_before_browser.csv`: preserved
+  first-pass source sheet. `sample/basketball_instagram_browser_100.csv` is the
+  reviewed browser-import output copied to the main collection sheet.
+- `browser_dom_receipts_80.csv`: selected DOM fields exported from browser-tool
+  observations, with row, username, UTC time, rounded/display label and integer
+  tooltip. This is a local evidence ledger, not a saved HTTP-response body.
 - `sample/opendorse_raw/`, `sample/public_instagram_raw/`,
   `profile_evidence_raw/`: cached public source HTML with metadata and hashes.
 
 Code and aggregate audits are committed. Raw market data and bulk source HTML
-remain local rather than being redistributed. Five additional source-reviewed
-handle mappings are under `replication/basketball_social/`; the larger local
+remain local rather than being redistributed. Five initial source-reviewed
+handle mappings and 33 new browser identity reviews are under
+`replication/basketball_social/`; the larger local
 lookup manifest is `profile_lookup_candidates.csv`. Preserve the local source
 caches when handing off this collection.
 
-Identity checks use named basketball biographies and athlete-specific social
-links, plus Opendorse name/sport/school checks. Team navigation/footer accounts,
+Identity checks use named basketball biographies, athlete-specific social
+links, Opendorse name/sport/school checks, and matching athlete-name/college
+basketball tags in public Instagram biographies. The Jarin Stevenson handle
+was also confirmed in official UNC game notes. Team navigation/footer accounts,
 same-name football players and unverified school mismatches are rejected. Some
 biographies describe an earlier school: an account link establishes source
 evidence, not proof the athlete still uses that account. Review stale aliases
@@ -88,9 +108,10 @@ NIL estimates are rounded model outputs, not verified payments, scholarships,
 or a common pre/post athletic-evaluation outcome. The 407 nonnumeric official
 school profile IDs are retained; numeric IDs are only crosswalk candidates.
 
-The four direct observations all fall in the highest quartile. A complete-case
-regression now would destroy the balanced design and substantially change the
-target population. No basketball regression is fitted from this collection.
+Direct-count coverage is 100%, 80%, 76% and 64% from the highest to lowest
+quartile. A complete-case regression would therefore change the balanced design
+and target population; the original sampling weights do not repair this
+nonresponse. No basketball regression is fitted from this collection.
 Finish identity/count review across strata, validate season and metric definitions,
 then examine nonresponse before selecting a model. This collection supplies no
 2018–2019 followers and does not resolve the common-outcome requirement for a
@@ -118,19 +139,34 @@ python3 scripts/collect_profile_handle_evidence.py --input Data/private/basketba
 
 python3 scripts/build_basketball_handle_inputs.py --sample Data/private/basketball_instagram_100/sample/basketball_sideline_sample_100_frozen.csv --opendorse Data/private/basketball_instagram_100/sample/basketball_opendorse_instagram_100.csv --evidence Data/private/basketball_instagram_100/profile_handle_evidence.json --reviewed replication/basketball_social/reviewed_handle_sources.csv --output Data/private/basketball_instagram_100/sample/basketball_with_handles_100.csv
 
-python3 scripts/collect_public_instagram.py --input Data/private/basketball_instagram_100/sample/basketball_with_handles_100.csv --output Data/private/basketball_instagram_100/sample/basketball_instagram_observations_100.csv --offline
+python3 scripts/collect_public_instagram.py --input Data/private/basketball_instagram_100/sample/basketball_with_handles_100.csv --output Data/private/basketball_instagram_100/sample/basketball_logged_out_replay.csv --offline
+
+# Replay reviewed browser observations without using a browser or overwriting
+# the main collection sheet. Receipt ledgers are local, ignored evidence.
+python3 scripts/import_instagram_browser_receipts.py --input Data/private/basketball_instagram_100/sample/basketball_instagram_observations_100_before_browser.csv --receipts Data/private/basketball_instagram_100/browser_dom_receipts_80.csv --reviewed replication/basketball_social/browser_reviewed_handle_sources.csv --output /tmp/basketball_browser_replay_100.csv
 
 python3 scripts/audit_basketball_social_collection.py --sample-dir Data/private/basketball_instagram_100/sample --output-dir reports/basketball_instagram_100
 
 python3 -m unittest discover -s Tests -p 'test_*.py'
 ```
 
-Without `--offline`, collectors make bounded public requests with delays and
-stop on access restrictions. Sam chose logged-out collection, so do not run a
-signed-in browser pass or request login again. The existing Safari helper is
-retained for code review, not as an instruction to authenticate. Further work
-can use unauthenticated public sources and identity-reviewed source evidence;
-leave unavailable counts missing and retain the frozen selection.
+Without `--offline`, HTTP collectors make bounded public requests with delays
+and stop on access restrictions. `scripts/collect_instagram_browser.mjs` contains
+the Chrome CUA extraction and receipt-export functions used for the authorized
+browser pass. In the Codex CUA runtime, bind a dedicated Instagram tab in the
+user-authorized browser, then call `collectProfileBatch(tab, jobs)` with sourced
+`[Sample_Row, username]` pairs. Export `receiptsCsv(observations)` into a local
+ledger and import it with the Python command above. Browser bindings are supplied
+by Codex; this module is not a standalone headless browser or credential loader.
+Inspect newly discovered account identities before importing their counts.
+
+Instagram search was used for all 52 initially unmatched names. Results were
+candidates only; the 33 newly accepted accounts required school basketball
+affiliation or explicit official-source evidence. Counts from unresolved
+candidates were not attached to study rows. The importer checks reviewed
+athlete IDs, handle matches, integer tooltips, UTC timestamps and unchanged
+sample ordering. Receipt hashes cover the selected-field ledger and per-record
+evidence; no HTTP-response hash is claimed for Chrome DOM observations.
 
 Primary public sources: [Sideline basketball ranking](https://thesideline.co/nil-tracker/top-players/basketball),
 [Opendorse](https://opendorse.com/), and the named official biographies recorded

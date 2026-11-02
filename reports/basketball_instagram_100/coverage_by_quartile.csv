@@ -1,5 +1,5 @@
 Quartile,selected,sourced_handles,direct_display_integer,direct_rounded,provider_reported_integer_unknown_date,any_source_count,missing_direct_count
-Q1_Lowest,25,8,0,0,2,2,25
-Q2_Lower_Middle,25,10,0,0,2,2,25
-Q3_Upper_Middle,25,13,0,0,3,3,25
-Q4_Highest,25,17,1,3,1,5,21
+Q1_Lowest,25,16,16,0,2,16,9
+Q2_Lower_Middle,25,20,19,0,2,19,6
+Q3_Upper_Middle,25,20,20,0,3,20,5
+Q4_Highest,25,25,25,0,1,25,0

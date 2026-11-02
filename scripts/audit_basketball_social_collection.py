@@ -41,13 +41,19 @@ def run(sample_dir, output_dir):
         observations_sha256=hashlib.sha256((sample_dir/'basketball_instagram_observations_100.csv').read_bytes()).hexdigest(),
         analysis_ready=False,
         limitations=[
-            'Instagram login pages halted live retrieval; missing values are not zero.',
+            'Missing counts include unverified or unavailable accounts; missing values are not zero.',
             'Rounded direct labels and provider-reported reach are separate fields; provider measurement dates are unknown.',
             'Observed counts are not historical pre-NIL measurements.',
             'Current Sideline listing retrieved November 2, 2026 is not established as a 2025-26 cohort.',
             'Source estimates are not verified payments, scholarship decisions, or an independent athletic evaluation.',
             'Complete-case analysis would break the balanced design; no missing player was replaced.'
         ])
+    receipt_audit=sample_dir/'basketball_instagram_observations_100.audit.json'
+    if receipt_audit.exists():
+        provenance=json.loads(receipt_audit.read_text())
+        if 'receipts_sha256' in provenance:
+            if provenance['output_sha256']!=report['observations_sha256']:raise ValueError('Browser import hash does not match main sheet')
+            report['browser_receipt_import']=provenance
     output_dir.mkdir(parents=True,exist_ok=True)
     (output_dir/'collection_audit.json').write_text(json.dumps(report,indent=2)+'\n')
     table=pd.DataFrame(coverage);table.to_csv(output_dir/'coverage_by_quartile.csv',index=False)
@@ -56,6 +62,11 @@ def run(sample_dir, output_dir):
         'Instagram_Username','Username_Verification_URL','Instagram_Collection_Note']].copy()
     queue['Instagram_Profile_URL']=queue.Instagram_Username.map(lambda x:f'https://www.instagram.com/{x}/' if pd.notna(x) else None)
     for col in ['Reviewer','Observed_At_UTC','Raw_Follower_Label','Evidence_File','Review_Notes']:queue[col]=None
+    review_file=sample_dir/'unresolved_account_reviews.csv'
+    if review_file.exists():
+        reviews=pd.read_csv(review_file)
+        if reviews.athlete_id.duplicated().any():raise ValueError('Duplicate unresolved-account reviews')
+        queue=queue.merge(reviews[['athlete_id','Review_Status','Review_Note']],on='athlete_id',how='left',validate='one_to_one',sort=False)
     queue.to_csv(sample_dir/'manual_followup_queue.csv',index=False)
     return report
 

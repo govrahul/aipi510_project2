@@ -6,9 +6,11 @@
 
 **Collection update (November 2):** Safari collection now supplies the full
 5,348-listing Sideline basketball frame and a frozen 100-player social-data
-substudy with 25 per NIL quartile. There are 48 sourced Instagram handles,
-four direct counts (three rounded), and eight separate Opendorse counts with
-unknown measurement dates. This is still incomplete for regression. Collection
+substudy with 25 per NIL quartile. Sam's authorized signed-in Chrome pass now
+supplies **80 exact Instagram counts**: 25/25, 20/25, 19/25 and 16/25 from the
+highest to lowest quartile. Twenty remain missing. Eight separate Opendorse
+counts with unknown measurement dates overlap those 80. Account nonresponse
+still needs review before regression. Collection
 code, local-data paths and reproduction steps are in
 [the collection notes](docs/basketball_instagram_100.md); aggregate coverage is
 in [the audit](reports/basketball_instagram_100/collection_audit.json).

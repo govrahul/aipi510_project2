@@ -9,6 +9,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from collect_public_instagram import parse_public_profile, login_required
 from build_basketball_handle_inputs import accepted_profile_links
 from collect_instagram_safari import parse_snapshot
+from import_instagram_browser_receipts import import_receipts
 from prepare_basketball_social_sample import prepare
 from collect_opendorse_instagram import parse_profile
 
@@ -18,6 +19,21 @@ def profile(label,handle='athlete.one'):
 
 
 class PublicSocialTests(unittest.TestCase):
+    def test_browser_import_requires_identity_review_and_preserves_missing_rows(self):
+        import pandas as pd
+        d=pd.DataFrame([dict(Sample_Row=1,athlete_id='fixture:1',Quartile='Q4',Instagram_Username=None,Username_Verification_URL=None,Instagram_Followers=None,Instagram_Followers_Approx=None,Instagram_Observed_At=None),
+                        dict(Sample_Row=2,athlete_id='fixture:2',Quartile='Q1',Instagram_Username=None,Username_Verification_URL=None,Instagram_Followers=None,Instagram_Followers_Approx=None,Instagram_Observed_At=None)])
+        r=pd.DataFrame([dict(Sample_Row=1,username='athlete.one',retrieved_at='2026-11-02T20:00:00Z',display_label='13.4K',integer_tooltip='13,472')])
+        with self.assertRaisesRegex(ValueError,'identity review'):import_receipts(d,r,pd.DataFrame())
+        review=pd.DataFrame([dict(athlete_id='fixture:1',Instagram_Username='athlete.one',Username_Verification_URL='https://fixture.edu/athlete-one',Review_Note='Named basketball biography')])
+        output,changed=import_receipts(d,r,review)
+        self.assertEqual(changed,[1]);self.assertEqual(output.Instagram_Followers.iloc[0],13472)
+        self.assertEqual(output.Instagram_Raw_Label.iloc[0],'13.4K')
+        self.assertTrue(pd.isna(output.Instagram_Followers.iloc[1]));self.assertEqual(output.athlete_id.tolist(),d.athlete_id.tolist())
+        self.assertEqual(output.Quartile.tolist(),d.Quartile.tolist())
+        r.loc[0,'integer_tooltip']='13.4K'
+        with self.assertRaisesRegex(ValueError,'displayed integer'):import_receipts(d,r,review)
+
     def test_rounded_count_is_separate_from_displayed_integer(self):
         rounded=parse_public_profile(profile('37K'),'athlete.one')
         self.assertIsNone(rounded['Instagram_Followers'])
