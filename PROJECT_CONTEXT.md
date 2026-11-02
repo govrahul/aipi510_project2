@@ -1,6 +1,6 @@
 ## Branch naming preference
 
-Sam explicitly requested branch names prefixed `sam/`, not `codex/`. Use `sam/` for future work. The active collection branch is `sam/basketball-instagram-100`, based on main at `9aa0d4a` (Rahul's updated README). Prior PRs #2, #4 and #5 are merged; #3 closed when its branch was renamed. Older status entries below describe their historical state, not outstanding merge requests.
+Sam explicitly requested branch names prefixed `sam/`, not `codex/`. Use `sam/` for future work. The active collection branch is `sam/basketball-instagram-100`, with [PR #8](https://github.com/govrahul/aipi510_project2/pull/8), based on main at `9aa0d4a` (Rahul's updated README). Prior PRs #2, #4 and #5 are merged; #3 closed when its branch was renamed. Older status entries below describe their historical state, not outstanding merge requests.
 
 ## Latest work — Safari basketball NIL frame and 100-player Instagram follow-up
 
