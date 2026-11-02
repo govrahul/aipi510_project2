@@ -27,10 +27,11 @@ players with a count from either source, not 100 complete observations.
 Instagram returned login shells with HTTP 200 for many profiles, including a
 normal Safari inspection. The updated collector stops live retrieval at these
 shells as well as HTTP 403/429. It does not solve verification, log in, change
-settings, read credentials/cookies, or call private APIs. Sam was asked whether
-to sign in manually for a subsequent normal Safari pass. That pass has not yet
-been performed. The optional Safari Instagram collector is covered by offline
-parser checks; its logged-in live collection remains unverified.
+settings, read credentials/cookies, or call private APIs. On November 2, Sam
+explicitly chose **keep the collection logged out**. Use only unauthenticated
+public sources; no signed-in collection is authorized. The optional Safari
+Instagram collector has offline parser checks and stops at login; it has not
+collected observations in a signed-in session.
 
 ## Files and source decisions
 
@@ -125,14 +126,11 @@ python3 -m unittest discover -s Tests -p 'test_*.py'
 ```
 
 Without `--offline`, collectors make bounded public requests with delays and
-stop on access restrictions. If Sam signs in manually in Safari and authorizes
-the next pass, use the dedicated-window collector below. It preserves existing
-observations and stops again on login/challenge pages. Its output is a separate
-candidate file pending review; it does not overwrite the frozen draw.
-
-```sh
-python3 scripts/collect_instagram_safari.py --input Data/private/basketball_instagram_100/sample/basketball_instagram_observations_100.csv --output Data/private/basketball_instagram_100/sample/basketball_instagram_safari_100.csv --max-profiles 100 --delay 5
-```
+stop on access restrictions. Sam chose logged-out collection, so do not run a
+signed-in browser pass or request login again. The existing Safari helper is
+retained for code review, not as an instruction to authenticate. Further work
+can use unauthenticated public sources and identity-reviewed source evidence;
+leave unavailable counts missing and retain the frozen selection.
 
 Primary public sources: [Sideline basketball ranking](https://thesideline.co/nil-tracker/top-players/basketball),
 [Opendorse](https://opendorse.com/), and the named official biographies recorded
