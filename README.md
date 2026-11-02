@@ -2,33 +2,82 @@
 
 **AIPI 510 --- Module Project 2**\
 **Authors:** Rahul Govil and Sam Teshome\
-**Analysis snapshot:** November 1, 2026
+**Analysis snapshot:** November 2, 2026
 
-**Collection update (November 2):** Safari collection now supplies the full
-5,348-listing Sideline basketball frame and a frozen 100-player social-data
-substudy with 25 per NIL quartile. **All 100 original sampled players now have
-Instagram follower counts**: 80 browser observations and 20 manually reported
-by Sam. Each NIL quartile has 25 populated counts, with no replacements.
-The completed [CSV](Data/curated/basketball_instagram_100.csv) and
-[Excel view](Data/curated/basketball_instagram_100.xlsx) are committed for review.
-Manual source labels preserve unknown account handles, observation dates and
-original display precision. Collection
-code, local-data paths and reproduction steps are in
-[the collection notes](docs/basketball_instagram_100.md); aggregate coverage is
-in [the audit](reports/basketball_instagram_100/collection_audit.json).
+We asked how strongly a college athlete's Instagram following is associated
+with their published name, image and likeness (NIL) valuation, and whether
+that association differs between men's basketball and football. The NCAA's
+interim NIL policy took effect on **July 1, 2021**.
 
-This project examines the relationship between college athletes'
-social-media reach and reported name, image, and likeness (NIL)
-valuation. It also documents the data needed to investigate whether the
-relationship between social reach and college selection changed after
-the NCAA's interim NIL policy took effect on **July 1, 2021**.
+## Main findings (base models)
 
-> **Main takeaway:** In a selected sample of 100 college football
-> players, Instagram following is positively associated with reported
-> NIL valuation after adjustment for the covariates in the replication
-> model. This is an observational association---not evidence that
-> followers cause higher NIL compensation, influence scholarship offers,
-> or that NIL policy changed college recruiting.
+These are the results presented in the slides and the report. All other
+models in the repository are supplementary (see
+[section 6.3](#63-supplementary-replication-and-robustness-models)).
+
+**Base model 1 --- one shared model in both sports**
+(`ln NIL ~ ln(1 + followers) + performance percentile + no-stats flag + years in college`, HC3 errors; 100 players per sport)
+
+| | Basketball | Football |
+|---|---|---|
+| Higher NIL for twice the followers | **+35%** (95% CI 18--54%, p < 0.001) | **+17%** (95% CI 7--27%, p < 0.001) |
+| Followers' share of what the model explains | **64%** | **69%** |
+| Last-season performance's share | 12% | 20% |
+| Years in college's share | 24% | 11% |
+| Model R² | 0.23 | 0.30 |
+| Without the 25 highest-valued players | +1% (p = 0.86) | +4% (p = 0.05) |
+
+**Base model 2 --- primary football model** (position groups, HC3):
+β = 0.274, 95% CI 0.094--0.454, p = 0.0028, which is about **+21% NIL for
+twice the followers** (95% CI 7--37%), R² = 0.355.
+
+In plain terms:
+
+1. Instagram following is the strongest factor we measured in both sports,
+   accounting for about two thirds of what the model explains.
+2. The effect is concentrated at the top of the market: without the
+   highest-valued quarter of players it nearly disappears.
+3. The basketball slope is larger, but the difference between sports is not
+   statistically significant (p = 0.079), so we do not claim one sport
+   rewards followers more.
+4. This is an observational, single-snapshot association. It does not show
+   that followers cause higher NIL value or that NIL changed recruiting.
+
+## Where to find everything
+
+| What | Where |
+|---|---|
+| Written report (PDF / editable Word) | [`deliverables/project2_report.pdf`](deliverables/project2_report.pdf), [`deliverables/project2_report.docx`](deliverables/project2_report.docx) |
+| Presentation (8 min) and speaking script | [`deliverables/project2_presentation.pptx`](deliverables/project2_presentation.pptx), [`deliverables/presentation_script.md`](deliverables/presentation_script.md) |
+| Rubric checklist | [`deliverables/submission_checklist.md`](deliverables/submission_checklist.md) |
+| Final figures (bar charts) and the tables behind them | [`figures/`](figures/) ([guide](figures/README.md)), [`figures/figure_data/`](figures/figure_data/) |
+| Base model 1 code and results | [`scripts/make_unified_figures.py`](scripts/make_unified_figures.py) → [`unified_model_results.json`](figures/figure_data/unified_model_results.json), [`unified_model_diagnostics.json`](figures/figure_data/unified_model_diagnostics.json) |
+| Base model 2 code and results | [`scripts/summarize_deliverable_results.py`](scripts/summarize_deliverable_results.py) → [`reports/deliverables/model_statistics.json`](reports/deliverables/model_statistics.json) |
+| Power analysis | [`scripts/power_sensitivity.py`](scripts/power_sensitivity.py), partner's original in [`power_analysis.py`](power_analysis.py) |
+| Cleaned analysis data | [`Data/football_modeling_data.csv`](Data/football_modeling_data.csv), [`Data/curated/basketball_instagram_100.csv`](Data/curated/basketball_instagram_100.csv) |
+| Raw data and how each file was made | [section 3.4](#34-raw-and-cleaned-data) |
+| Collection and cleaning scripts | [`scripts/`](scripts/) (`collect_*`, `prepare_*`, `import_*`), [`Data Cleaning/`](Data%20Cleaning/) |
+| Supplementary models (replication, robustness, EDA) | [section 6.3](#63-supplementary-replication-and-robustness-models), [`reports/eda/`](reports/eda/), [`Tests/football_test.py`](Tests/football_test.py) |
+
+## Reproduce the final analysis (run order)
+
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+
+python -m unittest discover -s Tests -v          # offline tests
+python scripts/summarize_deliverable_results.py  # base model 2 (football) and sensitivity fits
+python scripts/power_sensitivity.py              # power analysis
+python scripts/make_manuscript_figures.py        # figures 1-6 and the transfer-trend table
+python scripts/make_unified_figures.py           # base model 1, post hoc tests, figures 7-11
+python scripts/build_project_report.py           # rebuilds deliverables/project2_report.docx
+```
+
+The football steps run from checked-in data. The two figure scripts also
+read basketball box scores from `Data/private/basketball/`, which is not in
+Git (size and source terms) and is rebuilt with
+`scripts/collect_basketball_open_stats.py`. Full details are in
+[section 4](#4-reproducibility).
 
 ------------------------------------------------------------------------
 
@@ -52,26 +101,25 @@ This creates two related---but distinct---research questions:
 These questions require different outcomes and data. A reported NIL
 valuation is an estimate of commercial value; it is **not necessarily a
 verified payment, scholarship offer, or recruiting decision**. The
-completed analysis addresses the first question for a selected football
-sample. The second question remains unestimated because comparable
+completed analysis addresses the first question in samples of 100
+basketball and 100 football players. The second question remains unestimated because comparable
 historical follower measurements and verified decision outcomes are not
 available.
 
 ## 2. What this project does
 
--   Reproduces a football NIL valuation analysis using a supplied
-    top-1,000 valuation frame and a 100-player sample.
--   Models the relationship between log NIL valuation and log Instagram
-    followers.
--   Reports heteroskedasticity-robust (HC3) uncertainty and sensitivity
-    checks, including a school-clustered specification.
--   Audits source coverage, missingness, identity matching, and the
-    limitations of the inherited data.
--   Collects supporting football and basketball roster/performance
-    source layers and documents what is still needed for cross-sport and
-    historical comparisons.
--   Provides scripts, aggregate outputs, input hashes, and offline tests
-    so the available analysis can be reviewed and rerun.
+-   Collects a 100-player men's basketball sample (25 per NIL quartile of
+    all 5,348 Sideline listings) with Instagram follower counts and
+    last-season points per game.
+-   Reuses the partner's 100-player football sample, with an audit of its
+    sources and performance field.
+-   Fits one shared model in both sports and a primary football model,
+    with HC3 errors, dominance analysis, assumption checks and post hoc
+    tests.
+-   Keeps the partner's original model and several robustness fits as
+    clearly labelled supplementary results.
+-   Provides scripts (no notebooks), aggregate outputs, input hashes and
+    offline tests so every number can be rerun.
 
 ## 3. Data collection and sources
 
@@ -145,10 +193,23 @@ kept missing rather than silently filled.
 
 For the 2025--26 men's basketball performance collection, the
 ESPN/SportsDataverse export was aggregated to 5,680 Division I
-player-team-season records across 365 teams. This is a supporting
-performance layer only: a paired basketball NIL valuation frame and
-dated Instagram follower sample were not obtained, so no basketball NIL
-regression was fit.
+player-team-season records across 365 teams. Points per game from this
+layer is the basketball performance measure in the two-sport model.
+
+### 3.2a Basketball NIL and Instagram sample
+
+`scripts/collect_sideline_safari.py` collected the full Sideline men's
+basketball listing (5,348 players, retrieved November 2, 2026) through
+normal Safari browsing and saved 108 hashed page snapshots.
+`scripts/prepare_basketball_social_sample.py` then froze 100 players, 25 at
+random from each NIL quartile of the full listing (seed 510), *before* any
+follower counts were looked up. Eighty follower counts were read directly
+from public Instagram profiles (`scripts/collect_instagram_browser.mjs`,
+`scripts/import_instagram_browser_receipts.py`) and the other 20 were
+supplied by Sam from manual checks
+(`scripts/import_manual_basketball_followers.py`); the
+`Instagram_Count_Provenance` column records which is which. See
+[`docs/basketball_instagram_100.md`](docs/basketball_instagram_100.md).
 
 ### 3.3 Missingness and data-quality rules
 
@@ -171,6 +232,50 @@ The collection and analysis workflow follows several rules:
 -   Newly collected player-level files and credentials are kept
     local/ignored by Git where required; aggregate audits, scripts, and
     source descriptions are available for review.
+
+### 3.4 Raw and cleaned data
+
+  -----------------------------------------------------------------------
+  File                                         Stage     Contents
+  -------------------------------------------- --------- ----------------
+  `Data/football_top1000.csv`                  Raw       Top 1,000 football
+                                                         NIL valuations
+                                                         (partner pull)
+
+  `Data/football_sample_100.csv`               Raw       100-player
+                                                         stratified sample
+                                                         (seed 510)
+
+  `Data/NIL and Player History Data -          Raw       Partner enrichment
+  Football Sample.csv`                                   of the sample
+
+  `Data/football_modeling_data.csv`            Cleaned   Football analysis
+                                                         file used by every
+                                                         football model
+
+  `Data/private/basketball_instagram_100/`     Raw,      Full 5,348-player
+                                               local     listing, page
+                                                         snapshots and
+                                                         browser receipts
+
+  `Data/private/basketball/`                   Raw,      ESPN/SportsDataverse
+                                               local     box scores and
+                                                         rosters by season
+
+  `Data/curated/basketball_instagram_100.csv`  Cleaned   Basketball analysis
+                                                         file (100 players,
+                                                         NIL, followers,
+                                                         provenance)
+
+  `figures/figure_data/`                       Derived   Aggregate tables
+                                                         behind every figure
+                                                         and the model
+                                                         results (JSON)
+  -----------------------------------------------------------------------
+
+`Data/private/` is ignored by Git because of file size and source terms.
+It is rebuilt by the collection scripts in section 4.4; its hashes are in
+the collection manifests under `reports/`.
 
 See [`reports/eda/README.md`](reports/eda/README.md),
 [`docs/basketball_collection.md`](docs/basketball_collection.md), and
@@ -222,7 +327,25 @@ python scripts/power_sensitivity.py
 
 # Reproduce the exploratory data analysis and aggregate figures
 python scripts/run_eda.py
+
+# Football model statistics used in the report (writes reports/deliverables/model_statistics.json)
+python scripts/summarize_deliverable_results.py
+
+# Report figures 1-6 and the roster/transfer trend table
+python scripts/make_manuscript_figures.py
+
+# Two-sport model, dominance shares, assumption checks and post hoc tests (figures 7-11)
+# Add --cached to redraw the figures without rerunning the 1,000-draw bootstrap.
+python scripts/make_unified_figures.py
+
+# Rebuild the written report (deliverables/project2_report.docx and reports/deliverables/project2_report.md)
+python scripts/build_project_report.py
 ```
+
+`make_manuscript_figures.py` and `make_unified_figures.py` also read the
+local basketball box-score files under `Data/private/basketball/`, which
+come from `scripts/collect_basketball_open_stats.py` (section 4.4). The
+football-only steps run from checked-in files.
 
 The scripts write aggregate tables, diagnostics, figures, and reports
 under `reports/`. The EDA script also documents a standalone report at
@@ -298,85 +421,107 @@ descriptions are provided where possible.
 
 ## 5. Statistical approach
 
-The primary completed analysis uses ordinary least squares (OLS) with:
+All models are ordinary least squares on the natural log of NIL valuation,
+with `log(1 + Instagram followers)` as the predictor of interest and HC3
+heteroskedasticity-robust standard errors. On this scale, twice the
+followers multiplies valuation by `2^β`, so effects are reported as
+`100 × (2^β − 1)` percent.
 
--   **Outcome:** natural log of positive reported NIL valuation in U.S.
-    dollars.
--   **Social predictor:** natural log of one plus Instagram followers,
-    `log(1 + followers)`.
--   **Replication controls:** PPA per play, freshman status,
-    freshman-by-stars interaction, Power 4 indicator, and
-    premium-position indicator.
--   **Inference:** HC3 heteroskedasticity-robust standard errors, with
-    additional sensitivity checks.
-
-The replication model preserves the inherited specification. Because the
-inherited PPA values have unresolved provenance and applicability,
-exploratory alternatives omit PPA and cannot be described as controlling
-for validated college performance. Alternative specifications also
-examine centered recruiting-star ratings, freshman status and its main
-effects/interaction, position groups, the largest-audience observation,
-and school-clustered uncertainty.
-
-The report uses a three-test Bonferroni family threshold of
-`alpha = 0.0167` for the planned football, basketball, and cross-sport
-tests. Only the football slope has completed data; basketball and the
-cross-sport interaction remain untested.
+-   **Base model 1 (both sports):** followers, last-season performance
+    percentile within sport (basketball points per game; football PPA per
+    play with zeros treated as missing), a flag for no college stats last
+    season, and years in college. The sport difference (H3) is tested with
+    a pooled model that interacts sport with every term. General dominance
+    analysis with 1,000 bootstrap draws splits R² among the factors.
+-   **Base model 2 (football):** followers, centered recruiting stars,
+    freshman status, stars × freshman, and four position groups. It drops
+    the partner's PPA measure (unverified values) and the Power 4 flag
+    (99 of 100 players are Power 4).
+-   **Post hoc:** Kruskal--Wallis tests across four equal follower groups
+    and across recruiting-star groups, followed by Holm-corrected pairwise
+    Mann--Whitney tests.
+-   **Multiple testing:** football, basketball and sport-difference tests
+    form one family with a Bonferroni threshold of `alpha = 0.0167`.
 
 ## 6. Results
 
-### 6.1 Primary football result
+### 6.1 Base model 1: basketball and football with one shared model
 
-The replicated football model estimates a positive association between
-Instagram following and reported NIL valuation:
+Both sports were fitted with the same model:
+`ln(NIL) ~ ln(1 + followers) + last-season performance percentile + no-stats flag + years in college`,
+with HC3 robust standard errors. Performance is ranked within each sport
+(basketball points per game; football PPA per play with zeros treated as
+missing).
 
-  --------------------------------------------------------------------------------
-  Model                     N        Social          95%    Two-sided           R²
-                                coefficient   confidence      p-value 
-                                                interval              
-  -------------- ------------ ------------- ------------ ------------ ------------
-  Replication,            100         0.207     \[0.079,      0.00155        0.321
-  HC3                                            0.335\]              
+  ------------------------------------------------------------------------
+  Result                                  Basketball        Football
+  -------------------------------------- ----------------- -----------------
+  Higher NIL per doubling of followers    +35% (18--54%)    +17% (7--27%)
 
-  --------------------------------------------------------------------------------
+  p-value (follower slope)                0.00002           0.0007
 
-At sufficiently large follower counts, the coefficient corresponds to
-approximately **15.4% higher modeled NIL valuation for a doubling of
-followers**, with an approximate 95% interval of **5.6% to 26.1%**,
-conditional on the included controls.
+  Partial f² for followers                0.18              0.25
 
-This is a conditional association in the selected sample. It should not
-be interpreted as the expected return from gaining followers or as
-evidence that followers cause a change in valuation.
+  Share of explained R²: followers        64%               69%
 
-### 6.2 Sensitivity checks reported in the project report
+  Share: last-season performance          12%               20%
+
+  Share: years in college                 24%               11%
+
+  Model R²                                0.23              0.30
+
+  Without the 25 highest-valued players   +1% (p = 0.86)    +4% (p = 0.05)
+  ------------------------------------------------------------------------
+
+The sport difference in follower slopes is not significant (pooled
+interaction, p = 0.079). Post hoc Kruskal--Wallis tests on four equal
+follower groups agree (basketball p = 0.006, football p < 0.001), and
+Holm-corrected Mann--Whitney pairs show the gap is mainly between the
+most-followed group and the rest. Results:
+[`unified_model_results.json`](figures/figure_data/unified_model_results.json)
+and [`unified_model_diagnostics.json`](figures/figure_data/unified_model_diagnostics.json).
+
+### 6.2 Base model 2: primary football model
+
+  ------------------------------------------------------------------------
+  Model                N        β       95% CI         p         R²
+  ------------------ ----- ------- -------------- ---------- ---------
+  Position groups,     100   0.274  0.094 to 0.454    0.0028     0.355
+  HC3
+  ------------------------------------------------------------------------
+
+About **21% higher NIL for twice the followers** (95% CI 7--37%). Recruiting
+stars: valuations differ across 3-, 4- and 5-star players (Kruskal--Wallis
+p = 0.001), but the Holm-corrected pairs show the difference is 5-star
+versus 4-star only (p = 0.002).
+
+### 6.3 Supplementary: replication and robustness models
+
+These were run to check that the base results do not depend on one
+modelling choice. They are not headline findings and were not selected by
+p-value.
 
   ------------------------------------------------------------------------------
-  Model                           N         Social 95% confidence      Two-sided
-                                       coefficient       interval        p-value
-  ------------------ -------------- -------------- -------------- --------------
-  Position groups,              100          0.274       \[0.094,        0.00282
-  HC3                                                     0.454\] 
+  Model                           N      β      95% CI          p        Role
+  ---------------------------- ---- ------ -------------- -------- -------------
+  Partner's original model,     100  0.207  0.079 to 0.335  0.00155  Replication
+  HC3
 
-  Largest audience               99          0.212       \[0.068,        0.00388
-  omitted, HC3                                            0.355\] 
+  Partner's model, largest       99  0.212  0.068 to 0.355  0.00388  Influence
+  account removed                                                    check
 
-  School-clustered              100          0.274       \[0.121,        0.00086
-                                                          0.427\] 
+  Base model 2 with             100  0.274  0.121 to 0.427  0.00086  Dependence
+  school-clustered errors                                            check
   ------------------------------------------------------------------------------
 
-The positive coefficient persists across these specified checks, but
-model specification, influential observations, and uncertainty affect
-its magnitude. These sensitivity models are exploratory and are not
-additional confirmatory discoveries.
+All are positive and below the 0.0167 threshold. The partner's model
+gives about 15% higher NIL per doubling of followers (95% CI 6--26%).
+Figure `fig3_followers_vs_valuation` shows these side by side, and the
+exploratory analysis in [`reports/eda/`](reports/eda/) and the partner's
+original test in [`Tests/football_test.py`](Tests/football_test.py) are
+also supplementary.
 
-The repository also contains analysis outputs generated as the code
-evolved. For the exact results from the currently checked-in scripts,
-rerun `scripts/analyze_football.py` and consult the generated files
-under `reports/`; do not assume every historical report table represents
-the same model specification.
-
-### 6.3 Diagnostics and interpretation
+### 6.4 Diagnostics
 
 -   The exploratory Breusch--Pagan tests indicate heteroskedasticity,
     motivating robust uncertainty estimates.
@@ -392,7 +537,7 @@ the same model specification.
     not correct selection bias, confounding, source errors, or reverse
     causation.
 
-### 6.4 Analyses not completed
+### 6.5 Status of each research question
 
   -----------------------------------------------------------------------
   Research question       Status                  Why it remains
@@ -402,14 +547,17 @@ the same model specification.
   NIL valuation                                   football sample
                                                   contains both measures.
 
-  Basketball followers    **Not run**             No paired basketball
-  and NIL valuation                               NIL valuation frame and
-                                                  dated follower
-                                                  measurements.
+  Basketball followers    **Completed**           100-player basketball
+  and NIL valuation                               sample, 25 per NIL
+                                                  quartile (section 6.1).
 
-  Football vs. basketball **Not run**             Requires comparable
-  social-slope comparison                         paired NIL and follower
-                                                  data in both sports.
+  Football vs. basketball **Completed**           Same model in both
+  social-slope comparison (exploratory)           sports; slope
+                                                  difference p = 0.079.
+                                                  Sport main effect not
+                                                  testable because the
+                                                  football sample covers
+                                                  only the top 1,000.
 
   Pre-/post-NIL change in **Not run**             Historical follower
   scholarship association                         counts and comparable,
@@ -449,9 +597,12 @@ mind:
 5.  **Confounding and reverse causation:** Athletic performance, school
     exposure, media visibility, and NIL valuation may all influence
     follower counts and valuation.
-6.  **Limited coverage:** The sample has little non-Power-4 variation.
-    Basketball and historical source layers do not yet contain the
-    paired measurements needed for the planned regressions.
+6.  **Limited coverage:** The football sample has little non-Power-4
+    variation and covers only valuations of \$350,000 and up, while the
+    basketball sample covers the whole market, so the two cannot be
+    pooled to test sport itself. Twenty basketball follower counts were
+    reported manually without a measurement date. Historical source
+    layers do not contain the follower counts needed for a pre/post test.
 7.  **Observational design:** No NIL exposure, follower count, or
     college decision was randomized. The analysis does not establish a
     causal policy effect or whether NIL changed scholarship decisions.
@@ -485,8 +636,10 @@ mind:
 
   `figures/`                          Project figures and visual outputs.
 
-  `deliverables/`                     Report, presentation, and
-                                      submission materials.
+  `deliverables/`                     Written report (PDF and Word),
+                                      8-minute presentation and speaking
+                                      script, model-explainer slide,
+                                      submission checklist.
 
   `PROJECT_CONTEXT.md`                Project handoff, current status,
                                       and known issues.
