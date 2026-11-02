@@ -1,0 +1,107 @@
+{
+  "sampling": {
+    "seed": 510,
+    "input_frame_rows": 5348,
+    "sample_rows": 100,
+    "sample_per_quartile": {
+      "Q4_Highest": 25,
+      "Q3_Upper_Middle": 25,
+      "Q2_Lower_Middle": 25,
+      "Q1_Lowest": 25
+    },
+    "population_per_quartile": {
+      "Q4_Highest": 1337,
+      "Q3_Upper_Middle": 1337,
+      "Q2_Lower_Middle": 1337,
+      "Q1_Lowest": 1337
+    },
+    "metric": "NIL_Valuation_USD",
+    "tie_policy": "Descending metric, stable string IDs; rank quartiles, not strict value bins",
+    "rows_in_ties_crossing_quartiles": 28,
+    "stratum_ranges": {
+      "Q1_Lowest": {
+        "min": 13300.0,
+        "max": 42800.0
+      },
+      "Q2_Lower_Middle": {
+        "min": 42800.0,
+        "max": 75000.0
+      },
+      "Q3_Upper_Middle": {
+        "min": 75000.0,
+        "max": 261000.0
+      },
+      "Q4_Highest": {
+        "min": 261000.0,
+        "max": 6000000.0
+      }
+    },
+    "note": "Weights target this input frame only; do not repair exclusions outside it",
+    "snapshot_sha256": "a590ccd859c9a8a0722589cedf2a99a0d35d9cd77d240aeae557f4a21593d9d9",
+    "source_url": "https://thesideline.co/nil-tracker/top-players/basketball",
+    "source_total": 5348,
+    "sampling_order": "Frozen NIL quartiles first; no replacement for unavailable followers",
+    "value_policy": "Displayed rounded source estimates, not verified payments; no inferred source snapshot date",
+    "frozen_sample_sha256": "9cd7286551e1f7d1de3e32df37e1aaa29729dc51a503454b8e488464a2e3afab"
+  },
+  "coverage_by_quartile": [
+    {
+      "Quartile": "Q1_Lowest",
+      "selected": 25,
+      "sourced_handles": 8,
+      "direct_display_integer": 0,
+      "direct_rounded": 0,
+      "provider_reported_integer_unknown_date": 2,
+      "any_source_count": 2,
+      "missing_direct_count": 25
+    },
+    {
+      "Quartile": "Q2_Lower_Middle",
+      "selected": 25,
+      "sourced_handles": 10,
+      "direct_display_integer": 0,
+      "direct_rounded": 0,
+      "provider_reported_integer_unknown_date": 2,
+      "any_source_count": 2,
+      "missing_direct_count": 25
+    },
+    {
+      "Quartile": "Q3_Upper_Middle",
+      "selected": 25,
+      "sourced_handles": 13,
+      "direct_display_integer": 0,
+      "direct_rounded": 0,
+      "provider_reported_integer_unknown_date": 3,
+      "any_source_count": 3,
+      "missing_direct_count": 25
+    },
+    {
+      "Quartile": "Q4_Highest",
+      "selected": 25,
+      "sourced_handles": 17,
+      "direct_display_integer": 1,
+      "direct_rounded": 3,
+      "provider_reported_integer_unknown_date": 1,
+      "any_source_count": 5,
+      "missing_direct_count": 21
+    }
+  ],
+  "selected": 100,
+  "sourced_handles": 48,
+  "direct_display_integer": 1,
+  "direct_rounded": 3,
+  "provider_reported_integer_unknown_date": 8,
+  "any_source_count": 12,
+  "missing_direct_count": 96,
+  "frozen_sample_sha256": "9cd7286551e1f7d1de3e32df37e1aaa29729dc51a503454b8e488464a2e3afab",
+  "observations_sha256": "92cc0be88f6af58e97ebe961600832565fcafaa39d4c23dc6478837a2b4b703c",
+  "analysis_ready": false,
+  "limitations": [
+    "Instagram login pages halted live retrieval; missing values are not zero.",
+    "Rounded direct labels and provider-reported reach are separate fields; provider measurement dates are unknown.",
+    "Observed counts are not historical pre-NIL measurements.",
+    "Current Sideline listing retrieved November 2, 2026 is not established as a 2025-26 cohort.",
+    "Source estimates are not verified payments, scholarship decisions, or an independent athletic evaluation.",
+    "Complete-case analysis would break the balanced design; no missing player was replaced."
+  ]
+}

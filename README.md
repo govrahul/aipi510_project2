@@ -4,6 +4,15 @@
 **Authors:** Rahul Govil and Sam Teshome\
 **Analysis snapshot:** November 1, 2026
 
+**Collection update (November 2):** Safari collection now supplies the full
+5,348-listing Sideline basketball frame and a frozen 100-player social-data
+substudy with 25 per NIL quartile. There are 48 sourced Instagram handles,
+four direct counts (three rounded), and eight separate Opendorse counts with
+unknown measurement dates. This is still incomplete for regression. Collection
+code, local-data paths and reproduction steps are in
+[the collection notes](docs/basketball_instagram_100.md); aggregate coverage is
+in [the audit](reports/basketball_instagram_100/collection_audit.json).
+
 This project examines the relationship between college athletes'
 social-media reach and reported name, image, and likeness (NIL)
 valuation. It also documents the data needed to investigate whether the
