@@ -4,3 +4,12 @@ __pycache__/
 .vscode/
 .DS_Store
 .env
+.env
+.env.*
+!.env.example
+Data/private/
+.pytest_cache/
+node_modules/
+node_modules
+.chart-data-*/
+outputs/

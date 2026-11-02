@@ -56,9 +56,9 @@ print(f"Lagrange Multiplier Statistic: {bp_stat:.4f}")
 print(f"p-value:                        {bp_pvalue:.4f}")
 
 if bp_pvalue < 0.05:
-    print("-> Result: Heteroskedasticity detected (p < 0.05). Using HC3 Robust Standard Errors is required.\n")
+    print("-> Result: Heteroskedasticity detected (p < 0.05). Report heteroskedasticity-robust inference; HC3 is shown below.\n")
 else:
-    print("-> Result: Constant variance assumption holds (p >= 0.05). Standard errors are homoscedastic.\n")
+    print("-> Result: Failed to reject constant variance; this does not prove homoscedasticity.\n")
 
 print("=" * 70)
 print(" 3. RESIDUAL NORMALITY DIAGNOSTIC")
@@ -67,14 +67,14 @@ jb_stat, jb_pvalue, skew, kurtosis = sm.stats.stattools.jarque_bera(base_model.r
 print(f"Jarque-Bera Statistic: {jb_stat:.4f} (p-value: {jb_pvalue:.4e})")
 print(f"Residual Skewness:      {skew:.4f}")
 print(f"Residual Kurtosis:      {kurtosis:.4f}")
-print("> CLT Note: With N=100 and log-log transformation, OLS estimates remain asymptotically normal and robust.\n")
+print("> Sample size alone does not establish valid inference; inspect influence, dependence and provenance.\n")
 
 print("=" * 70)
 print(" 4. ROBUST OLS REGRESSION SUMMARY (HC3 STANDARD ERRORS)")
 print("=" * 70)
 
 # Fit OLS with Heteroskedasticity-Consistent (HC3) Robust Standard Errors
-robust_model = smf.ols(formula, data=df).fit(cov_type='HC1')
+robust_model = smf.ols(formula, data=df).fit(cov_type='HC3')
 print(robust_model.summary())
 
 # 5. Side-by-Side Comparison of Standard Errors & P-Values

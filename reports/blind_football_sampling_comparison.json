@@ -1,0 +1,128 @@
+{
+  "comparison_type": "post-lock_same-frame_algorithm_test_not_independent_collection",
+  "comparison_at_utc": "2026-11-01T21:08:40.400071+00:00",
+  "protocol_lock_time": "2026-11-01T21:05:08.000784+00:00",
+  "independent_protocol_sha256": "6563d747df3101fa9cf75182744b8b8ba9cee41786b4d8ff47444e2fb8ef01f0",
+  "independent_sampler_sha256": "417273a880c7199f6d6aeaad9501f901c89514aee7065d645f851d3ed82b4dd1",
+  "independent_agent_saw_partner_rows": false,
+  "independent_complete_frame_collected": false,
+  "input_hashes": {
+    "Data/football_top1000.csv": "3f926e568a75fc38ae66b0767eb481dd63d66000b19c2a0b99ac4a7159a6e95b",
+    "Data/football_sample_100.csv": "fd86c14a49cf7a6d5dab06519ec74a26843480182167330ad2536e861b318c36",
+    "Data/sample_data.py": "875547b193964cc5c8bf1cd14b9d32a606ddbdcf39401894daee1f83e85d7f26"
+  },
+  "frame_rows": 1000,
+  "partner_sample_rows": 100,
+  "independent_sample_rows": 100,
+  "independent_rank_stratum_populations": {
+    "top": 250,
+    "middle": 500,
+    "bottom": 250
+  },
+  "partner_value_stratum_populations": {
+    "Middle_50": 479,
+    "Top_25": 266,
+    "Bottom_25": 255
+  },
+  "partner_cutoffs_USD": {
+    "p25": 384000.0,
+    "p75": 700000.0
+  },
+  "independent_rank_stratum_draws": {
+    "middle": 50,
+    "top": 25,
+    "bottom": 25
+  },
+  "partner_saved_label_draws": {
+    "Middle_50": 50,
+    "Top_25": 25,
+    "Bottom_25": 25
+  },
+  "partner_draws_reexpressed_as_rank_bands": {
+    "middle": 52,
+    "bottom": 25,
+    "top": 23
+  },
+  "partner_nominal_tier_inclusion_probability": {
+    "Middle_50": 0.10438413361169102,
+    "Top_25": 0.09398496240601503,
+    "Bottom_25": 0.09803921568627451
+  },
+  "independent_nominal_rank_band_inclusion_probability": {
+    "top": 0.1,
+    "middle": 0.1,
+    "bottom": 0.1
+  },
+  "common_players": 11,
+  "overlap_fraction_of_100": 0.11,
+  "jaccard": 0.0582010582010582,
+  "NIL_summary": {
+    "frame": {
+      "n": 1000,
+      "minimum": 350000.0,
+      "median": 450000.0,
+      "mean": 652818.2,
+      "maximum": 6500000.0
+    },
+    "partner": {
+      "n": 100,
+      "minimum": 350000.0,
+      "median": 454000.0,
+      "mean": 699230.0,
+      "maximum": 5000000.0
+    },
+    "independent": {
+      "n": 100,
+      "minimum": 350000.0,
+      "median": 433500.0,
+      "mean": 616120.0,
+      "maximum": 2000000.0
+    }
+  },
+  "position_counts": {
+    "partner": {
+      "WR": 16,
+      "QB": 14,
+      "OL": 14,
+      "DB": 10,
+      "RB": 10,
+      "DL": 9,
+      "DE": 6,
+      "LB": 6,
+      "CB": 5,
+      "S": 4,
+      "DT": 3,
+      "EDGE": 3
+    },
+    "independent": {
+      "WR": 24,
+      "QB": 17,
+      "OL": 17,
+      "DL": 8,
+      "RB": 7,
+      "LB": 6,
+      "CB": 6,
+      "DB": 5,
+      "DE": 3,
+      "S": 3,
+      "EDGE": 2,
+      "DT": 1,
+      "TE": 1
+    }
+  },
+  "unblinded_original_code_replay": {
+    "original_seed": 510,
+    "same_saved_player_set": true,
+    "same_saved_player_order": true,
+    "description": "Post-unblinding diagnostic, not the blind reconstruction"
+  },
+  "limitations": [
+    "Independent agent saw PDF aggregate model results but no partner rows or implementations.",
+    "Root already had prior project knowledge; implementation isolation belongs to the fresh agent only.",
+    "PDF does not specify seed, tie rule, software or collection date; seed/hash choices were independently fixed before input access.",
+    "Fresh full source collection blocked by HTTP403; shared partner frame used only after protocol/code lock.",
+    "Different random methods/tie rules naturally change sampled names; low overlap is not evidence of error.",
+    "Top-1000 frame omits all lower-valued athletes; matching quotas cannot repair coverage bias.",
+    "This replicates the legacy current-NIL sample, not historical HS-star sampling or the regression."
+  ]
+}

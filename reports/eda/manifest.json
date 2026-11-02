@@ -1,0 +1,169 @@
+{
+  "generated_at": "2026-11-01T22:01:07.404445+00:00",
+  "source_career_as_of": "2026-11-01",
+  "inputs": {
+    "Data/football_modeling_data.csv": "82e228c40758266338aee4e58a44c55f0217e0355b0490e871b5ae9f05a2c6f7",
+    "Data/private/evaluation/enriched/basketball_2018_evaluation_frame.csv": "93ecd90413f4ab728e3c756d1e39aa91189a6b3ea7362aa5ec022877fe91f118",
+    "Data/private/evaluation/enriched/basketball_2019_evaluation_frame.csv": "9e1731568d0a57ed155d6e5a3bb4391c4fc613f76ae2353e2503a59009b461a3",
+    "Data/private/evaluation/enriched/basketball_2025_evaluation_frame.csv": "4090e010d4a7e057e08dd24f5b958859c7b3fad789a5540b9abe01a06f159680",
+    "Data/private/evaluation/football_nfl_ids/football_2018_evaluation_with_NFL_IDs.csv": "fad36d3ccbb268573ce4050e99639f24502267f8316bb5ba9b566fc9de621d78",
+    "Data/private/evaluation/football_nfl_ids/football_2019_evaluation_with_NFL_IDs.csv": "4b1c72a2f6de63038362ace9bfa7f83822578e12feff2d1ab83005f6733cae79",
+    "Data/private/evaluation/football_nfl_ids/football_2025_evaluation_with_NFL_IDs.csv": "112d0a2e228606a5f0d833af94847042da3db0d40ac2a66740ee5ff0afddd3e6",
+    "Data/private/evaluation/football_nfl_ids/football_2026_evaluation_with_NFL_IDs.csv": "d01ca14207b5af4ae2a2ef6f29e559c62e12eb7b7b0104c7193565b019c53127",
+    "Data/football_top1000.csv": "3f926e568a75fc38ae66b0767eb481dd63d66000b19c2a0b99ac4a7159a6e95b",
+    "Data/private/evaluation/football_groups/cfb_team_group_seasons_2025.parquet": "d39e353584ed946539dad86d8de7da961e990c7a4b14c78d679cebb16955598c",
+    "Data/private/evaluation/football_groups/cfb_team_group_seasons_2026.parquet": "6995b2fbcdf2bd0582ac7b6560f920ebe7ad3343bfa933907d9d3770320d6169"
+  },
+  "script_sha256": "e683bee7afc3f016ba73146ade81c482178cdfda269e691de3fe56a6714dc900",
+  "versions": {
+    "python": "3.14.0",
+    "pandas": "3.0.5",
+    "numpy": "2.5.2",
+    "statsmodels": "0.14.6",
+    "matplotlib": "3.11.1"
+  },
+  "included_units": "one inherited football model plus seven canonical cohort frames; nested frame/sample not pooled",
+  "excluded_layers": [
+    "superseded production-quartile samples",
+    "duplicate pre-NFL-ID football versions",
+    "header-only templates",
+    "synthetic fixtures"
+  ],
+  "no_match_policy": "Missing draft/contract record is unknown, never a verified negative",
+  "football": {
+    "rows": 100,
+    "schools": 39,
+    "power4": 99,
+    "PPA_zeros": 41,
+    "PPA_nonzero_defense_or_line": 30,
+    "follower_summary": {
+      "n": 100,
+      "mean": 29217.28,
+      "std": 102306.51865484596,
+      "minimum": 1265.0,
+      "q25": 5590.5,
+      "median": 10950.0,
+      "q75": 19925.0,
+      "p95": 62149.99999999989,
+      "maximum": 1000000.0,
+      "zeros": 0
+    },
+    "valuation_summary": {
+      "n": 100,
+      "mean": 699230.0,
+      "std": 709983.3381883341,
+      "minimum": 350000.0,
+      "q25": 385250.0,
+      "median": 454000.0,
+      "q75": 652000.0,
+      "p95": 2000000.0,
+      "maximum": 5000000.0,
+      "zeros": 0
+    },
+    "largest_follower_share": 0.34226320862174714,
+    "raw_pearson": 0.6234812962888633,
+    "log_pearson": 0.5015654504877901,
+    "spearman": 0.51955201458968,
+    "raw_pearson_without_largest": 0.16409319446989545,
+    "log_pearson_without_largest": 0.4033312741515157,
+    "frame_NIL_summary": {
+      "n": 1000,
+      "mean": 652818.2,
+      "std": 559325.2503189932,
+      "minimum": 350000.0,
+      "q25": 384000.0,
+      "median": 450000.0,
+      "q75": 700000.0,
+      "p95": 1504999.9999999953,
+      "maximum": 6500000.0,
+      "zeros": 0
+    },
+    "frame_unique_NIL_values": 235,
+    "model_unique_NIL_values": 68,
+    "stars_counts": {
+      "4": 70,
+      "3": 17,
+      "5": 13
+    },
+    "grade_counts": {
+      "Senior": 44,
+      "Sophomore": 22,
+      "Junior": 17,
+      "Freshman": 17
+    },
+    "position_groups": {
+      "Defense": 46,
+      "Skill offense": 26,
+      "Quarterback": 14,
+      "Offensive line": 14
+    },
+    "diagnostics": {
+      "cooks_above_4_over_n": 9,
+      "maximum_cooks_distance": 0.3070414202375948,
+      "maximum_leverage": 0.4885509735793021,
+      "leave_one_out_social_slope_min": 0.2117504851663752,
+      "leave_one_out_social_slope_max": 0.31429348404290264,
+      "breusch_pagan_exploratory_p": 0.00037320296347688936,
+      "adjusted_model_formula": "y ~ x + Stars_C * Freshman_Flag + C(Position_Group)",
+      "school_clusters": 39
+    }
+  },
+  "basketball": [
+    {
+      "cohort_start": 2018,
+      "rows": 5590,
+      "athletes": 5562,
+      "BPM_available": 4762,
+      "BPM_qualified": 2940,
+      "between_school_BPM_variance_share": 0.5419162848760488,
+      "no_recorded_games": 794,
+      "median_games": 29.0,
+      "median_games_all_rows": 27.0,
+      "median_PPG": 4.6461100569259965,
+      "median_BPM_all": -0.8530457865051022,
+      "median_BPM_qualified": -0.14315857706747953,
+      "max_abs_BPM_all": 24.806508470634295,
+      "max_abs_BPM_qualified": 13.533840931309031,
+      "qualified_PPG_BPM_spearman": 0.1554704017917114
+    },
+    {
+      "cohort_start": 2019,
+      "rows": 5587,
+      "athletes": 5575,
+      "BPM_available": 4768,
+      "BPM_qualified": 2915,
+      "between_school_BPM_variance_share": 0.5231955046976694,
+      "no_recorded_games": 790,
+      "median_games": 28.0,
+      "median_games_all_rows": 25.0,
+      "median_PPG": 4.703703703703703,
+      "median_BPM_all": -0.832279513482596,
+      "median_BPM_qualified": -0.1787705236143983,
+      "max_abs_BPM_all": 22.39304371387948,
+      "max_abs_BPM_qualified": 13.259816424311069,
+      "qualified_PPG_BPM_spearman": 0.1616668873549285
+    },
+    {
+      "cohort_start": 2025,
+      "rows": 5680,
+      "athletes": 5677,
+      "BPM_available": 5015,
+      "BPM_qualified": 3114,
+      "between_school_BPM_variance_share": 0.6476138618806638,
+      "no_recorded_games": 661,
+      "median_games": 29.0,
+      "median_games_all_rows": 27.0,
+      "median_PPG": 5.15,
+      "median_BPM_all": -0.7220491922897014,
+      "median_BPM_qualified": -0.18325484211519244,
+      "max_abs_BPM_all": 21.147065071923834,
+      "max_abs_BPM_qualified": 13.734581451355035,
+      "qualified_PPG_BPM_spearman": 0.11900547323482227
+    }
+  ],
+  "notes": [
+    "All results are exploratory",
+    "No outcome or predictor imputation",
+    "No pre/post model fitted"
+  ]
+}

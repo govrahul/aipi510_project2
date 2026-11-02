@@ -1,0 +1,53 @@
+{
+  "rows": {
+    "football_frame": 1000,
+    "football_sample": 100,
+    "football_enriched_raw": 100,
+    "football_modeling": 100
+  },
+  "duplicate_player_school_rows": 0,
+  "missing_by_column": {
+    "Player Name": 0,
+    "Position": 0,
+    "College": 0,
+    "Conference": 0,
+    "Grade": 0,
+    "Valuation": 0,
+    "Valuation Tier": 0,
+    "Instagram Followers": 0,
+    "Star Rating": 0,
+    "PPA_Per_Play": 0,
+    "Freshman_Flag": 0,
+    "Freshman_X_Stars": 0,
+    "Log_Instagram": 0,
+    "Log_Valuation": 0,
+    "Power_4_Dummy": 0,
+    "Premium_Position": 0
+  },
+  "raw_fields_preserved": true,
+  "sample_is_subset_of_frame": true,
+  "quota_population_counts_with_ties": {
+    "Top_25": 266,
+    "Middle_50": 479,
+    "Bottom_25": 255
+  },
+  "quota_sample_counts": {
+    "Middle_50": 50,
+    "Top_25": 25,
+    "Bottom_25": 25
+  },
+  "power4_counts": {
+    "1": 99,
+    "0": 1
+  },
+  "freshmen": 17,
+  "ppa_zero_count": 41,
+  "nonzero_ppa_on_defense_or_offensive_line": 30,
+  "log_instagram_max_error": 1.7763568394002505e-15,
+  "log_valuation_max_error": 1.7763568394002505e-15,
+  "pre_nil_observations": "unavailable: no observation or decision dates",
+  "scholarship_outcomes": "unavailable",
+  "basketball_data": "unavailable",
+  "performance_match_provenance": "unavailable in inherited CSV",
+  "source_urls_dates_and_value_types": "unavailable in inherited CSV"
+}

@@ -1,0 +1,9 @@
+dataset,sport,cohort_start,unit,rows,unique_athletes,schools,columns,duplicate_identity_team_rows,multi_team_athletes,source_sha256,unexpected_season_rows
+football_NIL_model,football,,athlete in inherited selected sample,100,100,39,16,0,0,82e228c40758266338aee4e58a44c55f0217e0355b0490e871b5ae9f05a2c6f7,
+basketball_2018,basketball,2018.0,athlete-team-season source row,5590,5562,353,87,0,28,93ecd90413f4ab728e3c756d1e39aa91189a6b3ea7362aa5ec022877fe91f118,0.0
+basketball_2019,basketball,2019.0,athlete-team-season source row,5587,5575,353,87,0,12,9e1731568d0a57ed155d6e5a3bb4391c4fc613f76ae2353e2503a59009b461a3,0.0
+basketball_2025,basketball,2025.0,athlete-team-season source row,5680,5677,365,84,0,3,4090e010d4a7e057e08dd24f5b958859c7b3fad789a5540b9abe01a06f159680,0.0
+football_2018,football,2018.0,athlete-team-season source row,23755,23751,216,67,0,4,fad36d3ccbb268573ce4050e99639f24502267f8316bb5ba9b566fc9de621d78,0.0
+football_2019,football,2019.0,athlete-team-season source row,23985,23966,217,67,0,19,4b1c72a2f6de63038362ace9bfa7f83822578e12feff2d1ab83005f6733cae79,0.0
+football_2025,football,2025.0,athlete-team-season source row,26327,26316,234,133,0,11,112d0a2e228606a5f0d833af94847042da3db0d40ac2a66740ee5ff0afddd3e6,0.0
+football_2026,football,2026.0,athlete-team-season source row,26094,26092,235,133,0,2,d01ca14207b5af4ae2a2ef6f29e559c62e12eb7b7b0104c7193565b019c53127,0.0

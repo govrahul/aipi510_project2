@@ -1,0 +1,5 @@
+question,status,next_dependency
+Current football NIL/social association,exploratory_only,Validate identities/dates and performance; define selected-frame estimand
+Current basketball/cross-sport NIL slope,missing_key_inputs,Real basketball NIL valuations and dated follower counts
+Before/after scholarship decision slope,not_estimable,Same decision outcome/population and pre-decision social measures in both eras
+Career evaluation across eras,descriptive_links_only,"Verified negatives, identity resolution and equal follow-up/censoring design"

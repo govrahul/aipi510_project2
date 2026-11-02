@@ -1,0 +1,178 @@
+{
+  "as_of": "2026-11-01",
+  "cohorts": [
+    {
+      "sport": "basketball",
+      "cohort_start": 2018,
+      "rows": 5590,
+      "unique_athletes": 5562,
+      "recruiting_stars_available": 0,
+      "verified_HS_ratings": 0,
+      "recruiting_status": {
+        "not_available": 5590
+      },
+      "draft_status": {
+        "not_matched_unknown_not_a_verified_undrafted_outcome": 5499,
+        "source_reported_secondary_pick_disagreement_needs_review": 85,
+        "source_reported_exact_name_college_match": 6
+      },
+      "draft_round_available": 91,
+      "college_BPM_available": 4762,
+      "overseas_contract_verified": 1,
+      "sampling": {
+        "status": "pending_insufficient_verified_HS_ratings",
+        "eligible": 0,
+        "required": 1000
+      }
+    },
+    {
+      "sport": "football",
+      "cohort_start": 2018,
+      "rows": 23755,
+      "unique_athletes": 23751,
+      "recruiting_stars_available": 8729,
+      "verified_HS_ratings": 0,
+      "recruiting_status": {
+        "not_available": 13551,
+        "exact_name_team_id_HS_classification_unverified": 9872,
+        "ambiguous_public_recruit_identity": 332
+      },
+      "draft_status": {
+        "not_matched_unknown_not_a_verified_undrafted_outcome": 23053,
+        "source_reported_exact_name_college_match": 702
+      },
+      "draft_round_available": 702,
+      "college_BPM_available": 0,
+      "overseas_contract_verified": 0,
+      "sampling": {
+        "status": "pending_insufficient_verified_HS_ratings",
+        "eligible": 0,
+        "required": 1000
+      }
+    },
+    {
+      "sport": "basketball",
+      "cohort_start": 2019,
+      "rows": 5587,
+      "unique_athletes": 5575,
+      "recruiting_stars_available": 0,
+      "verified_HS_ratings": 0,
+      "recruiting_status": {
+        "not_available": 5587
+      },
+      "draft_status": {
+        "not_matched_unknown_not_a_verified_undrafted_outcome": 5498,
+        "source_reported_secondary_pick_disagreement_needs_review": 87,
+        "source_reported_exact_name_college_match": 2
+      },
+      "draft_round_available": 89,
+      "college_BPM_available": 4768,
+      "overseas_contract_verified": 1,
+      "sampling": {
+        "status": "pending_insufficient_verified_HS_ratings",
+        "eligible": 0,
+        "required": 1000
+      }
+    },
+    {
+      "sport": "football",
+      "cohort_start": 2019,
+      "rows": 23985,
+      "unique_athletes": 23966,
+      "recruiting_stars_available": 8233,
+      "verified_HS_ratings": 0,
+      "recruiting_status": {
+        "not_available": 13808,
+        "exact_name_team_id_HS_classification_unverified": 9860,
+        "ambiguous_public_recruit_identity": 317
+      },
+      "draft_status": {
+        "not_matched_unknown_not_a_verified_undrafted_outcome": 23298,
+        "source_reported_exact_name_college_match": 687
+      },
+      "draft_round_available": 687,
+      "college_BPM_available": 0,
+      "overseas_contract_verified": 0,
+      "sampling": {
+        "status": "pending_insufficient_verified_HS_ratings",
+        "eligible": 0,
+        "required": 1000
+      }
+    },
+    {
+      "sport": "basketball",
+      "cohort_start": 2025,
+      "rows": 5680,
+      "unique_athletes": 5677,
+      "recruiting_stars_available": 0,
+      "verified_HS_ratings": 0,
+      "recruiting_status": {
+        "not_available": 5680
+      },
+      "draft_status": {
+        "not_matched_unknown_not_a_verified_undrafted_outcome": 5635,
+        "source_reported_secondary_pick_disagreement_needs_review": 41,
+        "source_reported_exact_name_college_match": 4
+      },
+      "draft_round_available": 45,
+      "college_BPM_available": 5015,
+      "overseas_contract_verified": 0,
+      "sampling": {
+        "status": "pending_insufficient_verified_HS_ratings",
+        "eligible": 0,
+        "required": 1000
+      }
+    },
+    {
+      "sport": "football",
+      "cohort_start": 2025,
+      "rows": 26327,
+      "unique_athletes": 26316,
+      "recruiting_stars_available": 7727,
+      "verified_HS_ratings": 0,
+      "recruiting_status": {
+        "not_available": 17382,
+        "exact_name_team_id_HS_classification_unverified": 8733,
+        "ambiguous_public_recruit_identity": 212
+      },
+      "draft_status": {
+        "not_matched_unknown_not_a_verified_undrafted_outcome": 26139,
+        "source_reported_exact_name_college_match": 188
+      },
+      "draft_round_available": 188,
+      "college_BPM_available": 0,
+      "overseas_contract_verified": 0,
+      "sampling": {
+        "status": "pending_insufficient_verified_HS_ratings",
+        "eligible": 0,
+        "required": 1000
+      }
+    },
+    {
+      "sport": "football",
+      "cohort_start": 2026,
+      "rows": 26094,
+      "unique_athletes": 26092,
+      "recruiting_stars_available": 7629,
+      "verified_HS_ratings": 0,
+      "recruiting_status": {
+        "not_available": 17057,
+        "exact_name_team_id_HS_classification_unverified": 8787,
+        "ambiguous_public_recruit_identity": 250
+      },
+      "draft_status": {
+        "not_matched_unknown_not_a_verified_undrafted_outcome": 26094
+      },
+      "draft_round_available": 0,
+      "college_BPM_available": 0,
+      "overseas_contract_verified": 0,
+      "sampling": {
+        "status": "pending_insufficient_verified_HS_ratings",
+        "eligible": 0,
+        "required": 1000
+      }
+    }
+  ],
+  "source_manifest": "Data/private/evaluation/collection_manifest.json",
+  "note": "Previous production-based samples are superseded provisional artifacts. No final HS-stratified sample without sufficient verified HS ratings. No future outcomes imputed."
+}
