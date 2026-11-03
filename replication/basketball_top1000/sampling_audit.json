@@ -1,0 +1,66 @@
+{
+  "seed": 510,
+  "input_frame_rows": 1000,
+  "sample_rows": 100,
+  "sample_per_quartile": {
+    "Q4_Highest": 25,
+    "Q3_Upper_Middle": 25,
+    "Q2_Lower_Middle": 25,
+    "Q1_Lowest": 25
+  },
+  "population_per_quartile": {
+    "Q4_Highest": 250,
+    "Q3_Upper_Middle": 250,
+    "Q2_Lower_Middle": 250,
+    "Q1_Lowest": 250
+  },
+  "metric": "NIL_Valuation_USD",
+  "tie_policy": "Descending metric, stable string IDs; rank quartiles, not strict value bins",
+  "rows_in_ties_crossing_quartiles": 19,
+  "stratum_ranges": {
+    "Q1_Lowest": {
+      "min": 328000.0,
+      "max": 369000.0
+    },
+    "Q2_Lower_Middle": {
+      "min": 369000.0,
+      "max": 438000.0
+    },
+    "Q3_Upper_Middle": {
+      "min": 438000.0,
+      "max": 552000.0
+    },
+    "Q4_Highest": {
+      "min": 552000.0,
+      "max": 6000000.0
+    }
+  },
+  "note": "Weights target this input frame only; do not repair exclusions outside it",
+  "source_sha256": "087fc89f740c445feefd5d31e3d4bc7ef12e03e816fb89b300cfc9b41a136fac",
+  "source_rows": 5348,
+  "frame_definition": "Source global ranks 1 through 1000, then rank quartiles of 250 each",
+  "quartile_global_rank_ranges": {
+    "Q1_Lowest": [
+      751,
+      1000
+    ],
+    "Q2_Lower_Middle": [
+      501,
+      750
+    ],
+    "Q3_Upper_Middle": [
+      251,
+      500
+    ],
+    "Q4_Highest": [
+      1,
+      250
+    ]
+  },
+  "frame_sha256": "2146ce88632d332a4701a2b035d00c4192515098f6d82aee061588c7d202fe45",
+  "frozen_sample_sha256": "f0947e4377ad89c8f67d2fc07b6a6cd7356cdc932cdaa7c18598bd5936dee7e3",
+  "source_snapshot_retrieved": "2026-11-02",
+  "correction_date": "2026-11-03",
+  "replaces": "Legacy 100-player sample drawn from all 5348 listings; not the requested population",
+  "follower_lookup": "Google: player name + college + instagram; first Instagram result; inspect school-post athlete tags where needed"
+}

@@ -1,5 +1,10 @@
 # Basketball Instagram collection — November 2, 2026
 
+> **Superseded November 3:** This is the legacy sample drawn from all 5,348
+> listings. Sam clarified that only the top 1,000 should form the sampling
+> population. Use [the corrected top-1,000 dataset and notes](basketball_top1000_social.md)
+> for new basketball work. The 100-count completion described below is historical.
+
 The public Sideline ranking was collected successfully through normal Safari
 after Sam changed the local network setup. The collector expanded all public
 "Load more" controls: **5,348 listings**, not just the first page. A frozen

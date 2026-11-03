@@ -1,4 +1,10 @@
-> **Superseding historical design:** Sam subsequently chose high-school recruiting stars. The production-quartile comparator samples described below are retained only as provisional legacy artifacts. The new source collection, star-sampling requirements and career enrichment are documented in [recruiting_and_career_evaluation.md](recruiting_and_career_evaluation.md). Current basketball still uses 250 per NIL quartile.
+> **Latest basketball design, November 3:** Restrict to top 1,000 NIL listings
+> FIRST, make four rank quartiles of 250 within those 1,000, then select 25 per
+> quartile for Instagram collection. This replaces the full-frame design below.
+> See [the corrected collection](basketball_top1000_social.md). For historical
+> comparators, Sam chose high-school recruiting stars; the production-quartile
+> comparator samples below remain provisional legacy artifacts. See
+> [recruiting and career evaluation](recruiting_and_career_evaluation.md).
 
 # Revised sampling and Instagram collection
 

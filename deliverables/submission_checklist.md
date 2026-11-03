@@ -52,4 +52,4 @@ Files: `project2_report.docx` is editable; `project2_report.pdf` is the matching
 
 ## Data needed for the unfinished comparisons
 
-A sport main effect needs football sampled across its full NIL range, as basketball was. The before/after NIL question needs follower counts from before 2021 and one outcome measured the same way in both eras. Career outcomes require verified positives/negatives and equal follow-up or a censoring-aware design. These are research gaps, not missing sections filled with simulated results.
+A sport main effect needs both sports drawn with identical value tiers (football used three tiers, basketball four quarters of its top 1,000). The before/after NIL question needs follower counts from before 2021 and one outcome measured the same way in both eras. Career outcomes require verified positives/negatives and equal follow-up or a censoring-aware design. These are research gaps, not missing sections filled with simulated results.

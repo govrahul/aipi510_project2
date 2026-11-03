@@ -9,7 +9,7 @@ Performance is ranked within each sport: basketball = points per game in 2025-26
 football = PPA per play (partner pull; unverified, zeros treated as missing). Players with no prior college
 stats (mostly freshmen) get percentile 0 and flag 1. HC3 robust errors.
 
-Reads (read-only): Data/curated/basketball_instagram_100.csv, Data/football_modeling_data.csv,
+Reads (read-only): Data/curated/basketball_top1000_instagram_100.csv, Data/football_modeling_data.csv,
   Data/private/basketball/player_team_season_2026.csv, figures/figure_data/roster_trends.csv
 Writes: figures/fig7..fig11 (PDF + PNG), figures/figure_data/unified_*.csv/json,
   figures/figure_data/unified_model_diagnostics.json (assumption checks, effect sizes, post hoc tests),
@@ -34,7 +34,9 @@ plt.rcParams.update({"font.family": "sans-serif", "font.sans-serif": ["Arial", "
     "axes.labelsize": 10, "xtick.labelsize": 9.5, "ytick.labelsize": 9.5, "legend.fontsize": 9.5, "axes.spines.top": False,
     "axes.spines.right": False, "axes.linewidth": 0.7, "pdf.fonttype": 42, "savefig.dpi": 300})
 MONEY = mt.FuncFormatter(lambda v, _: f"${v/1e6:g}M" if v >= 1e6 else f"${v/1e3:g}K")
-YR = {"Freshman": 1, "Sophomore": 2, "Junior": 3, "Redshirt Junior": 3, "Senior": 4, "Graduate": 5}
+YR = {"Freshman": 1, "Sophomore": 2, "Redshirt Sophomore": 2, "Junior": 3, "Redshirt Junior": 3, "Senior": 4, "Redshirt Senior": 4,
+      "Fifth Year": 5, "Graduate": 5}
+BB_SAMPLE = "curated/basketball_top1000_instagram_100.csv"   # 25 per NIL quartile of the top 1,000 basketball listings (matches football)
 SPEC = "ln_nil ~ ln_f + perf + no_stats + year"
 GROUPS = {"Instagram followers": ["ln_f"], "Last-season performance": ["perf", "no_stats"], "Years in college": ["year"]}
 
@@ -45,11 +47,24 @@ def save(fig, name):
     plt.close(fig)
 
 
+def box_scores():
+    """2025-26 points per game, one row per ESPN athlete (mid-season movers: keep the team with most games)."""
+    box = pd.read_csv(DATA / "private/basketball/player_team_season_2026.csv", usecols=["athlete_id", "Player_Name", "Points_Per_Game", "Games"])
+    return box.sort_values("Games", ascending=False).drop_duplicates("athlete_id")
+
+
+def with_ppg(b):
+    """Attach last season's points per game: by ESPN id, else by an exact, unique name match (players who transferred
+    after 2025-26 have no ESPN id in the listing). Players with no match keep PPG missing and get the no-stats flag."""
+    box = box_scores(); key = lambda s: s.str.lower().str.replace(r"[^a-z]", "", regex=True)
+    ppg = b.ESPN_Athlete_ID_Candidate.map(box.set_index("athlete_id").Points_Per_Game)
+    box["k"] = key(box.Player_Name); uniq = box[~box.k.duplicated(keep=False)].set_index("k").Points_Per_Game
+    by_name = key(b["Player Name"]).map(uniq).where(b.ESPN_Athlete_ID_Candidate.isna())
+    return b.assign(Points_Per_Game=ppg.fillna(by_name))
+
+
 def load():
-    b = pd.read_csv(DATA / "curated/basketball_instagram_100.csv")
-    box = (pd.read_csv(DATA / "private/basketball/player_team_season_2026.csv", usecols=["athlete_id", "Points_Per_Game", "Games"])
-           .sort_values("Games", ascending=False).drop_duplicates("athlete_id"))   # mid-season movers: keep the team with most games
-    b = b.merge(box, left_on="ESPN_Athlete_ID_Candidate", right_on="athlete_id", how="left", validate="m:1")
+    b = with_ppg(pd.read_csv(DATA / BB_SAMPLE))
     B = pd.DataFrame(dict(sport="Basketball", nil=b.NIL_Valuation_USD, followers=b.Instagram_Followers, year=b.Grade.map(YR),
                           perf_raw=b.Points_Per_Game, top=b.Quartile.eq("Q4_Highest")))
     f = pd.read_csv(DATA / "football_modeling_data.csv")
@@ -213,7 +228,7 @@ def nil_by_followers_both_fig(d):
     for k, sp in enumerate(["Basketball", "Football"]):
         g = d[d.sport == sp]; q = pd.qcut(g.followers, 4, labels=False)
         meds = [g.nil[q == i].median() for i in range(4)]; ranges[sp] = [(g.followers[q == i].min(), g.followers[q == i].max()) for i in range(4)]
-        ax.bar(xs + (k - 0.5) * w, meds, width=w, color=SPORT_C[sp], label=sp + (" (all price levels)" if sp == "Basketball" else " (top 1,000 only: $350K+)"))
+        ax.bar(xs + (k - 0.5) * w, meds, width=w, color=SPORT_C[sp], label=sp + (" (top 1,000: $329K and up)" if sp == "Basketball" else " (top 1,000: $350K and up)"))
         for x, v in zip(xs + (k - 0.5) * w, meds): ax.text(x, v, f"${v/1e3:,.0f}K", ha="center", va="bottom", fontsize=9.5, fontweight="bold", color=NAVY)
         rows += [dict(sport=sp, group=i + 1, followers_min=ranges[sp][i][0], followers_max=ranges[sp][i][1], median_nil=meds[i]) for i in range(4)]
     ax.set_xticks(xs)
@@ -233,10 +248,7 @@ def basketball_only():
 
     ln(NIL) ~ ln(1 + followers) + points per game (per 5) + no-stats flag + freshman + big conference + frontcourt, HC3.
     """
-    b = pd.read_csv(DATA / "curated/basketball_instagram_100.csv")
-    box = (pd.read_csv(DATA / "private/basketball/player_team_season_2026.csv", usecols=["athlete_id", "Points_Per_Game", "Games"])
-           .sort_values("Games", ascending=False).drop_duplicates("athlete_id"))
-    b = b.merge(box, left_on="ESPN_Athlete_ID_Candidate", right_on="athlete_id", how="left", suffixes=("", "_box"), validate="m:1")
+    b = with_ppg(pd.read_csv(DATA / BB_SAMPLE))
     g = pd.DataFrame(dict(ln_nil=np.log(b.NIL_Valuation_USD), ln_f=np.log1p(b.Instagram_Followers),
                           no_stats=b.Points_Per_Game.isna().astype(int), ppg5=b.Points_Per_Game.fillna(0) / 5,
                           freshman=b.Grade.eq("Freshman").astype(int), big_conf=b.Conference.isin(BIG_CONF).astype(int),

@@ -1,4 +1,58 @@
-## Branch naming preference
+## Latest correction — November 3, 2026: top-1,000 basketball social sample
+
+Sam clarified that basketball social sampling must first restrict to the top
+1,000 NIL listings, then form quartiles inside those 1,000. The earlier sample
+from all 5,348 was the wrong population. Preserve it as legacy evidence only.
+The new branch is `sam/basketball-top1000-social`, based on `sam/final-analysis`
+(PR #9). Do not describe the legacy basketball/combined regressions, report or
+slides as results for this corrected sample; those still need performance and
+membership validation, rejoining and rerunning.
+
+Canonical new files: `Data/curated/basketball_top1000_nil_frame.csv` (1,000 rows,
+250 per quartile) and `Data/curated/basketball_top1000_instagram_100.csv` plus
+matching `.xlsx` (100 selected, 25 per quartile). Source global rank bands:
+Q4 1–250; Q3 251–500; Q2 501–750; Q1 751–1000. Seed 510, selection probability
+0.1, sampling weight 10. Selection was frozen before looking for Instagram.
+Stable string source IDs break NIL display ties; ties crossing strata are
+flagged. The full private source snapshot was retrieved November 2, 2026.
+
+All 100 players were searched on Google using name + source school + instagram
+in authorized Chrome. First Instagram results were opened; school/post tags
+resolved aliases when necessary, including Brock Davis, Eric Freeny, James
+Scott, Javontae Campbell, Dovydas Buika, Junjie Wang and Abdullah Ahmed. The
+unrelated first result for Abdullah was rejected; Big 12's tagged-users dialog
+identified `bidoo_34`. Count receipts record **99 fresh exact integer follower
+tooltips**, all November 3, with source profile URLs and UTC times. Browser-only
+coverage was Q4=25, Q3=24, Q2=25, Q1=25. Sam then replied **675** for row 33,
+Alex K'Medehouto (Maryland). The final sheet has **100 recorded counts, 25 per
+quartile: 99 browser observations and one user report**. His count is explicitly
+user reported; his handle, observation time and original display precision
+remain unknown. Both tagged handles `kmedehouto_alexandre` and
+`kmedehouto_atsouvi_alexandre` were unavailable. No replacements. Only two
+selected IDs overlap the legacy sample, and both were measured again.
+
+Reproduction: `scripts/prepare_basketball_top1000_social.py`, browser functions
+in `scripts/collect_basketball_google_instagram.mjs`, offline finalizer
+`scripts/finalize_basketball_top1000_social.py` and artifact-tool workbook
+builder `scripts/build_basketball_top1000_workbook.mjs`. Committed source
+top-1,000 extract, frozen draw, Google first-result receipts, reviewed identity
+routes, count receipts and Sam's one manual report are in
+`replication/basketball_top1000/`. The finalizer
+checks the frozen hash and reviewed row/athlete/handle before accepting counts.
+`reports/basketball_top1000/collection_audit.json` gives coverage and hashes.
+See `docs/basketball_top1000_social.md` for replay commands and analysis limits.
+NIL is an estimated current listing, not payment/scholarship receipt; this is
+not verified 2025–26 membership. Historical pre-decision followers and a common
+pre/post outcome remain missing. The source-school field is not independently
+verified current affiliation. No before/after or new model was fitted here.
+
+Validation: all 42 offline Python tests pass. Sampling replay from the published
+source extract reproduces the frozen sample and 1,000-row frame byte-for-byte.
+Checksums of all 99 saved browser receipts and 100 Google lookup records match
+the live browser export. The 31-column Excel file was rendered and visually
+checked, including Alex's manual count with a blank observed-at timestamp.
+
+## Branch naming preference (earlier work)
 
 Sam explicitly requested branch names prefixed `sam/`, not `codex/`. Use `sam/` for future work. The active collection branch is `sam/basketball-instagram-100`, with [PR #8](https://github.com/govrahul/aipi510_project2/pull/8), based on main at `9aa0d4a` (Rahul's updated README). Prior PRs #2, #4 and #5 are merged; #3 closed when its branch was renamed. Older status entries below describe their historical state, not outstanding merge requests.
 
