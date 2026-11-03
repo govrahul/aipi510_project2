@@ -4,6 +4,20 @@
 **Authors:** Rahul Govil and Sam Teshome\
 **Analysis snapshot:** November 2, 2026
 
+> **Basketball sampling correction — November 3, 2026:** The requested social
+> sample is now drawn from the **top 1,000 NIL listings first**, split into four
+> groups of 250, with 25 players selected per group (seed 510). Use
+> [`basketball_top1000_instagram_100.xlsx`](Data/curated/basketball_top1000_instagram_100.xlsx)
+> for the cleaned spreadsheet or the matching CSV for full provenance. It has
+> **100 selected players and 100 recorded counts**: 99 fresh browser observations
+> and Alex K'Medehouto's 675 followers reported by Sam. His tagged accounts are
+> unavailable, so his handle and actual observation time remain unknown. No
+> replacement was made.
+> **The basketball and combined model results below, and the existing report
+> and slides, use the superseded sample drawn from all 5,348 listings. They
+> have not been rerun for this corrected population.** See
+> [the correction and reproduction notes](docs/basketball_top1000_social.md).
+
 We asked how strongly a college athlete's Instagram following is associated
 with their published name, image and likeness (NIL) valuation, and whether
 that association differs between men's basketball and football. The NCAA's

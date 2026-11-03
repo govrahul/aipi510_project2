@@ -1,0 +1,48 @@
+{
+  "sample_rows": 100,
+  "recorded_counts": 100,
+  "counts_by_quartile": {
+    "Q1_Lowest": 25,
+    "Q2_Lower_Middle": 25,
+    "Q3_Upper_Middle": 25,
+    "Q4_Highest": 25
+  },
+  "missing_players": [],
+  "replacements": 0,
+  "manual_counts": 1,
+  "browser_counts": 99,
+  "provenance_by_quartile": {
+    "browser_observed": {
+      "Q1_Lowest": 25,
+      "Q2_Lower_Middle": 25,
+      "Q3_Upper_Middle": 24,
+      "Q4_Highest": 25
+    },
+    "user_reported": {
+      "Q1_Lowest": 0,
+      "Q2_Lower_Middle": 0,
+      "Q3_Upper_Middle": 1,
+      "Q4_Highest": 0
+    }
+  },
+  "manual_actions": [
+    {
+      "athlete_id": "sideline:b-5456488-alex-kmedehouto",
+      "Player_Name": "Alex K'Medehouto",
+      "action": "filled_missing_count"
+    }
+  ],
+  "frozen_sample_sha256": "f0947e4377ad89c8f67d2fc07b6a6cd7356cdc932cdaa7c18598bd5936dee7e3",
+  "curated_sha256": "ede88849f818aa5ca3d52d8936fe3512db4de1097de5737aa464ecd22d66a7ea",
+  "input_sha256": {
+    "basketball_top1000_sample_100_frozen.csv": "f0947e4377ad89c8f67d2fc07b6a6cd7356cdc932cdaa7c18598bd5936dee7e3",
+    "google_lookup_receipts.csv": "25dc8c9cbac4b9b44442af7249c7dcde43c66bb9ec75eddec06da21f240a25de",
+    "identity_reviews.csv": "679ff4818b983fefa56e3752df2d807df7fd9af73c45b613b54d732e5b9437ae",
+    "instagram_count_receipts.csv": "274069e652254738c2d2acb2be9b77d80cef508591cad0098f63e2b2dd0323b2",
+    "manual_count_reports.csv": "cc33492ab71b86616ee454d2789825a4b758fbac8d5db1489b42e3d8ef422763",
+    "source_top1000_snapshot.csv": "0d5b4a6c839a93877993c904a20322efd37e52ed67c617eefe7557d5aaf9a7f7"
+  },
+  "collection_date": "2026-11-03",
+  "nil_snapshot_date": "2026-11-02",
+  "interpretation": "Current listed top-1000 NIL population only. Membership/season not verified. Legacy basketball analyses require rerun."
+}
