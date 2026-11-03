@@ -12,7 +12,8 @@ stats (mostly freshmen) get percentile 0 and flag 1. HC3 robust errors.
 Reads (read-only): Data/curated/basketball_instagram_100.csv, Data/football_modeling_data.csv,
   Data/private/basketball/player_team_season_2026.csv, figures/figure_data/roster_trends.csv
 Writes: figures/fig7..fig11 (PDF + PNG), figures/figure_data/unified_*.csv/json,
-  figures/figure_data/unified_model_diagnostics.json (assumption checks, effect sizes, post hoc tests)
+  figures/figure_data/unified_model_diagnostics.json (assumption checks, effect sizes, post hoc tests),
+  figures/figure_data/basketball_only_model.json (sport-specific basketball model)
 """
 from pathlib import Path
 import itertools, json
@@ -224,13 +225,47 @@ def nil_by_followers_both_fig(d):
     save(fig, "fig8_nil_by_follower_group_by_sport")
 
 
+BIG_CONF = ["ACC", "BIG TEN", "BIG 12", "SEC", "BIG EAST"]
+
+
+def basketball_only():
+    """Sport-specific basketball model: adds what only the basketball sample has (conference, position).
+
+    ln(NIL) ~ ln(1 + followers) + points per game (per 5) + no-stats flag + freshman + big conference + frontcourt, HC3.
+    """
+    b = pd.read_csv(DATA / "curated/basketball_instagram_100.csv")
+    box = (pd.read_csv(DATA / "private/basketball/player_team_season_2026.csv", usecols=["athlete_id", "Points_Per_Game", "Games"])
+           .sort_values("Games", ascending=False).drop_duplicates("athlete_id"))
+    b = b.merge(box, left_on="ESPN_Athlete_ID_Candidate", right_on="athlete_id", how="left", suffixes=("", "_box"), validate="m:1")
+    g = pd.DataFrame(dict(ln_nil=np.log(b.NIL_Valuation_USD), ln_f=np.log1p(b.Instagram_Followers),
+                          no_stats=b.Points_Per_Game.isna().astype(int), ppg5=b.Points_Per_Game.fillna(0) / 5,
+                          freshman=b.Grade.eq("Freshman").astype(int), big_conf=b.Conference.isin(BIG_CONF).astype(int),
+                          frontcourt=b.Position.isin(["F", "C"]).astype(int)))
+    r = smf.ols("ln_nil ~ ln_f + ppg5 + no_stats + freshman + big_conf + frontcourt", g).fit(cov_type="HC3"); ci = r.conf_int()
+    labels = {"ln_f": "Twice the followers", "ppg5": "+5 points per game", "no_stats": "No stats last season (adjustment)",
+              "freshman": "Freshman", "big_conf": "Big conference (ACC, Big Ten, Big 12, SEC, Big East)", "frontcourt": "Forward or center (vs guard)"}
+    terms = {}
+    for t, lab in labels.items():
+        sc = np.log(2) if t == "ln_f" else 1.0; pct = lambda v: float(100 * (np.exp(v * sc) - 1))
+        terms[t] = dict(label=lab, beta=float(r.params[t]), ci=[float(ci.loc[t, 0]), float(ci.loc[t, 1])], p=float(r.pvalues[t]),
+                        pct=pct(r.params[t]), pct_ci=[pct(ci.loc[t, 0]), pct(ci.loc[t, 1])])
+    reduced = smf.ols("ln_nil ~ ln_f", g).fit(cov_type="HC3")
+    out = dict(formula="ln(NIL) ~ ln(1+followers) + PPG/5 + no_stats + freshman + big_conf + frontcourt (HC3)", n=int(r.nobs),
+               r2=float(r.rsquared), terms=terms, n_big_conf=int(g.big_conf.sum()),
+               median_nil_by_conf={"big": float(b.NIL_Valuation_USD[g.big_conf == 1].median()), "other": float(b.NIL_Valuation_USD[g.big_conf == 0].median())},
+               median_followers_by_conf={"big": float(b.Instagram_Followers[g.big_conf == 1].median()), "other": float(b.Instagram_Followers[g.big_conf == 0].median())},
+               r2_big_conf_only=float(smf.ols("ln_nil ~ big_conf", g).fit().rsquared), r2_followers_only=float(reduced.rsquared))
+    (FD / "basketball_only_model.json").write_text(json.dumps(out, indent=2) + "\n")
+    return out
+
+
 if __name__ == "__main__":
     d = load()
     t = pd.read_csv(FD / "roster_trends.csv")
     import sys
     cache = FD / "unified_model_results.json"
     res = json.loads(cache.read_text()) if "--cached" in sys.argv and cache.exists() else analyse(d)   # --cached skips the 1,000-draw bootstrap
-    diagnostics(d)
+    diagnostics(d); basketball_only()
     transfer_rate_fig(t); nil_by_followers_both_fig(d)
     follower_effect_fig(res); importance_fig(res); top_market_fig(res)
     print(json.dumps({s: {k: res[s][k] for k in ("n", "r2", "doubling_pct", "p_followers", "share_of_explained")} for s in ("Basketball", "Football")}, indent=1, default=float))

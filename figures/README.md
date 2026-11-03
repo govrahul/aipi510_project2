@@ -4,8 +4,8 @@
 
 | Report figure | File | Model |
 |---|---|---|
-| Figure 1 | `fig10_feature_importance` | Base model 1 (both sports) |
-| Figure 2 | `fig11_follower_effect_top_market` | Base model 1 (both sports) |
+| Figure 1 | `fig10_feature_importance` | Main model (both sports) |
+| Figure 2 | `fig11_follower_effect_top_market` | Main model (both sports) |
 | Figure 3 | `fig3_followers_vs_valuation` | Supplementary football models |
 | Figure 4 | `fig8_nil_by_follower_group_by_sport` | Post hoc follower groups |
 | Figure 5 | `fig7_transfer_rate_by_sport` | Descriptive context |

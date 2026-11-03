@@ -9,14 +9,10 @@ with their published name, image and likeness (NIL) valuation, and whether
 that association differs between men's basketball and football. The NCAA's
 interim NIL policy took effect on **July 1, 2021**.
 
-## Main findings (base models)
+## Main findings
 
-These are the results presented in the slides and the report. All other
-models in the repository are supplementary (see
-[section 6.3](#63-supplementary-replication-and-robustness-models)).
-
-**Base model 1 --- one shared model in both sports**
-(`ln NIL ~ ln(1 + followers) + performance percentile + no-stats flag + years in college`, HC3 errors; 100 players per sport)
+**Main model --- one formula, fitted separately to each sport**
+(`ln NIL ~ ln(1 + followers) + performance percentile + no-stats flag + years in college`, HC3 errors; 100 players per sport, so two regressions)
 
 | | Basketball | Football |
 |---|---|---|
@@ -27,20 +23,37 @@ models in the repository are supplementary (see
 | Model R² | 0.23 | 0.30 |
 | Without the 25 highest-valued players | +1% (p = 0.86) | +4% (p = 0.05) |
 
-**Base model 2 --- primary football model** (position groups, HC3):
-β = 0.274, 95% CI 0.094--0.454, p = 0.0028, which is about **+21% NIL for
-twice the followers** (95% CI 7--37%), R² = 0.355.
+Follower β: basketball 0.431 (95% CI 0.235--0.628), football 0.221
+(0.093--0.350). The two slopes do not differ significantly (pooled
+interaction test, p = 0.079).
+
+**Sport-specific models** (each sport on its own, adding variables only
+that sport has; [section 6.2](#62-sport-specific-models)):
+
+| | Added variables | Twice the followers | R² |
+|---|---|---|---|
+| Football | recruiting stars, freshman, stars × freshman, position group | **+21%** (β 0.274, p = 0.003) | 0.36 |
+| Basketball | points per game, freshman, big conference, forward/center | **+9%** (β 0.124, p = 0.32, not significant) | 0.54 |
+
+In basketball, playing in one of the five largest conferences (ACC, Big Ten,
+Big 12, SEC, Big East) goes with about **+509%** NIL value (p < 0.001) and
+explains half the variation by itself.
 
 In plain terms:
 
-1. Instagram following is the strongest factor we measured in both sports,
-   accounting for about two thirds of what the model explains.
-2. The effect is concentrated at the top of the market: without the
+1. In the main model, Instagram following is the strongest factor we
+   measured in both sports, accounting for about two thirds of what the
+   model explains.
+2. The sport-specific models qualify that. Football's follower effect holds
+   after adding recruiting stars and position. In basketball, conference
+   matters far more, and big-conference players also have more followers,
+   so much of basketball's follower effect reflects conference.
+3. The effect is concentrated at the top of the market: without the
    highest-valued quarter of players it nearly disappears.
-3. The basketball slope is larger, but the difference between sports is not
+4. The basketball slope is larger, but the difference between sports is not
    statistically significant (p = 0.079), so we do not claim one sport
    rewards followers more.
-4. This is an observational, single-snapshot association. It does not show
+5. This is an observational, single-snapshot association. It does not show
    that followers cause higher NIL value or that NIL changed recruiting.
 
 ## Where to find everything
@@ -51,13 +64,14 @@ In plain terms:
 | Presentation (8 min) and speaking script | [`deliverables/project2_presentation.pptx`](deliverables/project2_presentation.pptx), [`deliverables/presentation_script.md`](deliverables/presentation_script.md) |
 | Rubric checklist | [`deliverables/submission_checklist.md`](deliverables/submission_checklist.md) |
 | Final figures (bar charts) and the tables behind them | [`figures/`](figures/) ([guide](figures/README.md)), [`figures/figure_data/`](figures/figure_data/) |
-| Base model 1 code and results | [`scripts/make_unified_figures.py`](scripts/make_unified_figures.py) → [`unified_model_results.json`](figures/figure_data/unified_model_results.json), [`unified_model_diagnostics.json`](figures/figure_data/unified_model_diagnostics.json) |
-| Base model 2 code and results | [`scripts/summarize_deliverable_results.py`](scripts/summarize_deliverable_results.py) → [`reports/deliverables/model_statistics.json`](reports/deliverables/model_statistics.json) |
+| Main model code and results | [`scripts/make_unified_figures.py`](scripts/make_unified_figures.py) → [`unified_model_results.json`](figures/figure_data/unified_model_results.json), [`unified_model_diagnostics.json`](figures/figure_data/unified_model_diagnostics.json) |
+| Basketball-specific model | [`scripts/make_unified_figures.py`](scripts/make_unified_figures.py) → [`basketball_only_model.json`](figures/figure_data/basketball_only_model.json) |
+| Football-specific model and football robustness fits | [`scripts/summarize_deliverable_results.py`](scripts/summarize_deliverable_results.py) → [`reports/deliverables/model_statistics.json`](reports/deliverables/model_statistics.json) |
 | Power analysis | [`scripts/power_sensitivity.py`](scripts/power_sensitivity.py), partner's original in [`power_analysis.py`](power_analysis.py) |
 | Cleaned analysis data | [`Data/football_modeling_data.csv`](Data/football_modeling_data.csv), [`Data/curated/basketball_instagram_100.csv`](Data/curated/basketball_instagram_100.csv) |
 | Raw data and how each file was made | [section 3.4](#34-raw-and-cleaned-data) |
 | Collection and cleaning scripts | [`scripts/`](scripts/) (`collect_*`, `prepare_*`, `import_*`), [`Data Cleaning/`](Data%20Cleaning/) |
-| Supplementary models (replication, robustness, EDA) | [section 6.3](#63-supplementary-replication-and-robustness-models), [`reports/eda/`](reports/eda/), [`Tests/football_test.py`](Tests/football_test.py) |
+| Supplementary models (football replication, robustness, EDA) | [section 6.3](#63-supplementary-football-replication-and-robustness), [`reports/eda/`](reports/eda/), [`Tests/football_test.py`](Tests/football_test.py) |
 
 ## Reproduce the final analysis (run order)
 
@@ -66,10 +80,10 @@ python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
 python -m unittest discover -s Tests -v          # offline tests
-python scripts/summarize_deliverable_results.py  # base model 2 (football) and sensitivity fits
+python scripts/summarize_deliverable_results.py  # football-specific model and football robustness fits
 python scripts/power_sensitivity.py              # power analysis
 python scripts/make_manuscript_figures.py        # figures 1-6 and the transfer-trend table
-python scripts/make_unified_figures.py           # base model 1, post hoc tests, figures 7-11
+python scripts/make_unified_figures.py           # main model, basketball-specific model, post hoc tests, figures 7-11
 python scripts/build_project_report.py           # rebuilds deliverables/project2_report.docx
 ```
 
@@ -113,11 +127,12 @@ available.
     last-season points per game.
 -   Reuses the partner's 100-player football sample, with an audit of its
     sources and performance field.
--   Fits one shared model in both sports and a primary football model,
-    with HC3 errors, dominance analysis, assumption checks and post hoc
-    tests.
--   Keeps the partner's original model and several robustness fits as
-    clearly labelled supplementary results.
+-   Fits one main model (the same formula in each sport), with HC3 errors,
+    dominance analysis, assumption checks and post hoc tests.
+-   Fits a sport-specific model for each sport that adds variables only
+    that sport has.
+-   Keeps the partner's original football model and several robustness
+    fits as clearly labelled supplementary results.
 -   Provides scripts (no notebooks), aggregate outputs, input hashes and
     offline tests so every number can be rerun.
 
@@ -427,16 +442,19 @@ heteroskedasticity-robust standard errors. On this scale, twice the
 followers multiplies valuation by `2^β`, so effects are reported as
 `100 × (2^β − 1)` percent.
 
--   **Base model 1 (both sports):** followers, last-season performance
+-   **Main model (fitted to each sport separately):** followers, last-season performance
     percentile within sport (basketball points per game; football PPA per
     play with zeros treated as missing), a flag for no college stats last
     season, and years in college. The sport difference (H3) is tested with
     a pooled model that interacts sport with every term. General dominance
     analysis with 1,000 bootstrap draws splits R² among the factors.
--   **Base model 2 (football):** followers, centered recruiting stars,
+-   **Football-specific model:** followers, centered recruiting stars,
     freshman status, stars × freshman, and four position groups. It drops
     the partner's PPA measure (unverified values) and the Power 4 flag
     (99 of 100 players are Power 4).
+-   **Basketball-specific model:** followers, points per game (per 5),
+    no-stats flag, freshman, big conference (ACC, Big Ten, Big 12, SEC,
+    Big East) and forward-or-center.
 -   **Post hoc:** Kruskal--Wallis tests across four equal follower groups
     and across recruiting-star groups, followed by Holm-corrected pairwise
     Mann--Whitney tests.
@@ -445,7 +463,7 @@ followers multiplies valuation by `2^β`, so effects are reported as
 
 ## 6. Results
 
-### 6.1 Base model 1: basketball and football with one shared model
+### 6.1 Main model: one formula fitted to each sport
 
 Both sports were fitted with the same model:
 `ln(NIL) ~ ln(1 + followers) + last-season performance percentile + no-stats flag + years in college`,
@@ -481,23 +499,40 @@ most-followed group and the rest. Results:
 [`unified_model_results.json`](figures/figure_data/unified_model_results.json)
 and [`unified_model_diagnostics.json`](figures/figure_data/unified_model_diagnostics.json).
 
-### 6.2 Base model 2: primary football model
+### 6.2 Sport-specific models
 
-  ------------------------------------------------------------------------
-  Model                N        β       95% CI         p         R²
-  ------------------ ----- ------- -------------- ---------- ---------
-  Position groups,     100   0.274  0.094 to 0.454    0.0028     0.355
-  HC3
-  ------------------------------------------------------------------------
+**Football** (position groups, HC3): β = 0.274, 95% CI 0.094--0.454,
+p = 0.0028, about **+21% NIL for twice the followers** (95% CI 7--37%),
+R² = 0.355. Recruiting stars: valuations differ across 3-, 4- and 5-star
+players (Kruskal--Wallis p = 0.001), but the Holm-corrected pairs show the
+difference is 5-star versus 4-star only (p = 0.002).
 
-About **21% higher NIL for twice the followers** (95% CI 7--37%). Recruiting
-stars: valuations differ across 3-, 4- and 5-star players (Kruskal--Wallis
-p = 0.001), but the Holm-corrected pairs show the difference is 5-star
-versus 4-star only (p = 0.002).
+**Basketball** (HC3, R² = 0.54):
 
-### 6.3 Supplementary: replication and robustness models
+  -----------------------------------------------------------------------
+  Term                              Effect on NIL      95% CI          p
+  -------------------------------- --------------- --------------- -------
+  Twice the followers                    +9%        −8% to +29%      0.32
 
-These were run to check that the base results do not depend on one
+  +5 points per game                     +8%        −22% to +49%     0.66
+
+  Freshman                              −37%        −60% to −1%      0.045
+
+  Big conference                       +509%       +295% to +840%   <0.001
+
+  Forward or center (vs guard)           −2%        −29% to +35%     0.89
+  -----------------------------------------------------------------------
+
+The 19 big-conference players have a median NIL value of \$413K against
+\$55K for the rest, and more followers (median 5,754 against 2,198).
+Conference alone explains 50% of the variation in basketball NIL value, so
+much of the follower association in the main model reflects conference.
+Football cannot be checked this way because 99 of its 100 players are in
+Power 4 conferences.
+
+### 6.3 Supplementary: football replication and robustness
+
+These were run to check that the football results do not depend on one
 modelling choice. They are not headline findings and were not selected by
 p-value.
 
@@ -510,7 +545,7 @@ p-value.
   Partner's model, largest       99  0.212  0.068 to 0.355  0.00388  Influence
   account removed                                                    check
 
-  Base model 2 with             100  0.274  0.121 to 0.427  0.00086  Dependence
+  Football-specific model with  100  0.274  0.121 to 0.427  0.00086  Dependence
   school-clustered errors                                            check
   ------------------------------------------------------------------------------
 
@@ -528,7 +563,7 @@ also supplementary.
 -   The inherited model has substantial collinearity involving freshman
     status and its interaction with uncentered stars.
 -   Influence checks flag observations for review; flagged players are
-    not automatically removed from the primary model.
+    not automatically removed from the models.
 -   The sample has limited conference variation (99 of 100 players are
     from Power 4 schools).
 -   The largest account has substantial influence on the raw follower

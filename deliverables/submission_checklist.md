@@ -6,7 +6,7 @@ The report covers the football and basketball follower analyses and the cross-sp
 
 ## Written report
 
-| Rubric item | Location in the nine-page report | Status |
+| Rubric item | Location in the ten-page report | Status |
 | --- | --- | --- |
 | Title and abstract | Page 1 | Written |
 | Background and motivation | Page 1 | Written |
@@ -14,14 +14,14 @@ The report covers the football and basketball follower analyses and the cross-sp
 | Experimental design: variables, controls, randomization | Page 2 | Written; no control group (observational), stratified random sampling with seed 510 |
 | Power analysis: assumptions, calculations, software | Page 2 | Partial-term noncentral F calculation in SciPy (kept as written) |
 | Data collection and cleaning | Page 3 | Both sports; raw versus cleaned files named |
-| Statistical tests and rationale | Page 4 | Log-log OLS, HC3 errors, pooled interaction for H3, dominance analysis |
-| Assumption checks | Page 6 | Breusch–Pagan, Jarque–Bera, VIF, Cook's distance, leverage, clustering |
+| Statistical tests and rationale | Page 4 | Main model (same formula in each sport) plus one sport-specific model per sport; HC3 errors, pooled interaction for H3, dominance analysis |
+| Assumption checks | Page 7 | Breusch–Pagan, Jarque–Bera, VIF, Cook's distance, leverage, clustering |
 | p values, confidence intervals, effect sizes | Pages 4–6 | % per doubling with 95% CI, partial f², R² shares, Bonferroni 98.33% CI |
-| Post hoc tests | Page 6 | Kruskal–Wallis with Holm-corrected Mann–Whitney pairs (follower groups, recruiting stars) |
-| Interpretation of results | Page 7 | Written |
-| Limitations | Page 8 | Written |
-| Conclusion and recommendations | Page 8 | Written |
-| References | Page 9 | Data sources and methods references |
+| Post hoc tests | Page 7 | Kruskal–Wallis with Holm-corrected Mann–Whitney pairs (follower groups, recruiting stars) |
+| Interpretation of results | Page 8 | Written |
+| Limitations | Page 9 | Written |
+| Conclusion and recommendations | Page 9 | Written |
+| References | Page 10 | Data sources and methods references |
 
 Files: `project2_report.docx` is editable; `project2_report.pdf` is the matching reading copy. Editable text is also in `reports/deliverables/project2_report.md`. The partner's original PDF remains unchanged.
 
