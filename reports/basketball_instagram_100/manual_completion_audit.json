@@ -1,0 +1,128 @@
+{
+  "rows": 100,
+  "counts_recorded": 100,
+  "missing_counts": 0,
+  "provenance_counts": {
+    "browser_observed": 80,
+    "user_reported": 20
+  },
+  "rows_per_quartile": {
+    "Q4_Highest": 25,
+    "Q3_Upper_Middle": 25,
+    "Q2_Lower_Middle": 25,
+    "Q1_Lowest": 25
+  },
+  "actions": [
+    {
+      "athlete_id": "sideline:b-5462538-imoh-erims",
+      "Player_Name": "Imoh Erims",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5196867-josh-hill",
+      "Player_Name": "Josh Hill",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5313509-isaiah-kalala",
+      "Player_Name": "Isaiah Kalala",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5459808-jr-bartelus",
+      "Player_Name": "JR Bartelus",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5108086-yuto-yamanouchi-williams",
+      "Player_Name": "Yuto Yamanouchi-Williams",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5455071-ali-diouf",
+      "Player_Name": "Ali Diouf",
+      "action": "corroborates_existing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5462443-axton-perry",
+      "Player_Name": "Axton Perry",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5144128-abdou-yadd",
+      "Player_Name": "Abdou Yadd",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5461454-jalen-calloway",
+      "Player_Name": "Jalen Calloway",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5455081-dj-brown",
+      "Player_Name": "DJ Brown",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5455080-landon-krygier",
+      "Player_Name": "Landon Krygier",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5177169-max-frazier",
+      "Player_Name": "Max Frazier",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5312967-jason-kimbrough",
+      "Player_Name": "Jason Kimbrough",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5243345-jalen-tatum",
+      "Player_Name": "Jalen Tatum",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5460725-marko-markovic",
+      "Player_Name": "Marko Markovic",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5243102-jeremy-elyzee",
+      "Player_Name": "Jeremy Elyzee",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5458761-matt-mbole",
+      "Player_Name": "Matt Mbole",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5313175-waqo-tessema",
+      "Player_Name": "Waqo Tessema",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5185239-jabri-fitzpatrick",
+      "Player_Name": "Jabri Fitzpatrick",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5312432-omer-dahan",
+      "Player_Name": "Omer Dahan",
+      "action": "filled_missing_count"
+    },
+    {
+      "athlete_id": "sideline:b-5459257-izaya-larthridge",
+      "Player_Name": "Izaya Larthridge",
+      "action": "filled_missing_count"
+    }
+  ],
+  "source_input_sha256": "317b3f3dbacd759bc5750988de539686d8b440f5a4983b348ae714b101f89575",
+  "manual_input_sha256": "3ceede00536535ba5e5c1f924b81d037248ff8c9df860c5a411f37fa9010b758",
+  "output_sha256": "7748816f7e1b9f17ecece71ac1fa3a4d871e44ebaa29ed0ba36c9896e43d87f8",
+  "original_sample_unchanged": true,
+  "replacements_used": 0,
+  "manual_policy": "Report date is not an observed-at timestamp; no profile URL or display precision inferred"
+}
