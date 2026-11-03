@@ -1,5 +1,13 @@
 # AIPI 510 Project 2 deliverables
 
+> **November 3 sampling correction:** The basketball and combined findings in
+> these existing artifacts use the legacy sample drawn from all 5,348 listings.
+> They have not been rerun on the corrected top-1,000 population. Treat them as
+> earlier draft results pending a validated performance join and rerun using
+> `Data/curated/basketball_top1000_instagram_100.csv` (100 counts / 100 selected;
+> 99 browser observations and one user report).
+> See [correction notes](../docs/basketball_top1000_social.md).
+
 Updated November 2, 2026 from the course rubric and the completed two-sport analysis.
 
 - **project2_report.docx** — editable ten-page report with every rubric section in order: the main model (same formula in each sport), the sport-specific basketball and football models, assumption checks, post hoc tests, power analysis and limitations.
