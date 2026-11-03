@@ -1,8 +1,8 @@
 sport,group,followers_min,followers_max,median_nil
-Basketball,1,375,1558,49300.0
-Basketball,2,1616,2368,52500.0
-Basketball,3,2571,5230,119000.0
-Basketball,4,5669,232371,261000.0
+Basketball,1,675,2869,403000.0
+Basketball,2,2911,4357,433000.0
+Basketball,3,4395,13429,443000.0
+Basketball,4,13464,418433,466000.0
 Football,1,1265,5484,379000.0
 Football,2,5626,10700,427000.0
 Football,3,11200,19900,488000.0

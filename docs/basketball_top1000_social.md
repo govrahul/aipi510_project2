@@ -86,9 +86,10 @@ use `Quartile` for the corrected strata.
 
 This is a current November 2026 listing, not a verified 2025–26 roster.
 School/season and candidate ESPN IDs need validation before attaching season
-performance, recruiting, draft or career outcomes. The existing basketball and
-combined regressions, report and slides were built from the legacy population;
-they require a fresh validated join and rerun. This collection update does not
-fit a replacement model or establish causality. Historical pre-decision social
+performance, recruiting, draft or career outcomes. The basketball and
+combined regressions, report and README were rerun on this sample on
+November 3, 2026 (`scripts/make_unified_figures.py`, `BB_SAMPLE`); points per
+game are joined by ESPN athlete ID, or by an exact unique name match at the
+listed school when no ID is available. None of this establishes causality. Historical pre-decision social
 counts and a comparable pre/post evaluation outcome are still needed to answer
 the original before/after-NIL coefficient question.

@@ -2,21 +2,7 @@
 
 **AIPI 510 --- Module Project 2**\
 **Authors:** Rahul Govil and Sam Teshome\
-**Analysis snapshot:** November 2, 2026
-
-> **Basketball sampling correction — November 3, 2026:** The requested social
-> sample is now drawn from the **top 1,000 NIL listings first**, split into four
-> groups of 250, with 25 players selected per group (seed 510). Use
-> [`basketball_top1000_instagram_100.xlsx`](Data/curated/basketball_top1000_instagram_100.xlsx)
-> for the cleaned spreadsheet or the matching CSV for full provenance. It has
-> **100 selected players and 100 recorded counts**: 99 fresh browser observations
-> and Alex K'Medehouto's 675 followers reported by Sam. His tagged accounts are
-> unavailable, so his handle and actual observation time remain unknown. No
-> replacement was made.
-> **The basketball and combined model results below, and the existing report
-> and slides, use the superseded sample drawn from all 5,348 listings. They
-> have not been rerun for this corrected population.** See
-> [the correction and reproduction notes](docs/basketball_top1000_social.md).
+**Analysis snapshot:** November 3, 2026
 
 We asked how strongly a college athlete's Instagram following is associated
 with their published name, image and likeness (NIL) valuation, and whether
@@ -25,21 +11,26 @@ interim NIL policy took effect on **July 1, 2021**.
 
 ## Main findings
 
+Both sports are sampled the same way: 100 players drawn at random from the
+**1,000 highest NIL valuations** on The Sideline, 25 per value quarter for
+basketball ($329K and up) and by value tier for football ($350K and up).
+
 **Main model --- one formula, fitted separately to each sport**
 (`ln NIL ~ ln(1 + followers) + performance percentile + no-stats flag + years in college`, HC3 errors; 100 players per sport, so two regressions)
 
 | | Basketball | Football |
 |---|---|---|
-| Higher NIL for twice the followers | **+35%** (95% CI 18--54%, p < 0.001) | **+17%** (95% CI 7--27%, p < 0.001) |
-| Followers' share of what the model explains | **64%** | **69%** |
-| Last-season performance's share | 12% | 20% |
-| Years in college's share | 24% | 11% |
-| Model R² | 0.23 | 0.30 |
-| Without the 25 highest-valued players | +1% (p = 0.86) | +4% (p = 0.05) |
+| Higher NIL for twice the followers | **+4%** (95% CI −3 to 11%, p = 0.25, not significant) | **+17%** (95% CI 7--27%, p < 0.001) |
+| Followers' share of what the model explains | 44% | **69%** |
+| Last-season performance's share | 51% | 20% |
+| Years in college's share | 5% | 11% |
+| Model R² | 0.06 | 0.30 |
+| Without the 25 highest-valued players | +1% (p = 0.25) | +4% (p = 0.05) |
 
-Follower β: basketball 0.431 (95% CI 0.235--0.628), football 0.221
-(0.093--0.350). The two slopes do not differ significantly (pooled
-interaction test, p = 0.079).
+Follower β: basketball 0.057 (95% CI −0.040 to 0.153), football 0.221
+(0.093--0.350). The pooled interaction test gives p = 0.044 for the
+difference between the slopes: below 0.05, but above the Bonferroni level
+of 0.0167 we set for the three hypotheses.
 
 **Sport-specific models** (each sport on its own, adding variables only
 that sport has; [section 6.2](#62-sport-specific-models)):
@@ -47,27 +38,26 @@ that sport has; [section 6.2](#62-sport-specific-models)):
 | | Added variables | Twice the followers | R² |
 |---|---|---|---|
 | Football | recruiting stars, freshman, stars × freshman, position group | **+21%** (β 0.274, p = 0.003) | 0.36 |
-| Basketball | points per game, freshman, big conference, forward/center | **+9%** (β 0.124, p = 0.32, not significant) | 0.54 |
+| Basketball | points per game, freshman, big conference, forward/center | **+4%** (β 0.057, p = 0.24, not significant) | 0.11 |
 
 In basketball, playing in one of the five largest conferences (ACC, Big Ten,
-Big 12, SEC, Big East) goes with about **+509%** NIL value (p < 0.001) and
-explains half the variation by itself.
+Big 12, SEC, Big East) goes with about **+24%** NIL value (p = 0.005), the
+only clear factor in that model.
 
 In plain terms:
 
-1. In the main model, Instagram following is the strongest factor we
-   measured in both sports, accounting for about two thirds of what the
-   model explains.
-2. The sport-specific models qualify that. Football's follower effect holds
-   after adding recruiting stars and position. In basketball, conference
-   matters far more, and big-conference players also have more followers,
-   so much of basketball's follower effect reflects conference.
-3. The effect is concentrated at the top of the market: without the
-   highest-valued quarter of players it nearly disappears.
-4. The basketball slope is larger, but the difference between sports is not
-   statistically significant (p = 0.079), so we do not claim one sport
-   rewards followers more.
-5. This is an observational, single-snapshot association. It does not show
+1. Among top-valued players, Instagram following is clearly linked to NIL
+   value in football but not in basketball.
+2. In football, followers account for about two thirds of what the model
+   explains, and the effect holds after adding recruiting stars and
+   position.
+3. In basketball, the model explains only 6% of the variation; conference
+   matters more than followers.
+4. The football effect is concentrated at the top of the market: without
+   the highest-valued quarter of players it drops from +17% to +4%.
+5. The gap between the sports (p = 0.044) is suggestive but does not pass
+   our multiple-testing threshold.
+6. This is an observational, single-snapshot association. It does not show
    that followers cause higher NIL value or that NIL changed recruiting.
 
 ## Where to find everything
@@ -82,7 +72,7 @@ In plain terms:
 | Basketball-specific model | [`scripts/make_unified_figures.py`](scripts/make_unified_figures.py) → [`basketball_only_model.json`](figures/figure_data/basketball_only_model.json) |
 | Football-specific model and football robustness fits | [`scripts/summarize_deliverable_results.py`](scripts/summarize_deliverable_results.py) → [`reports/deliverables/model_statistics.json`](reports/deliverables/model_statistics.json) |
 | Power analysis | [`scripts/power_sensitivity.py`](scripts/power_sensitivity.py), partner's original in [`power_analysis.py`](power_analysis.py) |
-| Cleaned analysis data | [`Data/football_modeling_data.csv`](Data/football_modeling_data.csv), [`Data/curated/basketball_instagram_100.csv`](Data/curated/basketball_instagram_100.csv) |
+| Cleaned analysis data | [`Data/football_modeling_data.csv`](Data/football_modeling_data.csv), [`Data/curated/basketball_top1000_instagram_100.csv`](Data/curated/basketball_top1000_instagram_100.csv) ([`.xlsx`](Data/curated/basketball_top1000_instagram_100.xlsx)); basketball frame [`basketball_top1000_nil_frame.csv`](Data/curated/basketball_top1000_nil_frame.csv) |
 | Raw data and how each file was made | [section 3.4](#34-raw-and-cleaned-data) |
 | Collection and cleaning scripts | [`scripts/`](scripts/) (`collect_*`, `prepare_*`, `import_*`), [`Data Cleaning/`](Data%20Cleaning/) |
 | Supplementary models (football replication, robustness, EDA) | [section 6.3](#63-supplementary-football-replication-and-robustness), [`reports/eda/`](reports/eda/), [`Tests/football_test.py`](Tests/football_test.py) |
@@ -137,8 +127,8 @@ available.
 ## 2. What this project does
 
 -   Collects a 100-player men's basketball sample (25 per NIL quartile of
-    all 5,348 Sideline listings) with Instagram follower counts and
-    last-season points per game.
+    the 1,000 highest Sideline listings, matching the football frame) with
+    Instagram follower counts and last-season points per game.
 -   Reuses the partner's 100-player football sample, with an audit of its
     sources and performance field.
 -   Fits one main model (the same formula in each sport), with HC3 errors,
@@ -230,15 +220,23 @@ layer is the basketball performance measure in the two-sport model.
 `scripts/collect_sideline_safari.py` collected the full Sideline men's
 basketball listing (5,348 players, retrieved November 2, 2026) through
 normal Safari browsing and saved 108 hashed page snapshots.
-`scripts/prepare_basketball_social_sample.py` then froze 100 players, 25 at
-random from each NIL quartile of the full listing (seed 510), *before* any
-follower counts were looked up. Eighty follower counts were read directly
-from public Instagram profiles (`scripts/collect_instagram_browser.mjs`,
-`scripts/import_instagram_browser_receipts.py`) and the other 20 were
-supplied by Sam from manual checks
-(`scripts/import_manual_basketball_followers.py`); the
-`Instagram_Count_Provenance` column records which is which. See
-[`docs/basketball_instagram_100.md`](docs/basketball_instagram_100.md).
+`scripts/prepare_basketball_top1000_social.py` kept the 1,000 highest
+listings (the same population as football), split them into four quarters
+of 250, and froze 25 players at random from each quarter (seed 510)
+*before* any follower counts were looked up. Each player was then searched
+on Google as name + school + instagram, and the first Instagram result was
+opened and checked against name and school
+(`scripts/collect_basketball_google_instagram.mjs`). Ninety-nine exact
+follower counts were read from public profiles on November 3, 2026; one
+(Alex K'Medehouto, 675) was reported by Sam because his tagged accounts were
+unavailable. The `Instagram_Count_Provenance` column records which is
+which, and refitting without that player gives the same result. Receipts,
+identity reviews and the sampling audit are in
+[`replication/basketball_top1000/`](replication/basketball_top1000/); see
+[`docs/basketball_top1000_social.md`](docs/basketball_top1000_social.md).
+An earlier draw from all 5,348 listings
+([`docs/basketball_instagram_100.md`](docs/basketball_instagram_100.md))
+is kept for provenance only and is not used in any result.
 
 ### 3.3 Missingness and data-quality rules
 
@@ -291,9 +289,14 @@ The collection and analysis workflow follows several rules:
                                                local     box scores and
                                                          rosters by season
 
-  `Data/curated/basketball_instagram_100.csv`  Cleaned   Basketball analysis
-                                                         file (100 players,
-                                                         NIL, followers,
+  `Data/curated/basketball_top1000_nil_frame.csv`  Cleaned  Top 1,000
+                                                         basketball NIL
+                                                         listings (frame)
+
+  `Data/curated/basketball_top1000_instagram_100.csv`  Cleaned  Basketball
+                                                         analysis file (100
+                                                         players, NIL,
+                                                         followers,
                                                          provenance)
 
   `figures/figure_data/`                       Derived   Aggregate tables
@@ -488,28 +491,32 @@ missing).
   ------------------------------------------------------------------------
   Result                                  Basketball        Football
   -------------------------------------- ----------------- -----------------
-  Higher NIL per doubling of followers    +35% (18--54%)    +17% (7--27%)
+  Higher NIL per doubling of followers    +4% (−3--11%)     +17% (7--27%)
 
-  p-value (follower slope)                0.00002           0.0007
+  p-value (follower slope)                0.25              0.0007
 
-  Partial f² for followers                0.18              0.25
+  Partial f² for followers                0.02              0.25
 
-  Share of explained R²: followers        64%               69%
+  Share of explained R²: followers        44%               69%
 
-  Share: last-season performance          12%               20%
+  Share: last-season performance          51%               20%
 
-  Share: years in college                 24%               11%
+  Share: years in college                 5%                11%
 
-  Model R²                                0.23              0.30
+  Model R²                                0.06              0.30
 
-  Without the 25 highest-valued players   +1% (p = 0.86)    +4% (p = 0.05)
+  Without the 25 highest-valued players   +1% (p = 0.25)    +4% (p = 0.05)
   ------------------------------------------------------------------------
 
-The sport difference in follower slopes is not significant (pooled
-interaction, p = 0.079). Post hoc Kruskal--Wallis tests on four equal
-follower groups agree (basketball p = 0.006, football p < 0.001), and
-Holm-corrected Mann--Whitney pairs show the gap is mainly between the
-most-followed group and the rest. Results:
+The sport difference in follower slopes gives p = 0.044 (pooled
+interaction), below 0.05 but above the Bonferroni threshold of 0.0167, so
+H3 is not formally rejected. Post hoc Kruskal--Wallis tests on four equal
+follower groups agree with the regressions: football valuations differ
+across follower groups (p < 0.001, with Holm-corrected Mann--Whitney pairs
+showing the gap is mainly between the most-followed group and the rest),
+while basketball valuations do not (p = 0.54, no pair significant). In
+basketball the model explains only 6% of the variation, so the dominance
+shares there split a very small amount and have wide intervals. Results:
 [`unified_model_results.json`](figures/figure_data/unified_model_results.json)
 and [`unified_model_diagnostics.json`](figures/figure_data/unified_model_diagnostics.json).
 
@@ -521,28 +528,27 @@ R² = 0.355. Recruiting stars: valuations differ across 3-, 4- and 5-star
 players (Kruskal--Wallis p = 0.001), but the Holm-corrected pairs show the
 difference is 5-star versus 4-star only (p = 0.002).
 
-**Basketball** (HC3, R² = 0.54):
+**Basketball** (HC3, R² = 0.11):
 
   -----------------------------------------------------------------------
   Term                              Effect on NIL      95% CI          p
   -------------------------------- --------------- --------------- -------
-  Twice the followers                    +9%        −8% to +29%      0.32
+  Twice the followers                    +4%        −3% to +11%      0.24
 
-  +5 points per game                     +8%        −22% to +49%     0.66
+  +5 points per game                     +5%        −8% to +19%      0.48
 
-  Freshman                              −37%        −60% to −1%      0.045
+  Freshman                               −5%        −22% to +16%     0.63
 
-  Big conference                       +509%       +295% to +840%   <0.001
+  Big conference                        +24%        +7% to +44%      0.005
 
-  Forward or center (vs guard)           −2%        −29% to +35%     0.89
+  Forward or center (vs guard)          +19%        −5% to +50%      0.13
   -----------------------------------------------------------------------
 
-The 19 big-conference players have a median NIL value of \$413K against
-\$55K for the rest, and more followers (median 5,754 against 2,198).
-Conference alone explains 50% of the variation in basketball NIL value, so
-much of the follower association in the main model reflects conference.
-Football cannot be checked this way because 99 of its 100 players are in
-Power 4 conferences.
+The 84 big-conference players have a median NIL value of \$465K against
+\$360K for the rest, and somewhat more followers (median 4,793 against
+3,118). Conference is the only clear factor; adding it leaves the follower
+effect unchanged and still not significant. Football cannot be checked
+this way because 99 of its 100 players are in Power 4 conferences.
 
 ### 6.3 Supplementary: football replication and robustness
 
@@ -598,15 +604,16 @@ also supplementary.
 
   Basketball followers    **Completed**           100-player basketball
   and NIL valuation                               sample, 25 per NIL
-                                                  quartile (section 6.1).
+                                                  quartile of the top
+                                                  1,000 (section 6.1).
 
   Football vs. basketball **Completed**           Same model in both
   social-slope comparison (exploratory)           sports; slope
-                                                  difference p = 0.079.
+                                                  difference p = 0.044.
                                                   Sport main effect not
-                                                  testable because the
-                                                  football sample covers
-                                                  only the top 1,000.
+                                                  tested because the two
+                                                  draws used different
+                                                  value tiers.
 
   Pre-/post-NIL change in **Not run**             Historical follower
   scholarship association                         counts and comparable,
@@ -628,10 +635,10 @@ difference in slopes.
 The results should be interpreted with the following limitations in
 mind:
 
-1.  **Outcome-based selection:** The football sample is drawn from a
-    top-1,000 NIL valuation frame. Athletes below the frame cutoff are
-    excluded, so the result does not generalize automatically to all
-    college athletes or prospects.
+1.  **Outcome-based selection:** Both samples are drawn from top-1,000 NIL
+    valuation frames. Athletes below the frame cutoff are excluded, so the
+    results describe the top of each market and do not generalize
+    automatically to all college athletes or prospects.
 2.  **Valuation measurement:** NIL values are estimates, and the
     original valuation formula is not verified. If the formula already
     incorporates audience size, part of the association may be built
@@ -647,11 +654,11 @@ mind:
     exposure, media visibility, and NIL valuation may all influence
     follower counts and valuation.
 6.  **Limited coverage:** The football sample has little non-Power-4
-    variation and covers only valuations of \$350,000 and up, while the
-    basketball sample covers the whole market, so the two cannot be
-    pooled to test sport itself. Twenty basketball follower counts were
-    reported manually without a measurement date. Historical source
-    layers do not contain the follower counts needed for a pre/post test.
+    variation. Both samples cover only valuations of about \$330,000 and
+    up, and the two draws used slightly different value tiers, so sport
+    itself is not tested. One basketball follower count was reported
+    manually without a measurement date. Historical source layers do not
+    contain the follower counts needed for a pre/post test.
 7.  **Observational design:** No NIL exposure, follower count, or
     college decision was randomized. The analysis does not establish a
     causal policy effect or whether NIL changed scholarship decisions.

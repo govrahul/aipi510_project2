@@ -1,23 +1,16 @@
 # AIPI 510 Project 2 deliverables
 
-> **November 3 sampling correction:** The basketball and combined findings in
-> these existing artifacts use the legacy sample drawn from all 5,348 listings.
-> They have not been rerun on the corrected top-1,000 population. Treat them as
-> earlier draft results pending a validated performance join and rerun using
-> `Data/curated/basketball_top1000_instagram_100.csv` (100 counts / 100 selected;
-> 99 browser observations and one user report).
-> See [correction notes](../docs/basketball_top1000_social.md).
-
-Updated November 2, 2026 from the course rubric and the completed two-sport analysis.
+Updated November 3, 2026 from the course rubric and the completed two-sport analysis. Both sports are sampled from their top 1,000 NIL valuations.
 
 - **project2_report.docx** — editable ten-page report with every rubric section in order: the main model (same formula in each sport), the sport-specific basketball and football models, assumption checks, post hoc tests, power analysis and limitations.
 - **project2_report.pdf** — matching reading copy.
 - **project2_presentation.pptx** — nine presented slides (about 7 minutes 5 seconds) followed by backup slides; every chart is a plain-language bar chart.
 - **presentation_script.md** — speaker notes as editable text.
 - **model_explainer_slide.pptx** — one-slide visual explanation of the football-specific model.
-- **combined_model_slide.pptx** — one-slide visual explanation of the main model in both sports.
-- **basketball_only_model_slide.pptx** — one-slide visual explanation of the basketball-specific model.
-- **nil_growth_by_follower_group.png** — NIL value by follower group as a multiple of each sport's lowest group (avoids comparing dollar levels across the two samples).
+- **project2_presentation_aipi510_top1000.pptx** — final presented deck; slides 7–12 use the top-1,000 basketball sample.
+- **combined_model_slide.pptx** — one-slide visual explanation of the main model in both sports (earlier full-market basketball sample; superseded by slide 9 of the final deck).
+- **basketball_only_model_slide.pptx** — one-slide visual explanation of the basketball-specific model (earlier full-market basketball sample; superseded).
+- **nil_growth_by_follower_group.png** — NIL value by follower group as a multiple of each sport's lowest group (earlier full-market basketball sample; superseded).
 - **submission_checklist.md** — rubric mapping, remaining research gaps and author/submission actions.
 
 The report and slides cover the football and basketball follower analyses and the cross-sport comparison. The before/after NIL comparison could not be run (no pre-2021 follower data) and is described as a limitation rather than filled with invented results. The original partner PDF and raw/model inputs are preserved.
